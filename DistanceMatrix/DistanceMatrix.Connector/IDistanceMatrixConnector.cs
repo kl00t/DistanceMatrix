@@ -1,9 +1,18 @@
 ﻿namespace DistanceMatrix.Connector
 {
-    using Domain.Models;
+    using Entities;
 
+    /// <summary>
+    /// Distance Matrix Connector.
+    /// </summary>
     public interface IDistanceMatrixConnector
     {
-        DistanceMatrixResponse Calculate(string origin, string destination);
+        /// <summary>
+        /// Distances the matrix.
+        /// </summary>
+        /// <param name="origin">The origin.</param>
+        /// <param name="destination">The destination.</param>
+        /// <returns>Returns distance matrix.</returns>
+        DistanceMatrix DistanceMatrix(string origin, string destination);
     }
 }

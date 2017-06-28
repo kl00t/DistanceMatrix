@@ -2,6 +2,7 @@
 {
     using System;
     using System.ServiceModel;
+    using Core.Framework;
     using Domain.Models;
 
     [ServiceContract]
@@ -12,9 +13,16 @@
         /// </summary>
         /// <returns>Current date and time.</returns>
         [OperationContract]
-        DateTime Heartbeat();
+        ServiceResponse<DateTime> Heartbeat();
 
+        /// <summary>
+        /// Distances the matrix.
+        /// </summary>
+        /// <param name="distanceMatrixRequest">The distance matrix request.</param>
+        /// <returns>
+        /// Returns a distance matrix response.
+        /// </returns>
         [OperationContract]
-        DistanceMatrixResponse Calculate(DistanceMatrixRequest distanceMatrixRequest);
+        ServiceResponse<DistanceMatrixResponse> DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest);
     }
 }

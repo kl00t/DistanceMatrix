@@ -9,26 +9,21 @@
         static void Main(string[] args)
         {
             var json = @"{
-               'Email': 'james@example.com',
+               'Bar': 'Foobar',
                'Active': true,
-               'CreatedDate': '2013-01-20T00:00:00Z',
-               'Roles': [
-                 'User',
-                 'Admin'
-               ]
+               'CreatedDate': '2013-01-20T00:00:00Z'
              }";
 
-            var account = JsonConvert.DeserializeObject<Account>(json);
-            Console.WriteLine(account.Email);
+            var foo = JsonConvert.DeserializeObject<Foo>(json);
+            Console.WriteLine(foo.Bar);
             Console.ReadLine();
         }
     }
 
-    public class Account
+    public class Foo
     {
-        public string Email { get; set; }
+        public string Bar { get; set; }
         public bool Active { get; set; }
         public DateTime CreatedDate { get; set; }
-        public IList<string> Roles { get; set; }
     }
 }

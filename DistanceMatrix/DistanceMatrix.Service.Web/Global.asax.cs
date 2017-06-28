@@ -1,5 +1,7 @@
 ﻿namespace DistanceMatrix.Service.Web
 {
+
+    using Kernel;
     using Ninject;
     using Ninject.Web.Common;
 
@@ -18,6 +20,14 @@
                 kernel.Dispose();
                 throw;
             }
+        }
+
+        /// <summary>
+        /// The on application started. Initialise AutoMapper and check the Automapper mappings.
+        /// </summary>
+        protected override void OnApplicationStarted()
+        {
+            MapperInitialiser.Setup();
         }
     }
 }

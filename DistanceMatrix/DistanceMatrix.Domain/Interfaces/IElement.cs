@@ -1,6 +1,6 @@
 ﻿namespace DistanceMatrix.Domain.Interfaces
 {
-
+    using Enums;
     using Models;
 
     public interface IElement
@@ -9,6 +9,6 @@
 
         Duration Duration { get; set; }
 
-        string Status { get; set; }
+        ElementStatus Status { get; set; }
     }
 }

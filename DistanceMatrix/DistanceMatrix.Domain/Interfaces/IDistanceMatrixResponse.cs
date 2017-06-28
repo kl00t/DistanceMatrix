@@ -1,17 +1,17 @@
 ﻿namespace DistanceMatrix.Domain.Interfaces
 {
-
-    using System.Dynamic;
+    using System.Collections.Generic;
+    using Enums;
     using Models;
 
     public interface IDistanceMatrixResponse
     {
-        string[] OriginAddresses { get; set; }
+        List<string> OriginAddresses { get; set; }
 
-        string[] DestinationAddresses { get; set; }
+        List<string> DestinationAddresses { get; set; }
 
-        Element[] Rows { get; set; }
+        List<Row> Rows { get; set; }
 
-        string Status { get; set; }
+        Status Status { get; set; }
     }
 }

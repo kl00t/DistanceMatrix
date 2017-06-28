@@ -4,13 +4,25 @@
     using System.Configuration;
     using System.Text;
     using System.Web;
-    using Domain.Models;
+    using Domain.Exceptions;
+    using Entities;
     using Newtonsoft.Json;
 
+    /// <summary>
+    /// Distance Matrix Connector.
+    /// </summary>
     public class DistanceMatrixConnector : IDistanceMatrixConnector
     {
+        /// <summary>
+        /// The query executor.
+        /// </summary>
         private readonly IQueryExecutor _queryExecutor;
-            
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DistanceMatrixConnector"/> class.
+        /// </summary>
+        /// <param name="queryExecutor">The query executor.</param>
+        /// <exception cref="System.ArgumentNullException">queryExecutor</exception>
         public DistanceMatrixConnector(IQueryExecutor queryExecutor)
         {
             if (queryExecutor == null)
@@ -21,28 +33,39 @@
             _queryExecutor = queryExecutor;
         }
 
+        /// <summary>
+        /// Gets the application setting.
+        /// </summary>
+        /// <param name="appSetting">The application setting.</param>
+        /// <returns></returns>
+        /// <exception cref="DistanceMatrixException"></exception>
         public static string GetAppSetting(string appSetting)
         {
             try
             {
-                return ConfigurationManager.AppSettings[appSetting].ToString();
+                return ConfigurationManager.AppSettings[appSetting];
             }
-            catch (ConfigurationErrorsException exception)
+            catch (ConfigurationErrorsException configurationErrorsException)
             {
-                throw;
+                throw new DistanceMatrixException(configurationErrorsException.Message, configurationErrorsException.InnerException);
             }
         }
 
-        public DistanceMatrixResponse Calculate(string origin, string destination)
+        /// <summary>
+        /// Distances the matrix.
+        /// </summary>
+        /// <param name="origin">The origin.</param>
+        /// <param name="destination">The destination.</param>
+        /// <returns>
+        /// Returns distance matrix.
+        /// </returns>
+        public DistanceMatrix DistanceMatrix(string origin, string destination)
         {
-            origin = "Vancouver, BC, Canada";
-            destination = "San Francisco, CA, USA";
-
             var address = new StringBuilder();
             var key = GetAppSetting("ApiKey");
             var baseUrl = GetAppSetting("BaseUrl");
 
-            address.AppendFormat("{0}distancematrix/json?origins={1}&destinations={2}&key={3}",
+            address.AppendFormat("{0}/distancematrix/json?origins={1}&destinations={2}&key={3}",
                 baseUrl,
                 HttpUtility.UrlEncode(origin),
                 HttpUtility.UrlEncode(destination), 
@@ -52,36 +75,7 @@
 
             var result = JsonConvert.DeserializeObject<DistanceMatrix>(response);
 
-            return new DistanceMatrixResponse
-            {
-                OriginAddresses = new []
-                {
-                    "Vancouver, BC, Canada",
-                    "Seattle, WA, USA"
-                },
-                DestinationAddresses = new []
-                {
-                    "San Francisco, CA, USA",
-                    "Victoria, BC, Canada"
-                },
-                Rows = new[]
-                {
-                    new Element
-                    {
-                        Distance = new Distance
-                        {
-                            Text = "1,529 km",
-                            Value = 1528699
-                        },
-                        Duration = new Duration
-                        {
-                            Text = "14 hours 56 mins",
-                            Value = 53778
-                        }
-                    }
-                },
-                Status = "OK"
-            };
+            return result;
         }
     }
 }

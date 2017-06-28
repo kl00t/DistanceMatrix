@@ -3,6 +3,7 @@
 
     using System;
     using Connector;
+    using Connector.Entities;
     using Domain.Models;
     using Moq;
     using Ninject;
@@ -63,9 +64,9 @@
         [Test]
         public void VerifyThatCalculateReturnsCorrectResponse()
         {
-            _mockDistanceMatrixConnector.Setup(x => x.Calculate(It.IsAny<string>(), It.IsAny<string>())).Returns(new DistanceMatrixResponse());
+            _mockDistanceMatrixConnector.Setup(x => x.DistanceMatrix(It.IsAny<string>(), It.IsAny<string>())).Returns(new DistanceMatrix());
 
-            var response = _distanceMatrixEngine.Calculate(new DistanceMatrixRequest());
+            var response = _distanceMatrixEngine.DistanceMatrix(new DistanceMatrixRequest());
 
             Assert.IsInstanceOf<DistanceMatrixResponse>(response);
         }
