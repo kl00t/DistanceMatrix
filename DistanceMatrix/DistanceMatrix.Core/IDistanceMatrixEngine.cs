@@ -1,5 +1,7 @@
 ﻿namespace DistanceMatrix.Core
 {
+
+    using System;
     using System.Collections.Generic;
     using Domain.Models;
 
@@ -21,5 +23,23 @@
         /// Returns the request history.
         /// </returns>
         List<RequestHistory> GetDistanceMatrixRequestHistory();
+
+        /// <summary>
+        /// Gets the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the request history.
+        /// </returns>
+        RequestHistory GetRequestHistory(Guid requestId);
+
+        /// <summary>
+        /// Replays the request.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the replayed request.
+        /// </returns>
+        DistanceMatrixResponse ReplayRequest(Guid requestId);
     }
 }

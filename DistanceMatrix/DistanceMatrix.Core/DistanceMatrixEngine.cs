@@ -73,5 +73,32 @@
         {
             return _requestHistoryRepository.GetAll();
         }
+
+        /// <summary>
+        /// Gets the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the request history.
+        /// </returns>
+        public RequestHistory GetRequestHistory(Guid requestId)
+        {
+            return _requestHistoryRepository.GetById(requestId);
+        }
+
+        /// <summary>
+        /// Replays the request.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the replayed request.
+        /// </returns>
+        public DistanceMatrixResponse ReplayRequest(Guid requestId)
+        {
+            var requestHistory = _requestHistoryRepository.GetById(requestId);
+            var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(requestHistory.Origin, requestHistory.Destination);
+            var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
+            return response;
+        }
     }
 }

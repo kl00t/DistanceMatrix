@@ -29,6 +29,18 @@
         /// The get distance matrix request history
         /// </summary>
         [EnumMember]
-        GetDistanceMatrixRequestHistory
+        GetDistanceMatrixRequestHistory,
+
+        /// <summary>
+        /// The get request history
+        /// </summary>
+        [EnumMember]
+        GetRequestHistory,
+
+        /// <summary>
+        /// The replay request
+        /// </summary>
+        [EnumMember]
+        ReplayRequest
     }
 }

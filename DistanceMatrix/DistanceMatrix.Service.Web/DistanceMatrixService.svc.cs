@@ -58,5 +58,26 @@
                 () => _distanceMatrixEngine.GetDistanceMatrixRequestHistory(),
                 EventType.GetDistanceMatrixRequestHistory);
         }
+
+        /// <summary>
+        /// Gets the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns request history.
+        /// </returns>
+        public ServiceResponse<RequestHistory> GetRequestHistory(Guid requestId)
+        {
+            return CallEngine(
+                () => _distanceMatrixEngine.GetRequestHistory(requestId),
+                EventType.GetRequestHistory);
+        }
+
+        public ServiceResponse<DistanceMatrixResponse> ReplayRequest(Guid requestId)
+        {
+            return CallEngine(
+                () => _distanceMatrixEngine.ReplayRequest(requestId),
+                EventType.ReplayRequest);
+        }
     }
 }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ServiceModel;
+    using System.ServiceModel.Configuration;
     using Core.Framework;
     using Domain.Models;
 
@@ -34,5 +35,21 @@
         /// </returns>
         [OperationContract]
         ServiceResponse<List<RequestHistory>> GetDistanceMatrixRequestHistory();
+
+        /// <summary>
+        /// Gets the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>Returns request history.</returns>
+        [OperationContract]
+        ServiceResponse<RequestHistory> GetRequestHistory(Guid requestId);
+
+        /// <summary>
+        /// Replays the request.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>Returns the response from the requested history request id.</returns>
+        [OperationContract]
+        ServiceResponse<DistanceMatrixResponse> ReplayRequest(Guid requestId);
     }
 }

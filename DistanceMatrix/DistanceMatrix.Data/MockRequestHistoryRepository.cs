@@ -16,24 +16,24 @@
         /// </summary>
         readonly List<RequestHistory> _requestHistory = new List<RequestHistory>
         {
-            //new RequestHistory
-            //{
-            //    Id = Guid.Parse("{CC17BDFA-309A-497A-AF8F-7864BC92664E}"),
-            //    Origin = "Peckham",
-            //    Destination = "Paris"
-            //},
-            //new RequestHistory
-            //{
-            //    Id = Guid.Parse("{1E1AD9FE-7BC6-4239-9FF7-0CD0B4ABBCE0}"),
-            //    Origin = "Manchester",
-            //    Destination = "Marrakech"
-            //},
-            //new RequestHistory
-            //{
-            //    Id = Guid.Parse("{875DBFD4-26C1-459A-A098-D1A521D36000}"),
-            //    Origin = "London",
-            //    Destination = "Bombay"
-            //}
+            new RequestHistory
+            {
+                Id = Guid.Parse("CC17BDFA-309A-497A-AF8F-7864BC92664E"),
+                Origin = "Peckham",
+                Destination = "Paris"
+            },
+            new RequestHistory
+            {
+                Id = Guid.Parse("1E1AD9FE-7BC6-4239-9FF7-0CD0B4ABBCE0"),
+                Origin = "Manchester",
+                Destination = "Marrakech"
+            },
+            new RequestHistory
+            {
+                Id = Guid.Parse("875DBFD4-26C1-459A-A098-D1A521D36000"),
+                Origin = "London",
+                Destination = "Bombay"
+            }
         };
 
         /// <summary>
