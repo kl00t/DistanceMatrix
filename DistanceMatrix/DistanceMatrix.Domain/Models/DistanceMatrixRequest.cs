@@ -3,8 +3,9 @@
     using System;
     using System.Runtime.Serialization;
     using Interfaces;
+	using DistanceMatrix.Domain.Enums;
 
-    [DataContract]
+	[DataContract]
     [Serializable]
     public class DistanceMatrixRequest : IDistanceMatrixRequest
     {
@@ -13,5 +14,11 @@
 
         [DataMember]
         public string Destination { get; set; }
-    }
+
+		[DataMember]
+		public Mode Mode { get; set; }
+
+		[DataMember]
+		public Units Units { get; set; }
+	}
 }

@@ -5,13 +5,8 @@
 
 	public class QueryExecutor : IQueryExecutor
     {
-        public string Execute(string address, bool useSSL = false)
+        public string Execute(string address)
         {
-			if (useSSL)
-			{
-				
-			}
-
             try
             {
 				using (var webClient = new WebClient())

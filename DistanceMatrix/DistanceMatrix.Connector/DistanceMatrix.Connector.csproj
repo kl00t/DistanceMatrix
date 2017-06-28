@@ -47,9 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Entities\DistanceMatrixRequest.cs" />
     <Compile Include="Entities\Duration.cs" />
     <Compile Include="Entities\Distance.cs" />
-    <Compile Include="Entities\DistanceMatrix.cs" />
+    <Compile Include="Entities\DistanceMatrixResponse.cs" />
     <Compile Include="DistanceMatrixConnector.cs" />
     <Compile Include="Entities\Element.cs" />
     <Compile Include="Entities\Row.cs" />

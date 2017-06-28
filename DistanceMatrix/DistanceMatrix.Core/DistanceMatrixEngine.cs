@@ -51,7 +51,9 @@
         /// </returns>
         public DistanceMatrixResponse DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest)
         {
-            var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(distanceMatrixRequest.Origin, distanceMatrixRequest.Destination);
+			var request = Mapper.Map<Connector.Entities.DistanceMatrixRequest>(distanceMatrixRequest);
+
+            var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(request);
 
             var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
 
@@ -95,8 +97,11 @@
         /// </returns>
         public DistanceMatrixResponse ReplayRequest(Guid requestId)
         {
-            var requestHistory = _requestHistoryRepository.GetById(requestId);
-            var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(requestHistory.Origin, requestHistory.Destination);
+            RequestHistory requestHistory = _requestHistoryRepository.GetById(requestId);
+
+			var request = Mapper.Map<Connector.Entities.DistanceMatrixRequest>(requestHistory);
+
+			var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(request);
             var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
             return response;
         }

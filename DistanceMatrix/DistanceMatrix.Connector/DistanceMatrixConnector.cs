@@ -16,12 +16,12 @@
         /// </summary>
         private readonly IQueryExecutor _queryExecutor;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DistanceMatrixConnector"/> class.
-        /// </summary>
-        /// <param name="queryExecutor">The query executor.</param>
-        /// <exception cref="System.ArgumentNullException">queryExecutor</exception>
-        public DistanceMatrixConnector(IQueryExecutor queryExecutor)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DistanceMatrixConnector"/> class.
+		/// </summary>
+		/// <param name="queryExecutor">The query executor.</param>
+		/// <exception cref="System.ArgumentNullException">queryExecutor</exception>
+		public DistanceMatrixConnector(IQueryExecutor queryExecutor)
         {
             if (queryExecutor == null)
             {
@@ -31,42 +31,31 @@
             _queryExecutor = queryExecutor;
         }
 
-        /// <summary>
-        /// Distances the matrix.
-        /// </summary>
-        /// <param name="origin">The origin.</param>
-        /// <param name="destination">The destination.</param>
-        /// <returns>
-        /// Returns distance matrix.
-        /// </returns>
-        public DistanceMatrix DistanceMatrix(string origin, string destination)
+        public DistanceMatrixResponse DistanceMatrix(DistanceMatrixRequest request)
         {
             var address = new StringBuilder();
             var baseUrl = ConfigurationHelper.GetAppSetting("BaseUrl");
-            var useSsl = Convert.ToBoolean(ConfigurationHelper.GetAppSetting("UseSSL"));
 
-			if (useSsl)
-            {
-                var key = ConfigurationHelper.GetAppSetting("ApiKey");
-                address.AppendFormat("https://{0}{1}&key={2}",
-                    baseUrl,
-                    HttpUtility.UrlEncode(origin),
-                    HttpUtility.UrlEncode(destination),
-                    key);
-            }
-            else
-            {
-                address.AppendFormat("http://{0}/distancematrix/json?origins={1}&destinations={2}",
-                    baseUrl,
-                    HttpUtility.UrlEncode(origin),
-                    HttpUtility.UrlEncode(destination));
-            }
+			address.AppendFormat("{0}/distancematrix/json?origins={1}&destinations={2}",
+				baseUrl,
+				HttpUtility.UrlEncode(request.origins),
+				HttpUtility.UrlEncode(request.destinations));
 
-			var response = _queryExecutor.Execute(address.ToString(), useSsl);
+			if (!string.IsNullOrEmpty(request.mode))
+			{
+				address.AppendFormat("&mode={0}", request.mode);
+			}
 
-            var result = JsonConvert.DeserializeObject<DistanceMatrix>(response);
+			if (!string.IsNullOrEmpty(request.units))
+			{
+				address.AppendFormat("&units={0}", request.units);
+			}
+
+			var response = _queryExecutor.Execute(address.ToString());
+
+            var result = JsonConvert.DeserializeObject<DistanceMatrixResponse>(response);
 
             return result;
         }
-    }
+	}
 }

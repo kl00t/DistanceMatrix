@@ -19,20 +19,35 @@
             new RequestHistory
             {
                 Id = Guid.Parse("CC17BDFA-309A-497A-AF8F-7864BC92664E"),
-                Origin = "Peckham",
-                Destination = "Paris"
+				Request = new DistanceMatrixRequest
+				{
+					Origin = "Peckham",
+					Destination = "Paris",
+					Mode = Domain.Enums.Mode.Driving,
+					Units = Domain.Enums.Units.Metric
+				}
             },
             new RequestHistory
             {
                 Id = Guid.Parse("1E1AD9FE-7BC6-4239-9FF7-0CD0B4ABBCE0"),
-                Origin = "Manchester",
-                Destination = "Marrakech"
+				Request = new DistanceMatrixRequest
+				{
+					Origin = "Manchester",
+					Destination = "Marrakech",
+					Mode = Domain.Enums.Mode.Driving,
+					Units = Domain.Enums.Units.Metric
+				}
             },
             new RequestHistory
             {
                 Id = Guid.Parse("875DBFD4-26C1-459A-A098-D1A521D36000"),
-                Origin = "London",
-                Destination = "Bombay"
+				Request = new DistanceMatrixRequest
+				{
+					Origin = "London",
+					Destination = "Bombay",
+					Mode = Domain.Enums.Mode.Driving,
+					Units = Domain.Enums.Units.Metric
+				}
             }
         };
 
@@ -64,8 +79,7 @@
         public void Update(RequestHistory entity)
         {
             var requestHistory = GetById(entity.Id);
-            requestHistory.Origin = entity.Origin;
-            requestHistory.Destination = entity.Destination;
+			throw new NotImplementedException();
         }
 
         /// <summary>
@@ -98,9 +112,14 @@
             var requestHistory = new RequestHistory
             {
                 Id = Guid.NewGuid(),
-                Origin = distanceMatrixRequest.Origin,
-                Destination = distanceMatrixRequest.Destination
-            };
+				Request = new DistanceMatrixRequest
+				{
+					Origin = distanceMatrixRequest.Origin,
+					Destination = distanceMatrixRequest.Destination,
+					Mode = distanceMatrixRequest.Mode,
+					Units = distanceMatrixRequest.Units
+				}
+			};
 
             Insert(requestHistory);
         }

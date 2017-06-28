@@ -1,8 +1,11 @@
 ﻿namespace DistanceMatrix.Domain.Enums
 {
-    using System.Runtime.Serialization;
+	using System;
+	using System.Runtime.Serialization;
 
-    public enum ElementStatus
+	[DataContract]
+	[Serializable]
+	public enum ElementStatus
     {
         [EnumMember]
         Ok,

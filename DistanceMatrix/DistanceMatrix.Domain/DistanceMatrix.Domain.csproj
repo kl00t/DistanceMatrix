@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Enums\ElementStatus.cs" />
     <Compile Include="Enums\EventType.cs" />
+    <Compile Include="Enums\Mode.cs" />
     <Compile Include="Enums\ServiceError.cs" />
     <Compile Include="Enums\Status.cs" />
+    <Compile Include="Enums\Units.cs" />
     <Compile Include="Exceptions\DistanceMatrixException.cs" />
     <Compile Include="Interfaces\IElement.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />

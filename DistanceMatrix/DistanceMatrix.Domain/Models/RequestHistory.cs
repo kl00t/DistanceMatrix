@@ -1,18 +1,21 @@
 ﻿namespace DistanceMatrix.Domain.Models
 {
-    using System;
-    using Interfaces;
+	using System;
+	using System.Runtime.Serialization;
+	using Interfaces;
 
-    /// <summary>
-    /// Request History class.
-    /// </summary>
-    /// <seealso cref="DistanceMatrix.Domain.Interfaces.IRequestHistory" />
-    public class RequestHistory : IRequestHistory
+	/// <summary>
+	/// Request History class.
+	/// </summary>
+	/// <seealso cref="DistanceMatrix.Domain.Interfaces.IRequestHistory" />
+	[DataContract]
+	[Serializable]
+	public class RequestHistory : IRequestHistory
     {
-        public Guid Id { get; set; }
+		[DataMember]
+		public Guid Id { get; set; }
 
-        public string Origin { get; set; }
-
-        public string Destination { get; set; }
-    }
+		[DataMember]
+		public DistanceMatrixRequest Request { get; set; }
+	}
 }

@@ -12,8 +12,9 @@
     using Kernel;
     using Ninject;
     using Service.Contracts;
+	using DistanceMatrix.Domain.Enums;
 
-    public class Program
+	public class Program
     {
         /// <summary>
         /// Gets or sets the kernel.
@@ -43,10 +44,18 @@
             Console.WriteLine("Enter a destination:");
             var destination = Console.ReadLine();
 
-            var response = engine.DistanceMatrix(new DistanceMatrixRequest
+			Console.WriteLine("Enter a transport mode:");
+			Mode mode = (Mode)Enum.Parse(typeof(Mode), Console.ReadLine());
+
+			Console.WriteLine("Imperial or Metric:");
+			Units units = (Units)Enum.Parse(typeof(Units), Console.ReadLine());
+
+			var response = engine.DistanceMatrix(new DistanceMatrixRequest
             {
                 Origin = origin,
-                Destination = destination
+                Destination = destination,
+				Mode =  mode,
+				Units = units
             });
 
 			Console.WriteLine("########## Result ##########");

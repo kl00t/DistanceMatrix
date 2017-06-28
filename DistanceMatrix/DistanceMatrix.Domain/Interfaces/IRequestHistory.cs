@@ -1,13 +1,12 @@
 ﻿namespace DistanceMatrix.Domain.Interfaces
 {
-    using System;
+	using DistanceMatrix.Domain.Enums;
+	using System;
 
     public interface IRequestHistory
     {
         Guid Id { get; set; }
 
-        string Origin { get; set; }
-
-        string Destination { get; set; }
-    }
+		Models.DistanceMatrixRequest Request { get; set; }
+	}
 }

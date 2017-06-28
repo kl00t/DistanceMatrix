@@ -1,6 +1,6 @@
 ﻿namespace DistanceMatrix.Connector.Entities
 {
-    public class DistanceMatrix
+    public class DistanceMatrixResponse
     {
         public string[] destination_addresses { get; set; }
 
