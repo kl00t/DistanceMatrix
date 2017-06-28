@@ -45,7 +45,8 @@
         public void TextFixtureSetUp()
         {
             _kernel = Startup.Kernel;
-        }
+			MapperInitialiser.Setup();
+		}
 
         /// <summary>
         /// Called before each test is run.
@@ -89,12 +90,12 @@
         [Test]
         public void VerifyThatCalculateReturnsCorrectResponse()
         {
-			//_mockDistanceMatrixConnector.Setup(x => x.DistanceMatrix(It.IsAny<string>(), It.IsAny<string>())).Returns(new Connector.Entities.DistanceMatrixResponse());
+			_mockDistanceMatrixConnector.Setup(x => x.DistanceMatrix(It.IsAny<Connector.Entities.DistanceMatrixRequest>())).Returns(new Connector.Entities.DistanceMatrixResponse());
 
-   //         var response = _distanceMatrixEngine.DistanceMatrix(new DistanceMatrixRequest());
+			var response = _distanceMatrixEngine.DistanceMatrix(new Domain.Models.DistanceMatrixRequest());
 
-			//Assert.IsInstanceOf<Domain.Models.DistanceMatrixResponse>(response);
-        }
+			Assert.IsInstanceOf<Domain.Models.DistanceMatrixResponse>(response);
+		}
 
         /// <summary>
         /// Verifies the distance matrix returns correct results.

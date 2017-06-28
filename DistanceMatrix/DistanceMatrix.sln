@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Core", "DistanceMatrix.Core\DistanceMatrix.Core.csproj", "{754959C8-DF7F-4669-8920-D39A2696E576}"
 EndProject
@@ -20,6 +20,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Kernel", "DistanceMatrix.Kernel\DistanceMatrix.Kernel.csproj", "{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Data", "DistanceMatrix.Data\DistanceMatrix.Data.csproj", "{B1255B5D-1B06-4EE6-ACFF-BA702BE395F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Client.Web", "DistanceMatrix.Client.Web\DistanceMatrix.Client.Web.csproj", "{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D3AE907-755D-4FFC-88FC-CDC900FAC425} = {0D3AE907-755D-4FFC-88FC-CDC900FAC425}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Client.Web.Tests", "DistanceMatrix.Client.Web.Tests\DistanceMatrix.Client.Web.Tests.csproj", "{9426201E-C300-475B-A3DD-607F118860F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +70,14 @@ Global
 		{B1255B5D-1B06-4EE6-ACFF-BA702BE395F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1255B5D-1B06-4EE6-ACFF-BA702BE395F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1255B5D-1B06-4EE6-ACFF-BA702BE395F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9426201E-C300-475B-A3DD-607F118860F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9426201E-C300-475B-A3DD-607F118860F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9426201E-C300-475B-A3DD-607F118860F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9426201E-C300-475B-A3DD-607F118860F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
