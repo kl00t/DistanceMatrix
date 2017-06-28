@@ -1,5 +1,7 @@
 ﻿namespace DistanceMatrix.Core.UnitTests
 {
+
+    using Domain.Models;
     using Moq;
     using NUnit.Framework;
 
@@ -22,11 +24,13 @@
         }
 
         [Test]
-        public void Test()
+        public void VerifyThatEngineReturnsCorrectResponse()
         {
-            _mockDistanceMatrixConnector.Setup(x => x.Calculate()).Returns("A");
+            _mockDistanceMatrixConnector.Setup(x => x.Calculate(It.IsAny<DistanceMatrixRequest>())).Returns(new DistanceMatrixResponse());
 
-            Assert.AreEqual("A", _distanceMatrixEngine.Calculate());
+            var response = _distanceMatrixEngine.Calculate(new DistanceMatrixRequest());
+
+            Assert.IsInstanceOf<DistanceMatrixResponse>(response);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿namespace DistanceMatrix.Core
 {
+    using Domain.Models;
+
     public interface IDistanceMatrixConnector
     {
-        string Calculate();
+        DistanceMatrixResponse Calculate(DistanceMatrixRequest distanceMatrixRequest);
     }
 }

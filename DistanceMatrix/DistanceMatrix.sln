@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Core", "Dist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Core.UnitTests", "DistanceMatrix.Core.UnitTests\DistanceMatrix.Core.UnitTests.csproj", "{1718527C-DFD1-44D6-95B1-8485E145189D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Domain", "DistanceMatrix.Domain\DistanceMatrix.Domain.csproj", "{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1718527C-DFD1-44D6-95B1-8485E145189D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1718527C-DFD1-44D6-95B1-8485E145189D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1718527C-DFD1-44D6-95B1-8485E145189D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
