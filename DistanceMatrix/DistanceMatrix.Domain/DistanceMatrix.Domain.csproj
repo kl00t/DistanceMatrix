@@ -40,13 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Distance.cs" />
     <Compile Include="Models\DistanceMatrixRequest.cs" />
     <Compile Include="Models\DistanceMatrixResponse.cs" />
+    <Compile Include="Models\Duration.cs" />
+    <Compile Include="Interfaces\IDistanceMatrixRequest.cs" />
+    <Compile Include="Interfaces\IDistance.cs" />
+    <Compile Include="Interfaces\IDuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

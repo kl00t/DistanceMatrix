@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DistanceMatrix.Core")]
+[assembly: AssemblyTitle("DistanceMatrix.ConsoleApplication")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Capita")]
-[assembly: AssemblyProduct("DistanceMatrix.Core")]
+[assembly: AssemblyProduct("DistanceMatrix.ConsoleApplication")]
 [assembly: AssemblyCopyright("Copyright © Capita 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("754959c8-df7f-4669-8920-d39a2696e576")]
+[assembly: Guid("320b4498-d800-45c7-9dcb-0ec8ea79f869")]
 
 // Version information for an assembly consists of the following four values:
 //

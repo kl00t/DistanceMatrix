@@ -1,7 +1,12 @@
 ﻿namespace DistanceMatrix.Domain.Models
 {
 
-    public class DistanceMatrixRequest
+    using Interfaces;
+
+    public class DistanceMatrixRequest : IDistanceMatrixRequest
     {
+        public string Origin { get; set; }
+
+        public string Destination { get; set; }
     }
 }

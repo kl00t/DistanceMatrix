@@ -1,6 +1,8 @@
 ﻿namespace DistanceMatrix.Core.UnitTests
 {
 
+    using System;
+    using Connector;
     using Domain.Models;
     using Moq;
     using NUnit.Framework;
@@ -8,8 +10,14 @@
     [TestFixture]
     public class DistanceMatrixEngineTests
     {
+        /// <summary>
+        /// The distance matrix engine.
+        /// </summary>
         private static DistanceMatrixEngine _distanceMatrixEngine;
 
+        /// <summary>
+        /// The mock distance matrix connector.
+        /// </summary>
         private Mock<IDistanceMatrixConnector> _mockDistanceMatrixConnector;
 
         /// <summary>
@@ -23,10 +31,24 @@
             _distanceMatrixEngine = new DistanceMatrixEngine(_mockDistanceMatrixConnector.Object);
         }
 
+        /// <summary>
+        /// Verifies the that argument null exception if thrown if connector is null.
+        /// </summary>
         [Test]
-        public void VerifyThatEngineReturnsCorrectResponse()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void VerifyThatArgumentNullExceptionIfThrownIfConnectorIsNull()
         {
-            _mockDistanceMatrixConnector.Setup(x => x.Calculate(It.IsAny<DistanceMatrixRequest>())).Returns(new DistanceMatrixResponse());
+            // ReSharper disable once ObjectCreationAsStatement
+            new DistanceMatrixEngine(null);
+        }
+
+        /// <summary>
+        /// Verifies the that calculate returns correct response.
+        /// </summary>
+        [Test]
+        public void VerifyThatCalculateReturnsCorrectResponse()
+        {
+            _mockDistanceMatrixConnector.Setup(x => x.Calculate(It.IsAny<string>(), It.IsAny<string>())).Returns(new DistanceMatrixResponse());
 
             var response = _distanceMatrixEngine.Calculate(new DistanceMatrixRequest());
 
