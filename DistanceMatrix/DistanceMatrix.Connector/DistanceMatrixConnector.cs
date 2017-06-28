@@ -1,10 +1,8 @@
 ﻿namespace DistanceMatrix.Connector
 {
     using System;
-    using System.Configuration;
     using System.Text;
     using System.Web;
-    using Domain.Exceptions;
     using Entities;
     using Newtonsoft.Json;
 
@@ -34,24 +32,6 @@
         }
 
         /// <summary>
-        /// Gets the application setting.
-        /// </summary>
-        /// <param name="appSetting">The application setting.</param>
-        /// <returns></returns>
-        /// <exception cref="DistanceMatrixException"></exception>
-        public static string GetAppSetting(string appSetting)
-        {
-            try
-            {
-                return ConfigurationManager.AppSettings[appSetting];
-            }
-            catch (ConfigurationErrorsException configurationErrorsException)
-            {
-                throw new DistanceMatrixException(configurationErrorsException.Message, configurationErrorsException.InnerException);
-            }
-        }
-
-        /// <summary>
         /// Distances the matrix.
         /// </summary>
         /// <param name="origin">The origin.</param>
@@ -62,14 +42,25 @@
         public DistanceMatrix DistanceMatrix(string origin, string destination)
         {
             var address = new StringBuilder();
-            var key = GetAppSetting("ApiKey");
-            var baseUrl = GetAppSetting("BaseUrl");
+            var baseUrl = ConfigurationHelper.GetAppSetting("BaseUrl");
+            var useSsl = Convert.ToBoolean(ConfigurationHelper.GetAppSetting("UseSSL"));
 
-            address.AppendFormat("{0}/distancematrix/json?origins={1}&destinations={2}&key={3}",
-                baseUrl,
-                HttpUtility.UrlEncode(origin),
-                HttpUtility.UrlEncode(destination), 
-                key);
+            if (useSsl)
+            {
+                var key = ConfigurationHelper.GetAppSetting("ApiKey");
+                address.AppendFormat("https://{0}/distancematrix/json?origins={1}&destinations={2}&key={3}",
+                    baseUrl,
+                    HttpUtility.UrlEncode(origin),
+                    HttpUtility.UrlEncode(destination),
+                    key);
+            }
+            else
+            {
+                address.AppendFormat("http://{0}/distancematrix/json?origins={1}&destinations={2}",
+                    baseUrl,
+                    HttpUtility.UrlEncode(origin),
+                    HttpUtility.UrlEncode(destination));
+            }
 
             var response = _queryExecutor.Execute(address.ToString());
 

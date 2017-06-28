@@ -17,6 +17,11 @@
         private ServiceError _error = ServiceError.None;
 
         /// <summary>
+        /// The error message.
+        /// </summary>
+        private string _errorMessage = string.Empty;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ServiceResponse{T}"/> class.
         /// </summary>
         public ServiceResponse()
@@ -53,6 +58,12 @@
         {
             Error = error;
         }
+
+        public ServiceResponse(ServiceError error, string errorMessage)
+        {
+            Error = error;
+            ErrorMessage = errorMessage;
+        } 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceResponse{T}"/> class.
@@ -100,6 +111,27 @@
             set
             {
                 _error = value;
+                IsSuccessful = _error == ServiceError.None;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
+        /// <value>
+        /// The error message.
+        /// </value>
+        [DataMember]
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+
+            set
+            {
+                _errorMessage = value;
                 IsSuccessful = _error == ServiceError.None;
             }
         }

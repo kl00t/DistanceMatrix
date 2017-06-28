@@ -130,7 +130,7 @@
             catch (DistanceMatrixException distanceMatrixException)
             {
                 Logger.LogMessage(exceptionEventType, exceptionEventDescription, distanceMatrixException.ToString(), LogLevel.Error);
-                return new ServiceResponse<T>(ServiceError.DistanceMatrixError);
+                return new ServiceResponse<T>(ServiceError.DistanceMatrixError, distanceMatrixException.Message);
             }
             catch (ArgumentException argumentException)
             {

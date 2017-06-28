@@ -13,8 +13,8 @@
             Bind<ILogger>().To<Logger>();
             Bind<IDistanceMatrixEngine>().To<DistanceMatrixEngine>();
             Bind<IDistanceMatrixConnector>().To<DistanceMatrixConnector>();
-            //Bind<IQueryExecutor>().To<QueryExecutor>();
-            Bind<IQueryExecutor>().To<MockQueryExecutor>();
+            Bind<IQueryExecutor>().To<QueryExecutor>();
+            //Bind<IQueryExecutor>().To<MockQueryExecutor>();
             //Bind<IRequestHistoryRepository>().To<RequestHistoryRepository>();
             Bind<IRequestHistoryRepository>().ToConstant(new MockRequestHistoryRepository());
         }
