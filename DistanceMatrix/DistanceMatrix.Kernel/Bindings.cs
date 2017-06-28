@@ -1,4 +1,4 @@
-﻿namespace DistanceMatrix.ConsoleApplication
+﻿namespace DistanceMatrix.Kernel
 {
     using Connector;
     using Core;
@@ -10,7 +10,8 @@
         {
             Bind<IDistanceMatrixEngine>().To<DistanceMatrixEngine>();
             Bind<IDistanceMatrixConnector>().To<DistanceMatrixConnector>();
-            Bind<IQueryExecutor>().To<QueryExecutor>();
+            //Bind<IQueryExecutor>().To<QueryExecutor>();
+            Bind<IQueryExecutor>().To<MockQueryExecutor>();
         }
     }
 }

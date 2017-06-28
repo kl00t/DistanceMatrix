@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}</ProjectGuid>
+    <ProjectGuid>{B2675EB0-6BB1-4F77-A0BB-43892972DB00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DistanceMatrix.Domain</RootNamespace>
-    <AssemblyName>DistanceMatrix.Domain</AssemblyName>
+    <RootNamespace>DistanceMatrix.Service.Contracts</RootNamespace>
+    <AssemblyName>DistanceMatrix.Service.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,20 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\DistanceMatrixException.cs" />
-    <Compile Include="Interfaces\IElement.cs" />
-    <Compile Include="Models\Distance.cs" />
-    <Compile Include="Models\DistanceMatrixRequest.cs" />
-    <Compile Include="Models\DistanceMatrixResponse.cs" />
-    <Compile Include="Models\Duration.cs" />
-    <Compile Include="Interfaces\IDistanceMatrixRequest.cs" />
-    <Compile Include="Interfaces\IDistance.cs" />
-    <Compile Include="Interfaces\IDuration.cs" />
-    <Compile Include="Interfaces\IDistanceMatrixResponse.cs" />
-    <Compile Include="Models\Element.cs" />
+    <Compile Include="IDistanceMatrixService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
+      <Project>{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}</Project>
+      <Name>DistanceMatrix.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

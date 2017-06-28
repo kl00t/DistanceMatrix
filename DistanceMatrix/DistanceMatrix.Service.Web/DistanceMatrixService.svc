@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="DistanceMatrix.Service.Web.DistanceMatrixService" Factory="DistanceMatrix.Service.Web.CustomServiceHostFactory" %>

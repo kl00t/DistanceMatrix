@@ -1,6 +1,5 @@
 ﻿namespace DistanceMatrix.Connector
 {
-
     using Domain.Models;
 
     public interface IDistanceMatrixConnector

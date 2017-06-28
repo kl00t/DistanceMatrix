@@ -1,32 +1,34 @@
-﻿using System;
-
-namespace DistanceMatrix.ConsoleApplication
+﻿namespace DistanceMatrix.ConsoleApplication
 {
+    using System;
+    using System.Collections.Generic;
+    using Newtonsoft.Json;
 
-    using System.Reflection;
-    using Connector;
-    using Core;
-    using Domain.Models;
-    using Ninject;
-
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            var kernel = new StandardKernel();
-            kernel.Load(Assembly.GetExecutingAssembly());
+            var json = @"{
+               'Email': 'james@example.com',
+               'Active': true,
+               'CreatedDate': '2013-01-20T00:00:00Z',
+               'Roles': [
+                 'User',
+                 'Admin'
+               ]
+             }";
 
-            var distanceMatrixConnector = kernel.Get<IDistanceMatrixConnector>();
-
-            var distanceMatrixEngine = new DistanceMatrixEngine(distanceMatrixConnector);
-
-            var response = distanceMatrixEngine.Calculate(new DistanceMatrixRequest
-            {
-                Origin = "Washington, D.C., DC, USA",
-                Destination = "New York City, New York, USA"
-            });
-
+            var account = JsonConvert.DeserializeObject<Account>(json);
+            Console.WriteLine(account.Email);
             Console.ReadLine();
         }
+    }
+
+    public class Account
+    {
+        public string Email { get; set; }
+        public bool Active { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public IList<string> Roles { get; set; }
     }
 }

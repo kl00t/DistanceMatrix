@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Connector", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.ConsoleApplication", "DistanceMatrix.ConsoleApplication\DistanceMatrix.ConsoleApplication.csproj", "{320B4498-D800-45C7-9DCB-0EC8EA79F869}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Service.Web", "DistanceMatrix.Service.Web\DistanceMatrix.Service.Web.csproj", "{0D3AE907-755D-4FFC-88FC-CDC900FAC425}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Service.Contracts", "DistanceMatrix.Service.Contracts\DistanceMatrix.Service.Contracts.csproj", "{B2675EB0-6BB1-4F77-A0BB-43892972DB00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Kernel", "DistanceMatrix.Kernel\DistanceMatrix.Kernel.csproj", "{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{320B4498-D800-45C7-9DCB-0EC8EA79F869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{320B4498-D800-45C7-9DCB-0EC8EA79F869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{320B4498-D800-45C7-9DCB-0EC8EA79F869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D3AE907-755D-4FFC-88FC-CDC900FAC425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3AE907-755D-4FFC-88FC-CDC900FAC425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3AE907-755D-4FFC-88FC-CDC900FAC425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3AE907-755D-4FFC-88FC-CDC900FAC425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2675EB0-6BB1-4F77-A0BB-43892972DB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2675EB0-6BB1-4F77-A0BB-43892972DB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2675EB0-6BB1-4F77-A0BB-43892972DB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2675EB0-6BB1-4F77-A0BB-43892972DB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

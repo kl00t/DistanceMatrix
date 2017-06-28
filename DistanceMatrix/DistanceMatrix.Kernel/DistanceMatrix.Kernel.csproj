@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}</ProjectGuid>
+    <ProjectGuid>{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DistanceMatrix.Domain</RootNamespace>
-    <AssemblyName>DistanceMatrix.Domain</AssemblyName>
+    <RootNamespace>DistanceMatrix.Kernel</RootNamespace>
+    <AssemblyName>DistanceMatrix.Kernel</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,20 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\DistanceMatrixException.cs" />
-    <Compile Include="Interfaces\IElement.cs" />
-    <Compile Include="Models\Distance.cs" />
-    <Compile Include="Models\DistanceMatrixRequest.cs" />
-    <Compile Include="Models\DistanceMatrixResponse.cs" />
-    <Compile Include="Models\Duration.cs" />
-    <Compile Include="Interfaces\IDistanceMatrixRequest.cs" />
-    <Compile Include="Interfaces\IDistance.cs" />
-    <Compile Include="Interfaces\IDuration.cs" />
-    <Compile Include="Interfaces\IDistanceMatrixResponse.cs" />
-    <Compile Include="Models\Element.cs" />
+    <Compile Include="Bindings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DistanceMatrix.Connector\DistanceMatrix.Connector.csproj">
+      <Project>{66a152bd-ac8a-47d6-b346-de3a334e1573}</Project>
+      <Name>DistanceMatrix.Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Core\DistanceMatrix.Core.csproj">
+      <Project>{754959C8-DF7F-4669-8920-D39A2696E576}</Project>
+      <Name>DistanceMatrix.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
+      <Project>{1dd2fbea-52c7-4ed8-8d89-033c0e247861}</Project>
+      <Name>DistanceMatrix.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

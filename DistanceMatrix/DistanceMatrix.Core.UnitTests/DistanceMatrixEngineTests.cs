@@ -5,11 +5,17 @@
     using Connector;
     using Domain.Models;
     using Moq;
+    using Ninject;
     using NUnit.Framework;
 
     [TestFixture]
     public class DistanceMatrixEngineTests
     {
+        /// <summary>
+        /// The kernel.
+        /// </summary>
+        private IKernel _kernel;
+
         /// <summary>
         /// The distance matrix engine.
         /// </summary>
@@ -19,6 +25,15 @@
         /// The mock distance matrix connector.
         /// </summary>
         private Mock<IDistanceMatrixConnector> _mockDistanceMatrixConnector;
+
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
+        [TestFixtureSetUp]
+        public void TextFixtureSetUp()
+        {
+            _kernel = Startup.Kernel;
+        }
 
         /// <summary>
         /// Called before each test is run.

@@ -36,6 +36,10 @@
     <StartupObject>DistanceMatrix.ConsoleApplication.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -50,27 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bindings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DistanceMatrix.Connector\DistanceMatrix.Connector.csproj">
-      <Project>{66A152BD-AC8A-47D6-B346-DE3A334E1573}</Project>
-      <Name>DistanceMatrix.Connector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DistanceMatrix.Core\DistanceMatrix.Core.csproj">
-      <Project>{754959C8-DF7F-4669-8920-D39A2696E576}</Project>
-      <Name>DistanceMatrix.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
-      <Project>{1dd2fbea-52c7-4ed8-8d89-033c0e247861}</Project>
-      <Name>DistanceMatrix.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

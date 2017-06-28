@@ -1,9 +1,11 @@
-﻿using System;
-
-namespace DistanceMatrix.Connector
+﻿namespace DistanceMatrix.Connector
 {
-
+    using System;
+    using System.Configuration;
+    using System.Text;
+    using System.Web;
     using Domain.Models;
+    using Newtonsoft.Json;
 
     public class DistanceMatrixConnector : IDistanceMatrixConnector
     {
@@ -19,20 +21,67 @@ namespace DistanceMatrix.Connector
             _queryExecutor = queryExecutor;
         }
 
+        public static string GetAppSetting(string appSetting)
+        {
+            try
+            {
+                return ConfigurationManager.AppSettings[appSetting].ToString();
+            }
+            catch (ConfigurationErrorsException exception)
+            {
+                throw;
+            }
+        }
+
         public DistanceMatrixResponse Calculate(string origin, string destination)
         {
-            var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins={0}&destinations={1}&key={2}";
+            origin = "Vancouver, BC, Canada";
+            destination = "San Francisco, CA, USA";
 
-            var key = "AIzaSyDA_nYjDQYKHNDMIE3HpRXtxDOU-Cpuqnc";
+            var address = new StringBuilder();
+            var key = GetAppSetting("ApiKey");
+            var baseUrl = GetAppSetting("BaseUrl");
 
-            var address = string.Format(url,
-                origin,
-                destination,
+            address.AppendFormat("{0}distancematrix/json?origins={1}&destinations={2}&key={3}",
+                baseUrl,
+                HttpUtility.UrlEncode(origin),
+                HttpUtility.UrlEncode(destination), 
                 key);
 
-            var response = _queryExecutor.Execute(address);
+            var response = _queryExecutor.Execute(address.ToString());
 
-            return new DistanceMatrixResponse();
+            var result = JsonConvert.DeserializeObject<DistanceMatrix>(response);
+
+            return new DistanceMatrixResponse
+            {
+                OriginAddresses = new []
+                {
+                    "Vancouver, BC, Canada",
+                    "Seattle, WA, USA"
+                },
+                DestinationAddresses = new []
+                {
+                    "San Francisco, CA, USA",
+                    "Victoria, BC, Canada"
+                },
+                Rows = new[]
+                {
+                    new Element
+                    {
+                        Distance = new Distance
+                        {
+                            Text = "1,529 km",
+                            Value = 1528699
+                        },
+                        Duration = new Duration
+                        {
+                            Text = "14 hours 56 mins",
+                            Value = 53778
+                        }
+                    }
+                },
+                Status = "OK"
+            };
         }
     }
 }
