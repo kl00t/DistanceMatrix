@@ -1,4 +1,4 @@
-﻿namespace DistanceMatrix.Core.UnitTests
+﻿namespace DistanceMatrix.Kernel
 {
     using System;
     using Ninject;
@@ -23,6 +23,9 @@
         {
             Kernel = new StandardKernel();
             Kernel.Load("*.kernel.dll");
+
+            MapperInitialiser.Setup();
+
             Console.WriteLine("Completed Startup...");
         }
     }

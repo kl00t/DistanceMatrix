@@ -1,6 +1,7 @@
 ﻿namespace DistanceMatrix.Service.Contracts
 {
     using System;
+    using System.Collections.Generic;
     using System.ServiceModel;
     using Core.Framework;
     using Domain.Models;
@@ -24,5 +25,14 @@
         /// </returns>
         [OperationContract]
         ServiceResponse<DistanceMatrixResponse> DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest);
+
+        /// <summary>
+        /// Gets the distance matrix request history.
+        /// </summary>
+        /// <returns>
+        /// Returns all the request history.
+        /// </returns>
+        [OperationContract]
+        ServiceResponse<List<RequestHistory>> GetDistanceMatrixRequestHistory();
     }
 }

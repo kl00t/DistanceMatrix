@@ -72,6 +72,10 @@
       <Project>{66a152bd-ac8a-47d6-b346-de3a334e1573}</Project>
       <Name>DistanceMatrix.Connector</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Data\DistanceMatrix.Data.csproj">
+      <Project>{B1255B5D-1B06-4EE6-ACFF-BA702BE395F7}</Project>
+      <Name>DistanceMatrix.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
       <Project>{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}</Project>
       <Name>DistanceMatrix.Domain</Name>

@@ -1,4 +1,4 @@
-﻿namespace DistanceMatrix.Kernel
+﻿namespace DistanceMatrix.ConsoleApplication
 {
     using Connector;
     using Core;

@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="DistanceMatrixEngineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DistanceMatrix.Connector\DistanceMatrix.Connector.csproj">
@@ -69,9 +68,17 @@
       <Project>{754959c8-df7f-4669-8920-d39a2696e576}</Project>
       <Name>DistanceMatrix.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Data\DistanceMatrix.Data.csproj">
+      <Project>{B1255B5D-1B06-4EE6-ACFF-BA702BE395F7}</Project>
+      <Name>DistanceMatrix.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
       <Project>{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}</Project>
       <Name>DistanceMatrix.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Kernel\DistanceMatrix.Kernel.csproj">
+      <Project>{5BB7FCBC-B535-45BE-91A1-BEF80FA7C5B5}</Project>
+      <Name>DistanceMatrix.Kernel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

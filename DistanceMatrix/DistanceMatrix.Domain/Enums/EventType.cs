@@ -23,6 +23,12 @@
         /// The performance timing
         /// </summary>
         [EnumMember]
-        PerformanceTiming
+        PerformanceTiming,
+
+        /// <summary>
+        /// The get distance matrix request history
+        /// </summary>
+        [EnumMember]
+        GetDistanceMatrixRequestHistory
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace DistanceMatrix.Service.Web
 {
     using System;
+    using System.Collections.Generic;
     using Contracts;
     using Core;
     using Core.Framework;
@@ -43,6 +44,19 @@
             return CallEngine(
                 () => _distanceMatrixEngine.DistanceMatrix(distanceMatrixRequest),
                 EventType.DistanceMatrix);
+        }
+
+        /// <summary>
+        /// Gets the distance matrix request history.
+        /// </summary>
+        /// <returns>
+        /// Returns all the request history.
+        /// </returns>
+        public ServiceResponse<List<RequestHistory>> GetDistanceMatrixRequestHistory()
+        {
+            return CallEngine(
+                () => _distanceMatrixEngine.GetDistanceMatrixRequestHistory(),
+                EventType.GetDistanceMatrixRequestHistory);
         }
     }
 }
