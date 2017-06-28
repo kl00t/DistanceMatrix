@@ -1,10 +1,10 @@
 ﻿namespace DistanceMatrix.Connector
 {
-    public class MockQueryExecutor : IQueryExecutor
+	public class MockQueryExecutor : IQueryExecutor
     {
-        public string Execute(string address)
-        {
-            return Example.Test1;
-        }
-    }
+		public string Execute(string address, bool useSSL = false)
+		{
+			return Example.Test1;
+		}
+	}
 }

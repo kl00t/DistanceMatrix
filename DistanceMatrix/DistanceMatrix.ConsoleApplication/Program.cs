@@ -37,10 +37,10 @@
 
             MapperInitialiser.Setup();
                 
-            Console.WriteLine("Enter an origin.");
+            Console.WriteLine("Enter an origin:");
             var origin = Console.ReadLine();
 
-            Console.WriteLine("Enter a destination.");
+            Console.WriteLine("Enter a destination:");
             var destination = Console.ReadLine();
 
             var response = engine.DistanceMatrix(new DistanceMatrixRequest
@@ -48,6 +48,32 @@
                 Origin = origin,
                 Destination = destination
             });
+
+			Console.WriteLine("########## Result ##########");
+
+			if (response.Status == Domain.Enums.Status.Ok)
+			{
+				Console.WriteLine("Origin:");
+				foreach (var originAddress in response.OriginAddresses)
+				{
+					Console.WriteLine(originAddress);
+				}
+				Console.WriteLine("Destination:");
+				foreach (var destinationAddress in response.DestinationAddresses)
+				{
+					Console.WriteLine(destinationAddress);
+				}
+				foreach (var row in response.Rows)
+				{
+					foreach(var element in row.Elements)
+					{
+						if (element.Status == Domain.Enums.ElementStatus.Ok)
+						{
+							Console.WriteLine(string.Format("Distance: {0} - Duration: {1}", element.Distance.Text, element.Duration.Text));
+						}
+					}
+				}
+			}
 
             Console.WriteLine("Press any key to exit.");
             Console.Read();

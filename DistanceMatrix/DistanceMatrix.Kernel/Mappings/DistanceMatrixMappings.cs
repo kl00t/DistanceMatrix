@@ -16,7 +16,7 @@
                 .ForMember(dest => dest.DestinationAddresses, opt => opt.MapFrom(src => src.destination_addresses));
 
             Mapper.CreateMap<Connector.Entities.Row, Domain.Models.Row>()
-                .ForMember(dest => dest.Rows, opt => opt.MapFrom(src => src.rows));
+                .ForMember(dest => dest.Elements, opt => opt.MapFrom(src => src.elements));
 
             Mapper.CreateMap<Connector.Entities.Element, Domain.Models.Element>()
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.status))

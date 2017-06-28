@@ -45,10 +45,10 @@
             var baseUrl = ConfigurationHelper.GetAppSetting("BaseUrl");
             var useSsl = Convert.ToBoolean(ConfigurationHelper.GetAppSetting("UseSSL"));
 
-            if (useSsl)
+			if (useSsl)
             {
                 var key = ConfigurationHelper.GetAppSetting("ApiKey");
-                address.AppendFormat("https://{0}/distancematrix/json?origins={1}&destinations={2}&key={3}",
+                address.AppendFormat("https://{0}{1}&key={2}",
                     baseUrl,
                     HttpUtility.UrlEncode(origin),
                     HttpUtility.UrlEncode(destination),
@@ -62,7 +62,7 @@
                     HttpUtility.UrlEncode(destination));
             }
 
-            var response = _queryExecutor.Execute(address.ToString());
+			var response = _queryExecutor.Execute(address.ToString(), useSsl);
 
             var result = JsonConvert.DeserializeObject<DistanceMatrix>(response);
 

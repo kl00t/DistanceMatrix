@@ -1,18 +1,23 @@
 ﻿namespace DistanceMatrix.Connector
 {
-    using System.Net;
-    using Domain.Exceptions;
+	using System.Net;
+	using Domain.Exceptions;
 
-    public class QueryExecutor : IQueryExecutor
+	public class QueryExecutor : IQueryExecutor
     {
-        public string Execute(string address)
+        public string Execute(string address, bool useSSL = false)
         {
+			if (useSSL)
+			{
+				
+			}
+
             try
             {
-                using (var webClient = new WebClient())
-                {
-                    return webClient.DownloadString(address);
-                }
+				using (var webClient = new WebClient())
+				{
+					return webClient.DownloadString(address);
+				}
             }
             catch (WebException webException)
             {

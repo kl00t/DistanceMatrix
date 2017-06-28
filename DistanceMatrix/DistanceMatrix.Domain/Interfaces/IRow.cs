@@ -5,6 +5,6 @@
 
     public interface IRow
     {
-        List<Element> Rows { get; set; }
+        List<Element> Elements { get; set; }
     }
 }

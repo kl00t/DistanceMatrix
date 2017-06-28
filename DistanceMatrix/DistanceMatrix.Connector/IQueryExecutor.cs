@@ -2,6 +2,6 @@
 {
     public interface IQueryExecutor
     {
-        string Execute(string address);
+        string Execute(string address, bool useSSL = false);
     }
 }

@@ -10,6 +10,6 @@
     public class Row : IRow
     {
         [DataMember]
-        public List<Element> Rows { get; set; }
+        public List<Element> Elements { get; set; }
     }
 }

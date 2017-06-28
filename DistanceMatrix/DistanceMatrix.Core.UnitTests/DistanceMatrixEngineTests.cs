@@ -119,7 +119,7 @@
                     {
                         new Row
                         {
-                            rows = new[]
+                            elements = new[]
                             {
                                 new Element
                                 {
