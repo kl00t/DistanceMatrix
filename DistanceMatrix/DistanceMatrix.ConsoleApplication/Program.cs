@@ -47,6 +47,8 @@
 			//Console.WriteLine("Imperial or Metric:");
 			//var units = (Units)Enum.Parse(typeof(Units), Console.ReadLine());
 
+            logger.LogMessage(EventType.NotSpecified, string.Format("Distance Matrix Console Application Started at: {0}.", DateTime.UtcNow), LogLevel.Info);
+
             var response = engine.DistanceMatrix(new DistanceMatrixRequest
             {
                 Origin = "manchester",
