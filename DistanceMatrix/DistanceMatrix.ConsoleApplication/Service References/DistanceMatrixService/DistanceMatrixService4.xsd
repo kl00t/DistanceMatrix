@@ -34,6 +34,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfDistanceMatrixResponse2vkm1OUS" nillable="true" type="tns:ServiceResponseOfDistanceMatrixResponse2vkm1OUS" />
+  <xs:complexType name="ServiceResponseOfDirectionsResponse2vkm1OUS">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DirectionsResponse" Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Error" type="q4:ServiceError" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q5:DirectionsResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfDirectionsResponse2vkm1OUS" nillable="true" type="tns:ServiceResponseOfDirectionsResponse2vkm1OUS" />
   <xs:complexType name="ServiceResponseOfArrayOfRequestHistory2vkm1OUS">
     <xs:annotation>
       <xs:appinfo>
@@ -43,10 +59,10 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Error" type="q4:ServiceError" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Error" type="q6:ServiceError" />
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q5:ArrayOfRequestHistory" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q7:ArrayOfRequestHistory" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfArrayOfRequestHistory2vkm1OUS" nillable="true" type="tns:ServiceResponseOfArrayOfRequestHistory2vkm1OUS" />
@@ -59,10 +75,10 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Error" type="q6:ServiceError" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Error" type="q8:ServiceError" />
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q7:RequestHistory" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q9:RequestHistory" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfRequestHistory2vkm1OUS" nillable="true" type="tns:ServiceResponseOfRequestHistory2vkm1OUS" />

@@ -1,11 +1,10 @@
 ﻿namespace DistanceMatrix.Core
 {
+	using System;
+	using System.Collections.Generic;
+	using Domain.Models;
 
-    using System;
-    using System.Collections.Generic;
-    using Domain.Models;
-
-    public interface IDistanceMatrixEngine
+	public interface IDistanceMatrixEngine
     {
         /// <summary>
         /// Distances the matrix.
@@ -41,5 +40,7 @@
         /// Returns the replayed request.
         /// </returns>
         DistanceMatrixResponse ReplayRequest(Guid requestId);
-    }
+
+		DirectionsResponse Directions(DirectionsRequest directionsRequest);
+	}
 }

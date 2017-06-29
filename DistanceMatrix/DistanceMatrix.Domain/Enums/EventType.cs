@@ -41,6 +41,9 @@
         /// The replay request
         /// </summary>
         [EnumMember]
-        ReplayRequest
-    }
+        ReplayRequest,
+
+		[EnumMember]
+		Directions
+	}
 }

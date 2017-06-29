@@ -27,6 +27,12 @@ namespace DistanceMatrix.ConsoleApplication.DistanceMatrixService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/DistanceMatrix", ReplyAction="http://tempuri.org/IDistanceMatrixService/DistanceMatrixResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DistanceMatrixResponse>> DistanceMatrixAsync(DistanceMatrix.Domain.Models.DistanceMatrixRequest distanceMatrixRequest);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Directions", ReplyAction="http://tempuri.org/IDistanceMatrixService/DirectionsResponse")]
+        DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DirectionsResponse> Directions(DistanceMatrix.Domain.Models.DirectionsRequest directionsRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Directions", ReplyAction="http://tempuri.org/IDistanceMatrixService/DirectionsResponse")]
+        System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DirectionsResponse>> DirectionsAsync(DistanceMatrix.Domain.Models.DirectionsRequest directionsRequest);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistoryResponse" +
             "")]
         DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory();
@@ -89,6 +95,14 @@ namespace DistanceMatrix.ConsoleApplication.DistanceMatrixService {
         
         public System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DistanceMatrixResponse>> DistanceMatrixAsync(DistanceMatrix.Domain.Models.DistanceMatrixRequest distanceMatrixRequest) {
             return base.Channel.DistanceMatrixAsync(distanceMatrixRequest);
+        }
+        
+        public DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DirectionsResponse> Directions(DistanceMatrix.Domain.Models.DirectionsRequest directionsRequest) {
+            return base.Channel.Directions(directionsRequest);
+        }
+        
+        public System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DirectionsResponse>> DirectionsAsync(DistanceMatrix.Domain.Models.DirectionsRequest directionsRequest) {
+            return base.Channel.DirectionsAsync(directionsRequest);
         }
         
         public DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory() {

@@ -26,6 +26,9 @@
         [OperationContract]
         ServiceResponse<DistanceMatrixResponse> DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest);
 
+		[OperationContract]
+		ServiceResponse<DirectionsResponse> Directions(DirectionsRequest directionsRequest);
+
         /// <summary>
         /// Gets the distance matrix request history.
         /// </summary>

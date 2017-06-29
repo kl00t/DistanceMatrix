@@ -35,6 +35,8 @@
         /// </summary>
         private Mock<IDistanceMatrixConnector> _mockDistanceMatrixConnector;
 
+		private Mock<IDirectionsConnector> _mockDirectionsConnector;
+
         /// <summary>
         /// The mock request history repository.
         /// </summary>
@@ -58,10 +60,12 @@
         {
             _mockDistanceMatrixConnector = new Mock<IDistanceMatrixConnector>();
             _mockRequestHistoryRepository = new Mock<IRequestHistoryRepository>();
+			_mockDirectionsConnector = new Mock<IDirectionsConnector>();
 
             _distanceMatrixEngine = new DistanceMatrixEngine(
                 _mockDistanceMatrixConnector.Object, 
-                _mockRequestHistoryRepository.Object);
+                _mockRequestHistoryRepository.Object,
+				_mockDirectionsConnector.Object);
         }
 
         /// <summary>
@@ -72,7 +76,10 @@
         public void VerifyThatArgumentNullExceptionIfThrownIfConnectorIsNull()
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new DistanceMatrixEngine(null, new Mock<IRequestHistoryRepository>().Object);
+            new DistanceMatrixEngine(
+				null, 
+				new Mock<IRequestHistoryRepository>().Object,
+				new Mock<IDirectionsConnector>().Object);
         }
 
         /// <summary>
@@ -83,7 +90,10 @@
         public void VerifyThatArgumentNullExceptionIfThrownRepositoryIsNull()
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new DistanceMatrixEngine(new Mock<IDistanceMatrixConnector>().Object, null);
+            new DistanceMatrixEngine(
+				new Mock<IDistanceMatrixConnector>().Object, 
+				null,
+				new Mock<IDirectionsConnector>().Object);
         }
 
         /// <summary>

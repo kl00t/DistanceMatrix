@@ -13,15 +13,24 @@
   </xs:complexType>
   <xs:element name="DistanceMatrixRequest" nillable="true" type="tns:DistanceMatrixRequest" />
   <xs:complexType name="DistanceMatrixResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DestinationAddresses" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OriginAddresses" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Rows" nillable="true" type="tns:ArrayOfRow" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DistanceMatrixResponse" nillable="true" type="tns:DistanceMatrixResponse" />
+  <xs:complexType name="BaseResponse">
     <xs:sequence>
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DestinationAddresses" nillable="true" type="q3:ArrayOfstring" />
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OriginAddresses" nillable="true" type="q4:ArrayOfstring" />
-      <xs:element minOccurs="0" name="Rows" nillable="true" type="tns:ArrayOfRow" />
       <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Status" type="q5:Status" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="DistanceMatrixResponse" nillable="true" type="tns:DistanceMatrixResponse" />
+  <xs:element name="BaseResponse" nillable="true" type="tns:BaseResponse" />
   <xs:complexType name="ArrayOfRow">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Row" nillable="true" type="tns:Row" />
@@ -71,6 +80,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Fare" nillable="true" type="tns:Fare" />
+  <xs:complexType name="DirectionsRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DirectionsRequest" nillable="true" type="tns:DirectionsRequest" />
+  <xs:complexType name="DirectionsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DirectionsResponse" nillable="true" type="tns:DirectionsResponse" />
   <xs:complexType name="ArrayOfRequestHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />

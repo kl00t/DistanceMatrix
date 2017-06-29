@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="ConfigurationHelper.cs" />
     <Compile Include="Connectors\DirectionsConnector.cs" />
+    <Compile Include="Entities\BaseRequest.cs" />
+    <Compile Include="Entities\BaseResponse.cs" />
     <Compile Include="Entities\DistanceMatrixRequest.cs" />
     <Compile Include="Entities\Duration.cs" />
     <Compile Include="Entities\Distance.cs" />
@@ -55,6 +57,8 @@
     <Compile Include="Connectors\DistanceMatrixConnector.cs" />
     <Compile Include="Entities\Element.cs" />
     <Compile Include="Entities\Fare.cs" />
+    <Compile Include="Entities\GeocodedWaypoint.cs" />
+    <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\Row.cs" />
     <Compile Include="Example.Designer.cs">
       <AutoGen>True</AutoGen>

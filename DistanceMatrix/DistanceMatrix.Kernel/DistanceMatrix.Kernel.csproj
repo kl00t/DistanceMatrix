@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Bindings.cs" />
     <Compile Include="MapperInitialiser.cs" />
+    <Compile Include="Mappings\DirectionsMapping.cs" />
     <Compile Include="Mappings\DistanceMatrixMappings.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

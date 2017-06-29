@@ -4,7 +4,7 @@ namespace DistanceMatrix.Connector.Entities
     /// <summary>
     /// Top level response returned from api.
     /// </summary>
-    public class DistanceMatrixResponse
+    public class DistanceMatrixResponse : BaseResponse
     {
         /// <summary>
         /// Gets or sets the destination addresses.
@@ -29,14 +29,6 @@ namespace DistanceMatrix.Connector.Entities
         /// The rows.
         /// </value>
         public Row[] rows { get; set; }
-
-        /// <summary>
-        /// Gets or sets the status.
-        /// </summary>
-        /// <value>
-        /// The status.
-        /// </value>
-        public string status { get; set; }
 
         /// <summary>
         /// Gets or sets the error message.

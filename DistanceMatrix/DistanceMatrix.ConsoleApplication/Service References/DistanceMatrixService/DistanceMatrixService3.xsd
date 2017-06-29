@@ -31,15 +31,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Units" nillable="true" type="tns:Units" />
-  <xs:simpleType name="ElementStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Ok" />
-      <xs:enumeration value="NotFound" />
-      <xs:enumeration value="ZeroResults" />
-      <xs:enumeration value="MaxRouteLengthExceeded" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ElementStatus" nillable="true" type="tns:ElementStatus" />
   <xs:simpleType name="Status">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Ok" />
@@ -51,4 +42,13 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:simpleType name="ElementStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="NotFound" />
+      <xs:enumeration value="ZeroResults" />
+      <xs:enumeration value="MaxRouteLengthExceeded" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ElementStatus" nillable="true" type="tns:ElementStatus" />
 </xs:schema>

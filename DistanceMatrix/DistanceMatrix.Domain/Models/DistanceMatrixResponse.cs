@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
-    using Enums;
     using Interfaces;
 
     /// <summary>
@@ -11,7 +10,7 @@
     /// </summary>
     [DataContract]
     [Serializable]
-    public class DistanceMatrixResponse : IDistanceMatrixResponse
+    public class DistanceMatrixResponse : BaseResponse, IDistanceMatrixResponse
     {
         /// <summary>
         /// Gets or sets the origin addresses.
@@ -39,23 +38,5 @@
         /// </value>
         [DataMember]
         public List<Row> Rows { get; set; }
-
-        /// <summary>
-        /// Gets or sets the status.
-        /// </summary>
-        /// <value>
-        /// The status.
-        /// </value>
-        [DataMember]
-        public Status Status { get; set; }
-
-        /// <summary>
-        /// Gets or sets the error message.
-        /// </summary>
-        /// <value>
-        /// The error message.
-        /// </value>
-        [DataMember]
-        public string ErrorMessage { get; set; }
     }
 }

@@ -15,10 +15,10 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Enter an origin:");
-            var origin = Console.ReadLine();
+            var origins = Console.ReadLine();
 
             Console.WriteLine("Enter a destination:");
-            var destination = Console.ReadLine();
+            var destinations = Console.ReadLine();
 
             //Console.WriteLine("Enter a transport mode:");
             //var mode = (Mode)Enum.Parse(typeof(Mode), Console.ReadLine());
@@ -27,27 +27,35 @@
             //var units = (Units)Enum.Parse(typeof(Units), Console.ReadLine());
 
             var serviceClient = new DistanceMatrixService.DistanceMatrixServiceClient();
-            var response = serviceClient.DistanceMatrix(new DistanceMatrixRequest
+
+			var directionsResponse = serviceClient.Directions(new DirectionsRequest
+			{
+				Origin = origins,
+				Destination = destinations,
+				Mode = Mode.Driving
+			});
+
+			var distanceMatrixResponse = serviceClient.DistanceMatrix(new DistanceMatrixRequest
             {
-                Origins = origin,
-                Destinations = destination,
+                Origins = origins,
+                Destinations = destinations,
                 Mode = Mode.Driving,
                 Units = Units.Metric
             });
 
-            if (response.IsSuccessful)
+            if (distanceMatrixResponse.IsSuccessful)
             {
                 Console.WriteLine("########## Result ##########");
-                if (response.Response.Status == Status.Ok)
+                if (distanceMatrixResponse.Response.Status == Status.Ok)
                 {
                     Console.WriteLine();
-                    var originAddress = StringHelper.ConvertListToString(" | ", response.Response.OriginAddresses);
+                    var originAddress = StringHelper.ConvertListToString(" | ", distanceMatrixResponse.Response.OriginAddresses);
                     Console.WriteLine("Origin: " + originAddress);
-                    var destinationAddress = StringHelper.ConvertListToString(" | ", response.Response.DestinationAddresses);
+                    var destinationAddress = StringHelper.ConvertListToString(" | ", distanceMatrixResponse.Response.DestinationAddresses);
                     Console.WriteLine("Destination: " + destinationAddress);
 
                     Console.WriteLine();
-                    foreach (var element in response.Response.Rows.SelectMany(row => row.Elements.Where(element => element.Status == ElementStatus.Ok)))
+                    foreach (var element in distanceMatrixResponse.Response.Rows.SelectMany(row => row.Elements.Where(element => element.Status == ElementStatus.Ok)))
                     {
                         Console.WriteLine("Distance: {0} | Duration: {1}", element.Distance.Text, element.Duration.Text);
                     }

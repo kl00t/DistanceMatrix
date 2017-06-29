@@ -56,11 +56,19 @@
     <Compile Include="Exceptions\MaxElementsExceededException.cs" />
     <Compile Include="Exceptions\OverQueryLimitException.cs" />
     <Compile Include="Exceptions\RequestDeniedException.cs" />
+    <Compile Include="Interfaces\IDirectionsRequest.cs" />
+    <Compile Include="Interfaces\IDirectionsResponse.cs" />
     <Compile Include="Interfaces\IElement.cs" />
     <Compile Include="Interfaces\IFare.cs" />
+    <Compile Include="Interfaces\IGeocodedWaypoint.cs" />
     <Compile Include="Interfaces\ILanguage.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />
+    <Compile Include="Interfaces\IRoute.cs" />
     <Compile Include="Interfaces\IRow.cs" />
+    <Compile Include="Models\BaseRequest.cs" />
+    <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\DirectionsRequest.cs" />
+    <Compile Include="Models\DirectionsResponse.cs" />
     <Compile Include="Models\Distance.cs" />
     <Compile Include="Models\DistanceMatrixRequest.cs" />
     <Compile Include="Models\DistanceMatrixResponse.cs" />
@@ -71,8 +79,10 @@
     <Compile Include="Interfaces\IDistanceMatrixResponse.cs" />
     <Compile Include="Models\Element.cs" />
     <Compile Include="Models\Fare.cs" />
+    <Compile Include="Models\GeocodedWaypoint.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\RequestHistory.cs" />
+    <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Row.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

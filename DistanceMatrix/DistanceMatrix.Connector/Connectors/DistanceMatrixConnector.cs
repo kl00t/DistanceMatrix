@@ -37,7 +37,6 @@
         public DistanceMatrixResponse DistanceMatrix(DistanceMatrixRequest request)
         {
             var address = new StringBuilder();
-
             address.AppendFormat("{0}/distancematrix/json?origins={1}&destinations={2}",
                 ConfigurationHelper.GetAppSetting("BaseUrl"),
 				HttpUtility.UrlEncode(request.origins),
@@ -53,11 +52,7 @@
 				address.AppendFormat("&units={0}", request.units);
 			}
 
-            if (Convert.ToBoolean(ConfigurationHelper.GetAppSetting("UseSSL")))
-            {
-                address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("ApiKey"));
-                address.Replace("http", "https");
-            }
+			address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("DistanceMatrix_ApiKey"));
 
 			var response = _queryExecutor.ExecuteRequest(address.ToString());
 

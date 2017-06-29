@@ -57,7 +57,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.DirectionsResponse.datasource" />
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.DistanceMatrixResponse.datasource" />
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.RequestHistory.datasource" />
     <None Include="Service References\DistanceMatrixService\DistanceMatrixService.wsdl" />

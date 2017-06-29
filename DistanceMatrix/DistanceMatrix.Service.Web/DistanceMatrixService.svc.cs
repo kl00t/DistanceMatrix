@@ -46,6 +46,13 @@
                 EventType.DistanceMatrix);
         }
 
+		public ServiceResponse<DirectionsResponse> Directions(DirectionsRequest directionsRequest)
+		{
+			return CallEngine(
+				() => _distanceMatrixEngine.Directions(directionsRequest),
+				EventType.Directions);
+		}
+
         /// <summary>
         /// Gets the distance matrix request history.
         /// </summary>

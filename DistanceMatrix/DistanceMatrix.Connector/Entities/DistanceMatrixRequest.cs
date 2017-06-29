@@ -4,7 +4,7 @@ namespace DistanceMatrix.Connector.Entities
     /// <summary>
     /// Request for api.
     /// </summary>
-    public class DistanceMatrixRequest
+    public class DistanceMatrixRequest : BaseRequest
 	{
         /// <summary>
         /// Gets or sets the origins.
