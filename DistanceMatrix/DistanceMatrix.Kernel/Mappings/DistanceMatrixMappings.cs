@@ -1,6 +1,7 @@
 ﻿namespace DistanceMatrix.Kernel.Mappings
 {
     using AutoMapper;
+    using Resolvers;
 
     public class DistanceMatrixMappings : Profile
     {
@@ -22,7 +23,8 @@
 
 			Mapper.CreateMap<Connector.Entities.DistanceMatrixResponse, Domain.Models.DistanceMatrixResponse>()
                 .ForMember(dest => dest.Rows, opt => opt.MapFrom(src => src.rows))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.status))
+                .ForMember(dest => dest.Status, opt => opt.ResolveUsing<StatusResolver>().FromMember(src => src.status))
+                .ForMember(dest => dest.ErrorMessage, opt => opt.MapFrom(src => src.error_message))
                 .ForMember(dest => dest.OriginAddresses, opt => opt.MapFrom(src => src.origin_addresses))
                 .ForMember(dest => dest.DestinationAddresses, opt => opt.MapFrom(src => src.destination_addresses));
 
@@ -30,7 +32,7 @@
                 .ForMember(dest => dest.Elements, opt => opt.MapFrom(src => src.elements));
 
             Mapper.CreateMap<Connector.Entities.Element, Domain.Models.Element>()
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.status))
+                .ForMember(dest => dest.Status, opt => opt.ResolveUsing<ElementStatusResolver>().FromMember(src => src.status))
                 .ForMember(dest => dest.Duration, opt => opt.MapFrom(src => src.duration))
                 .ForMember(dest => dest.Distance, opt => opt.MapFrom(src => src.distance));
 

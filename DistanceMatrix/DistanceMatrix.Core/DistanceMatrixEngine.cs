@@ -58,14 +58,34 @@
 
             var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
 
-            if (response.Status == Status.RequestDenied)
-            {
-                throw new InvalidApiKeyException();
-            }
-
             if (response.Status == Status.Ok)
             {
                 _requestHistoryRepository.InsertRequestHistory(distanceMatrixRequest);
+            }
+
+            if (response.Status == Status.InvalidRequest)
+            {
+                throw new InvalidRequestException(response.ErrorMessage);
+            }
+
+            if (response.Status == Status.MaxElementsExceeded)
+            {
+                throw new MaxElementsExceededException(response.ErrorMessage);
+            }
+
+            if (response.Status == Status.OverQueryLimit)
+            {
+                throw new OverQueryLimitException(response.ErrorMessage);
+            }
+
+            if (response.Status == Status.RequestDenied)
+            {
+                throw new RequestDeniedException(response.ErrorMessage);
+            }
+
+            if (response.Status == Status.RequestDenied)
+            {
+                throw new DistanceMatrixException(response.ErrorMessage);
             }
 
             return response;

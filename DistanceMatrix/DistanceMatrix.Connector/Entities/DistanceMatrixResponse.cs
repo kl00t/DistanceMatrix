@@ -37,5 +37,13 @@ namespace DistanceMatrix.Connector.Entities
         /// The status.
         /// </value>
         public string status { get; set; }
+
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
+        /// <value>
+        /// The error message.
+        /// </value>
+        public string error_message { get; set; }
     }
 }

@@ -8,30 +8,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
-    using System.Runtime.Serialization;
+namespace DistanceMatrix.Client.Web.Connected_Services.DistanceMatrixServiceReference {
+
     using System;
-    
-    
+    using System.Runtime.Serialization;
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfdateTime", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="ServiceResponseOfdateTime", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
+    [Serializable()]
     public partial class ServiceResponseOfdateTime : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError ErrorField;
+        [OptionalField()]
+        private ServiceError ErrorField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string ErrorMessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private bool IsSuccessfulField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private System.DateTime ResponseField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -44,8 +44,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError Error {
+        [DataMember()]
+        public ServiceError Error {
             get {
                 return this.ErrorField;
             }
@@ -57,7 +57,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string ErrorMessage {
             get {
                 return this.ErrorMessageField;
@@ -70,7 +70,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public bool IsSuccessful {
             get {
                 return this.IsSuccessfulField;
@@ -83,7 +83,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public System.DateTime Response {
             get {
                 return this.ResponseField;
@@ -107,45 +107,45 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceError", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
+    [DataContract(Name="ServiceError", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
     public enum ServiceError : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         None = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Unknown = 1,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         InvalidArgument = 2,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         DistanceMatrixError = 3,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         ConfigurationError = 4,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DistanceMatrixRequest", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="DistanceMatrixRequest", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class DistanceMatrixRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string DestinationField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Mode ModeField;
+        [OptionalField()]
+        private Mode ModeField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string OriginField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Units UnitsField;
+        [OptionalField()]
+        private Units UnitsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -157,7 +157,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Destination {
             get {
                 return this.DestinationField;
@@ -170,8 +170,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Mode Mode {
+        [DataMember()]
+        public Mode Mode {
             get {
                 return this.ModeField;
             }
@@ -183,7 +183,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Origin {
             get {
                 return this.OriginField;
@@ -196,8 +196,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Units Units {
+        [DataMember()]
+        public Units Units {
             get {
                 return this.UnitsField;
             }
@@ -220,53 +220,53 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Mode", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
+    [DataContract(Name="Mode", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
     public enum Mode : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Driving = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Walking = 1,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Bicycling = 2,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Transit = 3,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Units", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
+    [DataContract(Name="Units", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
     public enum Units : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Imperial = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Metric = 1,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfDistanceMatrixResponse2vkm1OUS", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="ServiceResponseOfDistanceMatrixResponse2vkm1OUS", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
+    [Serializable()]
     public partial class ServiceResponseOfDistanceMatrixResponse2vkm1OUS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError ErrorField;
+        [OptionalField()]
+        private ServiceError ErrorField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string ErrorMessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private bool IsSuccessfulField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixResponse ResponseField;
+        [OptionalField()]
+        private DistanceMatrixResponse ResponseField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -278,8 +278,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError Error {
+        [DataMember()]
+        public ServiceError Error {
             get {
                 return this.ErrorField;
             }
@@ -291,7 +291,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string ErrorMessage {
             get {
                 return this.ErrorMessageField;
@@ -304,7 +304,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public bool IsSuccessful {
             get {
                 return this.IsSuccessfulField;
@@ -317,8 +317,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixResponse Response {
+        [DataMember()]
+        public DistanceMatrixResponse Response {
             get {
                 return this.ResponseField;
             }
@@ -342,24 +342,24 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DistanceMatrixResponse", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="DistanceMatrixResponse", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class DistanceMatrixResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string[] DestinationAddressesField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string[] OriginAddressesField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Row[] RowsField;
+        [OptionalField()]
+        private Row[] RowsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Status StatusField;
+        [OptionalField()]
+        private Status StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -371,7 +371,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string[] DestinationAddresses {
             get {
                 return this.DestinationAddressesField;
@@ -384,7 +384,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string[] OriginAddresses {
             get {
                 return this.OriginAddressesField;
@@ -397,8 +397,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Row[] Rows {
+        [DataMember()]
+        public Row[] Rows {
             get {
                 return this.RowsField;
             }
@@ -410,8 +410,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Status Status {
+        [DataMember()]
+        public Status Status {
             get {
                 return this.StatusField;
             }
@@ -435,15 +435,15 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Row", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="Row", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class Row : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Element[] ElementsField;
+        [OptionalField()]
+        private Element[] ElementsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -455,8 +455,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Element[] Elements {
+        [DataMember()]
+        public Element[] Elements {
             get {
                 return this.ElementsField;
             }
@@ -479,45 +479,45 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Status", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
+    [DataContract(Name="Status", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
     public enum Status : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Ok = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         InvalidRequest = 1,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         MaxElementsExceeded = 2,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         OverQueryLimit = 3,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         RequestDenied = 4,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         UnknownError = 5,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Element", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="Element", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class Element : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Distance DistanceField;
+        [OptionalField()]
+        private Distance DistanceField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Duration DurationField;
+        [OptionalField()]
+        private Duration DurationField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ElementStatus StatusField;
+        [OptionalField()]
+        private ElementStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -529,8 +529,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Distance Distance {
+        [DataMember()]
+        public Distance Distance {
             get {
                 return this.DistanceField;
             }
@@ -542,8 +542,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.Duration Duration {
+        [DataMember()]
+        public Duration Duration {
             get {
                 return this.DurationField;
             }
@@ -555,8 +555,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ElementStatus Status {
+        [DataMember()]
+        public ElementStatus Status {
             get {
                 return this.StatusField;
             }
@@ -580,17 +580,17 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Distance", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="Distance", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class Distance : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string TextField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -603,7 +603,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Text {
             get {
                 return this.TextField;
@@ -616,7 +616,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Value {
             get {
                 return this.ValueField;
@@ -641,17 +641,17 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Duration", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="Duration", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class Duration : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string TextField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -664,7 +664,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Text {
             get {
                 return this.TextField;
@@ -677,7 +677,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int Value {
             get {
                 return this.ValueField;
@@ -701,42 +701,42 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ElementStatus", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
+    [DataContract(Name="ElementStatus", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums")]
     public enum ElementStatus : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Ok = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         NotFound = 1,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         ZeroResults = 2,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         MaxRouteLengthExceeded = 3,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfArrayOfRequestHistory2vkm1OUS", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="ServiceResponseOfArrayOfRequestHistory2vkm1OUS", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
+    [Serializable()]
     public partial class ServiceResponseOfArrayOfRequestHistory2vkm1OUS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError ErrorField;
+        [OptionalField()]
+        private ServiceError ErrorField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string ErrorMessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private bool IsSuccessfulField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.RequestHistory[] ResponseField;
+        [OptionalField()]
+        private RequestHistory[] ResponseField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -748,8 +748,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError Error {
+        [DataMember()]
+        public ServiceError Error {
             get {
                 return this.ErrorField;
             }
@@ -761,7 +761,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string ErrorMessage {
             get {
                 return this.ErrorMessageField;
@@ -774,7 +774,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public bool IsSuccessful {
             get {
                 return this.IsSuccessfulField;
@@ -787,8 +787,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.RequestHistory[] Response {
+        [DataMember()]
+        public RequestHistory[] Response {
             get {
                 return this.ResponseField;
             }
@@ -812,18 +812,18 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RequestHistory", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="RequestHistory", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models")]
+    [Serializable()]
     public partial class RequestHistory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private System.Guid IdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixRequest RequestField;
+        [OptionalField()]
+        private DistanceMatrixRequest RequestField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -835,7 +835,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public System.Guid Id {
             get {
                 return this.IdField;
@@ -848,8 +848,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixRequest Request {
+        [DataMember()]
+        public DistanceMatrixRequest Request {
             get {
                 return this.RequestField;
             }
@@ -873,24 +873,24 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfRequestHistory2vkm1OUS", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="ServiceResponseOfRequestHistory2vkm1OUS", Namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Core.Framework")]
+    [Serializable()]
     public partial class ServiceResponseOfRequestHistory2vkm1OUS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError ErrorField;
+        [OptionalField()]
+        private ServiceError ErrorField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string ErrorMessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private bool IsSuccessfulField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DistanceMatrix.Client.Web.DistanceMatrixServiceReference.RequestHistory ResponseField;
+        [OptionalField()]
+        private RequestHistory ResponseField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -902,8 +902,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceError Error {
+        [DataMember()]
+        public ServiceError Error {
             get {
                 return this.ErrorField;
             }
@@ -915,7 +915,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string ErrorMessage {
             get {
                 return this.ErrorMessageField;
@@ -928,7 +928,7 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public bool IsSuccessful {
             get {
                 return this.IsSuccessfulField;
@@ -941,8 +941,8 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.RequestHistory Response {
+        [DataMember()]
+        public RequestHistory Response {
             get {
                 return this.ResponseField;
             }
@@ -969,45 +969,45 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
     public interface IDistanceMatrixService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Heartbeat", ReplyAction="http://tempuri.org/IDistanceMatrixService/HeartbeatResponse")]
-        DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfdateTime Heartbeat();
+        ServiceResponseOfdateTime Heartbeat();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Heartbeat", ReplyAction="http://tempuri.org/IDistanceMatrixService/HeartbeatResponse")]
-        System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfdateTime> HeartbeatAsync();
+        System.Threading.Tasks.Task<ServiceResponseOfdateTime> HeartbeatAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/DistanceMatrix", ReplyAction="http://tempuri.org/IDistanceMatrixService/DistanceMatrixResponse")]
-        DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS DistanceMatrix(DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixRequest distanceMatrixRequest);
+        ServiceResponseOfDistanceMatrixResponse2vkm1OUS DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/DistanceMatrix", ReplyAction="http://tempuri.org/IDistanceMatrixService/DistanceMatrixResponse")]
-        System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS> DistanceMatrixAsync(DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixRequest distanceMatrixRequest);
+        System.Threading.Tasks.Task<ServiceResponseOfDistanceMatrixResponse2vkm1OUS> DistanceMatrixAsync(DistanceMatrixRequest distanceMatrixRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistoryResponse" +
             "")]
-        DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfArrayOfRequestHistory2vkm1OUS GetDistanceMatrixRequestHistory();
+        ServiceResponseOfArrayOfRequestHistory2vkm1OUS GetDistanceMatrixRequestHistory();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistoryResponse" +
             "")]
-        System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfArrayOfRequestHistory2vkm1OUS> GetDistanceMatrixRequestHistoryAsync();
+        System.Threading.Tasks.Task<ServiceResponseOfArrayOfRequestHistory2vkm1OUS> GetDistanceMatrixRequestHistoryAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetRequestHistoryResponse")]
-        DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfRequestHistory2vkm1OUS GetRequestHistory(System.Guid requestId);
+        ServiceResponseOfRequestHistory2vkm1OUS GetRequestHistory(System.Guid requestId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetRequestHistoryResponse")]
-        System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfRequestHistory2vkm1OUS> GetRequestHistoryAsync(System.Guid requestId);
+        System.Threading.Tasks.Task<ServiceResponseOfRequestHistory2vkm1OUS> GetRequestHistoryAsync(System.Guid requestId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/ReplayRequest", ReplyAction="http://tempuri.org/IDistanceMatrixService/ReplayRequestResponse")]
-        DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS ReplayRequest(System.Guid requestId);
+        ServiceResponseOfDistanceMatrixResponse2vkm1OUS ReplayRequest(System.Guid requestId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/ReplayRequest", ReplyAction="http://tempuri.org/IDistanceMatrixService/ReplayRequestResponse")]
-        System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS> ReplayRequestAsync(System.Guid requestId);
+        System.Threading.Tasks.Task<ServiceResponseOfDistanceMatrixResponse2vkm1OUS> ReplayRequestAsync(System.Guid requestId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDistanceMatrixServiceChannel : DistanceMatrix.Client.Web.DistanceMatrixServiceReference.IDistanceMatrixService, System.ServiceModel.IClientChannel {
+    public interface IDistanceMatrixServiceChannel : IDistanceMatrixService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DistanceMatrixServiceClient : System.ServiceModel.ClientBase<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.IDistanceMatrixService>, DistanceMatrix.Client.Web.DistanceMatrixServiceReference.IDistanceMatrixService {
+    public partial class DistanceMatrixServiceClient : System.ServiceModel.ClientBase<IDistanceMatrixService>, IDistanceMatrixService {
         
         public DistanceMatrixServiceClient() {
         }
@@ -1028,43 +1028,43 @@ namespace DistanceMatrix.Client.Web.DistanceMatrixServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfdateTime Heartbeat() {
+        public ServiceResponseOfdateTime Heartbeat() {
             return base.Channel.Heartbeat();
         }
         
-        public System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfdateTime> HeartbeatAsync() {
+        public System.Threading.Tasks.Task<ServiceResponseOfdateTime> HeartbeatAsync() {
             return base.Channel.HeartbeatAsync();
         }
         
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS DistanceMatrix(DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixRequest distanceMatrixRequest) {
+        public ServiceResponseOfDistanceMatrixResponse2vkm1OUS DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest) {
             return base.Channel.DistanceMatrix(distanceMatrixRequest);
         }
         
-        public System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS> DistanceMatrixAsync(DistanceMatrix.Client.Web.DistanceMatrixServiceReference.DistanceMatrixRequest distanceMatrixRequest) {
+        public System.Threading.Tasks.Task<ServiceResponseOfDistanceMatrixResponse2vkm1OUS> DistanceMatrixAsync(DistanceMatrixRequest distanceMatrixRequest) {
             return base.Channel.DistanceMatrixAsync(distanceMatrixRequest);
         }
         
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfArrayOfRequestHistory2vkm1OUS GetDistanceMatrixRequestHistory() {
+        public ServiceResponseOfArrayOfRequestHistory2vkm1OUS GetDistanceMatrixRequestHistory() {
             return base.Channel.GetDistanceMatrixRequestHistory();
         }
         
-        public System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfArrayOfRequestHistory2vkm1OUS> GetDistanceMatrixRequestHistoryAsync() {
+        public System.Threading.Tasks.Task<ServiceResponseOfArrayOfRequestHistory2vkm1OUS> GetDistanceMatrixRequestHistoryAsync() {
             return base.Channel.GetDistanceMatrixRequestHistoryAsync();
         }
         
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfRequestHistory2vkm1OUS GetRequestHistory(System.Guid requestId) {
+        public ServiceResponseOfRequestHistory2vkm1OUS GetRequestHistory(System.Guid requestId) {
             return base.Channel.GetRequestHistory(requestId);
         }
         
-        public System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfRequestHistory2vkm1OUS> GetRequestHistoryAsync(System.Guid requestId) {
+        public System.Threading.Tasks.Task<ServiceResponseOfRequestHistory2vkm1OUS> GetRequestHistoryAsync(System.Guid requestId) {
             return base.Channel.GetRequestHistoryAsync(requestId);
         }
         
-        public DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS ReplayRequest(System.Guid requestId) {
+        public ServiceResponseOfDistanceMatrixResponse2vkm1OUS ReplayRequest(System.Guid requestId) {
             return base.Channel.ReplayRequest(requestId);
         }
         
-        public System.Threading.Tasks.Task<DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS> ReplayRequestAsync(System.Guid requestId) {
+        public System.Threading.Tasks.Task<ServiceResponseOfDistanceMatrixResponse2vkm1OUS> ReplayRequestAsync(System.Guid requestId) {
             return base.Channel.ReplayRequestAsync(requestId);
         }
     }

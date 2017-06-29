@@ -3,8 +3,19 @@
     using AutoMapper;
     using Domain.Enums;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
+    /// <summary>
+    /// Resolves a string to our internal domain enum.
+    /// </summary>
     public class StatusResolver : ValueResolver<string, Status>
     {
+        /// <summary>
+        /// Implementors override this method to resolve the destination value based on the provided source value
+        /// </summary>
+        /// <param name="source">Source value</param>
+        /// <returns>
+        /// Destination
+        /// </returns>
         protected override Status ResolveCore(string source)
         {
             if (string.IsNullOrEmpty(source))

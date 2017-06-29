@@ -48,7 +48,10 @@
     <Compile Include="Enums\Status.cs" />
     <Compile Include="Enums\Units.cs" />
     <Compile Include="Exceptions\DistanceMatrixException.cs" />
-    <Compile Include="Exceptions\InvalidApiKeyException.cs" />
+    <Compile Include="Exceptions\InvalidRequestException.cs" />
+    <Compile Include="Exceptions\MaxElementsExceededException.cs" />
+    <Compile Include="Exceptions\OverQueryLimitException.cs" />
+    <Compile Include="Exceptions\RequestDeniedException.cs" />
     <Compile Include="Interfaces\IElement.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />
     <Compile Include="Interfaces\IRow.cs" />

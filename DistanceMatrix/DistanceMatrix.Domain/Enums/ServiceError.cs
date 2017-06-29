@@ -45,6 +45,30 @@
         /// The invalid API key
         /// </summary>
         [EnumMember]
-        InvalidApiKey
+        InvalidApiKey,
+
+        /// <summary>
+        /// The request denied
+        /// </summary>
+        [EnumMember]
+        RequestDenied,
+
+        /// <summary>
+        /// The invalid request
+        /// </summary>
+        [EnumMember]
+        InvalidRequest,
+
+        /// <summary>
+        /// The maximum elements exceeded
+        /// </summary>
+        [EnumMember]
+        MaxElementsExceeded,
+
+        /// <summary>
+        /// The over query limit
+        /// </summary>
+        [EnumMember]
+        OverQueryLimit
     }
 }

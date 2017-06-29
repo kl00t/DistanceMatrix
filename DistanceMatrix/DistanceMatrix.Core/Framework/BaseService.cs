@@ -124,14 +124,28 @@
             }
             catch (ConfigurationErrorsException configurationErrorsException)
             {
-                Logger.LogMessage(exceptionEventType, exceptionEventDescription, configurationErrorsException.ToString(),
-                    LogLevel.Error);
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, configurationErrorsException.ToString(), LogLevel.Error);
                 return new ServiceResponse<T>(ServiceError.ConfigurationError);
             }
-            catch (InvalidApiKeyException invalidApiKeyException)
+            catch (RequestDeniedException requestDeniedException)
             {
-                Logger.LogMessage(exceptionEventType, exceptionEventDescription, invalidApiKeyException.ToString(), LogLevel.Error);
-                return new ServiceResponse<T>(ServiceError.InvalidApiKey, invalidApiKeyException.Message);
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, requestDeniedException.ToString(), LogLevel.Info);
+                return new ServiceResponse<T>(ServiceError.RequestDenied, requestDeniedException.Message);
+            }
+            catch (InvalidRequestException invalidRequestException)
+            {
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, invalidRequestException.ToString(), LogLevel.Info);
+                return new ServiceResponse<T>(ServiceError.InvalidRequest, invalidRequestException.Message);
+            }
+            catch (MaxElementsExceededException maxElementsExceededException)
+            {
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, maxElementsExceededException.ToString(), LogLevel.Info);
+                return new ServiceResponse<T>(ServiceError.MaxElementsExceeded, maxElementsExceededException.Message);
+            }
+            catch (OverQueryLimitException overQueryLimitException)
+            {
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, overQueryLimitException.ToString(), LogLevel.Info);
+                return new ServiceResponse<T>(ServiceError.OverQueryLimit, overQueryLimitException.Message);
             }
             catch (DistanceMatrixException distanceMatrixException)
             {
@@ -140,7 +154,7 @@
             }
             catch (ArgumentException argumentException)
             {
-                Logger.LogMessage(exceptionEventType, exceptionEventDescription, argumentException.ToString(), LogLevel.Error);
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, argumentException.ToString(), LogLevel.Warn);
                 return new ServiceResponse<T>(ServiceError.InvalidArgument);
             }
             catch (Exception exception)
