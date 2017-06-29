@@ -6,6 +6,7 @@
     using Connector;
     using Data;
     using Domain.Enums;
+    using Domain.Exceptions;
     using Domain.Models;
 
     public class DistanceMatrixEngine : IDistanceMatrixEngine
@@ -57,6 +58,11 @@
 
             var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
 
+            if (response.Status == Status.RequestDenied)
+            {
+                throw new InvalidApiKeyException();
+            }
+
             if (response.Status == Status.Ok)
             {
                 _requestHistoryRepository.InsertRequestHistory(distanceMatrixRequest);
@@ -97,13 +103,8 @@
         /// </returns>
         public DistanceMatrixResponse ReplayRequest(Guid requestId)
         {
-            RequestHistory requestHistory = _requestHistoryRepository.GetById(requestId);
-
-			var request = Mapper.Map<Connector.Entities.DistanceMatrixRequest>(requestHistory);
-
-			var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(request);
-            var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
-            return response;
+            var requestHistory = GetRequestHistory(requestId);
+            return DistanceMatrix(requestHistory.Request);
         }
     }
 }

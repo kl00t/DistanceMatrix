@@ -39,6 +39,12 @@
         /// The configuration error
         /// </summary>
         [EnumMember]
-        ConfigurationError
+        ConfigurationError,
+
+        /// <summary>
+        /// The invalid API key
+        /// </summary>
+        [EnumMember]
+        InvalidApiKey
     }
 }

@@ -3,7 +3,7 @@
 namespace DistanceMatrix.Client.Web.Tests.Controllers
 {
 	[TestClass]
-	public class RequestControllerTest
+	public class RequestHistoryControllerTest
 	{
 
 	}

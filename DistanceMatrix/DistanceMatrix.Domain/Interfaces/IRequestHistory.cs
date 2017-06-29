@@ -1,12 +1,26 @@
 ﻿namespace DistanceMatrix.Domain.Interfaces
 {
-	using DistanceMatrix.Domain.Enums;
-	using System;
+    using System;
 
+    /// <summary>
+    /// Request history.
+    /// </summary>
     public interface IRequestHistory
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         Guid Id { get; set; }
 
-		Models.DistanceMatrixRequest Request { get; set; }
+        /// <summary>
+        /// Gets or sets the request.
+        /// </summary>
+        /// <value>
+        /// The request.
+        /// </value>
+        Models.DistanceMatrixRequest Request { get; set; }
 	}
 }

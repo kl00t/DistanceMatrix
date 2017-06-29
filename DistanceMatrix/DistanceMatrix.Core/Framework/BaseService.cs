@@ -124,8 +124,14 @@
             }
             catch (ConfigurationErrorsException configurationErrorsException)
             {
-                Logger.LogMessage(exceptionEventType, exceptionEventDescription, configurationErrorsException.ToString(), LogLevel.Error);
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, configurationErrorsException.ToString(),
+                    LogLevel.Error);
                 return new ServiceResponse<T>(ServiceError.ConfigurationError);
+            }
+            catch (InvalidApiKeyException invalidApiKeyException)
+            {
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, invalidApiKeyException.ToString(), LogLevel.Error);
+                return new ServiceResponse<T>(ServiceError.InvalidApiKey, invalidApiKeyException.Message);
             }
             catch (DistanceMatrixException distanceMatrixException)
             {

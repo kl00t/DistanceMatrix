@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.ServiceModel;
-    using System.ServiceModel.Configuration;
     using Core.Framework;
     using Domain.Models;
 

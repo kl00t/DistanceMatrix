@@ -12,10 +12,22 @@
 	[Serializable]
 	public class RequestHistory : IRequestHistory
     {
-		[DataMember]
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        [DataMember]
 		public Guid Id { get; set; }
 
-		[DataMember]
+        /// <summary>
+        /// Gets or sets the request.
+        /// </summary>
+        /// <value>
+        /// The request.
+        /// </value>
+        [DataMember]
 		public DistanceMatrixRequest Request { get; set; }
 	}
 }

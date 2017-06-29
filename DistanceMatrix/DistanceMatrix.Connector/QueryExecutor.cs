@@ -11,7 +11,8 @@
             {
 				using (var webClient = new WebClient())
 				{
-					return webClient.DownloadString(address);
+                    var response = webClient.DownloadString(address);
+				    return response;
 				}
             }
             catch (WebException webException)

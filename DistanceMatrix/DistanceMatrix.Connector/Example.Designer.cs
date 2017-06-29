@@ -62,6 +62,21 @@ namespace DistanceMatrix.Connector {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///   &quot;destination_addresses&quot; : [],
+        ///   &quot;error_message&quot; : &quot;The provided API key is invalid.&quot;,
+        ///   &quot;origin_addresses&quot; : [],
+        ///   &quot;rows&quot; : [],
+        ///   &quot;status&quot; : &quot;REQUEST_DENIED&quot;
+        ///}.
+        /// </summary>
+        public static string InvalidApiKey {
+            get {
+                return ResourceManager.GetString("InvalidApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///   &quot;destination_addresses&quot; : [ &quot;San Francisco, Californie, États-Unis&quot;, &quot;Victoria, BC, Canada&quot; ],
         ///   &quot;origin_addresses&quot; : [ &quot;Vancouver, BC, Canada&quot;, &quot;Seattle, Washington, États-Unis&quot; ],
         ///   &quot;rows&quot; : [
