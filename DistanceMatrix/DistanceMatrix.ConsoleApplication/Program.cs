@@ -1,17 +1,13 @@
 ﻿namespace DistanceMatrix.ConsoleApplication
 {
     using System;
+    using System.Linq;
+    using Core.Helpers;
     using Domain.Models;
-    using Ninject;
     using Domain.Enums;
 
-	public class Program
+    public class Program
     {
-        /// <summary>
-        /// Gets or sets the kernel.
-        /// </summary>
-        public static IKernel Kernel { get; set; }
-
         /// <summary>
         /// Mains the specified arguments.
         /// </summary>
@@ -44,29 +40,22 @@
                 Console.WriteLine("########## Result ##########");
                 if (response.Response.Status == Status.Ok)
                 {
-                    foreach (var originAddress in response.Response.OriginAddresses)
-                    {
-                        Console.WriteLine("Origin:" + originAddress);
-                    }
-                    foreach (var destinationAddress in response.Response.DestinationAddresses)
-                    {
-                        Console.WriteLine("Destination:" + destinationAddress);
-                    }
+                    Console.WriteLine();
+                    var originAddress = StringHelper.ConvertListToString(" | ", response.Response.OriginAddresses);
+                    Console.WriteLine("Origin: " + originAddress);
+                    var destinationAddress = StringHelper.ConvertListToString(" | ", response.Response.DestinationAddresses);
+                    Console.WriteLine("Destination: " + destinationAddress);
 
-                    foreach (var row in response.Response.Rows)
+                    Console.WriteLine();
+                    foreach (var element in response.Response.Rows.SelectMany(row => row.Elements.Where(element => element.Status == ElementStatus.Ok)))
                     {
-                        foreach (var element in row.Elements)
-                        {
-                            if (element.Status == ElementStatus.Ok)
-                            {
-                                Console.WriteLine("Distance: {0} | Duration: {1}", element.Distance.Text, element.Duration.Text);
-                            }
-                        }
+                        Console.WriteLine("Distance: {0} | Duration: {1}", element.Distance.Text, element.Duration.Text);
                     }
                 }
             }
 
-            Console.WriteLine("Press any key to exit.");
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
             Console.Read();
         }
     }

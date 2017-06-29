@@ -1,6 +1,7 @@
 ﻿namespace DistanceMatrix.Data
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Repository interface.
@@ -9,6 +10,12 @@
     /// <typeparam name="TKey">The type of the key.</typeparam>
     public interface IRepository<TEntity, in TKey> where TEntity : class
     {
+        /// <summary>
+        /// Gets all.
+        /// </summary>
+        /// <returns>Returns all the entities.</returns>
+        IEnumerable<TEntity> GetAll();
+
         /// <summary>
         /// Gets the by identifier.
         /// </summary>

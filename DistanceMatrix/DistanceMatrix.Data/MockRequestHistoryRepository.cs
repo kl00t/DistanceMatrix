@@ -69,8 +69,9 @@
         /// <param name="entity">The entity.</param>
         public Guid Insert(RequestHistory entity)
         {
+            entity.Id = Guid.NewGuid();
             _requestHistory.Add(entity);
-            return Guid.NewGuid();
+            return entity.Id;
         }
 
         /// <summary>
@@ -100,16 +101,16 @@
         /// <returns>
         /// Returns all history requests.
         /// </returns>
-        public List<RequestHistory> GetAll()
+        public IEnumerable<RequestHistory> GetAll()
         {
-            return _requestHistory;
+            return _requestHistory.AsEnumerable();
         }
 
         /// <summary>
         /// Inserts the request history.
         /// </summary>
         /// <param name="distanceMatrixRequest">The distance matrix request.</param>
-        public void InsertRequestHistory(DistanceMatrixRequest distanceMatrixRequest)
+        public Guid InsertRequestHistory(DistanceMatrixRequest distanceMatrixRequest)
         {
             var requestHistory = new RequestHistory
             {
@@ -122,7 +123,7 @@
 				}
 			};
 
-            Insert(requestHistory);
+            return Insert(requestHistory);
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using AutoMapper;
     using Connector;
     using Data;
@@ -99,7 +100,7 @@
         /// </returns>
         public List<RequestHistory> GetDistanceMatrixRequestHistory()
         {
-            return _requestHistoryRepository.GetAll();
+            return _requestHistoryRepository.GetAll().ToList();
         }
 
         /// <summary>

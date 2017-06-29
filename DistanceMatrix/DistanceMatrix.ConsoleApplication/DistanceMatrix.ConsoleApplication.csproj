@@ -36,18 +36,6 @@
     <StartupObject>DistanceMatrix.ConsoleApplication.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -70,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.DistanceMatrixResponse.datasource" />
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.RequestHistory.datasource" />
     <None Include="Service References\DistanceMatrixService\DistanceMatrixService.wsdl" />
@@ -94,10 +81,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DistanceMatrix.Connector\DistanceMatrix.Connector.csproj">
-      <Project>{66A152BD-AC8A-47D6-B346-DE3A334E1573}</Project>
-      <Name>DistanceMatrix.Connector</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DistanceMatrix.Core\DistanceMatrix.Core.csproj">
       <Project>{754959c8-df7f-4669-8920-d39a2696e576}</Project>
       <Name>DistanceMatrix.Core</Name>
@@ -105,14 +88,6 @@
     <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
       <Project>{1DD2FBEA-52C7-4ED8-8D89-033C0E247861}</Project>
       <Name>DistanceMatrix.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DistanceMatrix.Service.Contracts\DistanceMatrix.Service.Contracts.csproj">
-      <Project>{b2675eb0-6bb1-4f77-a0bb-43892972db00}</Project>
-      <Name>DistanceMatrix.Service.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DistanceMatrix.Service.Web\DistanceMatrix.Service.Web.csproj">
-      <Project>{0D3AE907-755D-4FFC-88FC-CDC900FAC425}</Project>
-      <Name>DistanceMatrix.Service.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

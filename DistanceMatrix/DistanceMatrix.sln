@@ -26,8 +26,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Client.Web",
 		{0D3AE907-755D-4FFC-88FC-CDC900FAC425} = {0D3AE907-755D-4FFC-88FC-CDC900FAC425}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Client.Web.Tests", "DistanceMatrix.Client.Web.Tests\DistanceMatrix.Client.Web.Tests.csproj", "{9426201E-C300-475B-A3DD-607F118860F5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Connector.UnitTests", "DistanceMatrix.Connector.UnitTests\DistanceMatrix.Connector.UnitTests.csproj", "{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Data.UnitTests", "DistanceMatrix.Data.UnitTests\DistanceMatrix.Data.UnitTests.csproj", "{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}"
@@ -80,10 +78,6 @@ Global
 		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9426201E-C300-475B-A3DD-607F118860F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9426201E-C300-475B-A3DD-607F118860F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9426201E-C300-475B-A3DD-607F118860F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9426201E-C300-475B-A3DD-607F118860F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU

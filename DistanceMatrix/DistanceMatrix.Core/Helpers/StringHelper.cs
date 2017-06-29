@@ -16,6 +16,16 @@
             return string.IsNullOrEmpty(stringToSplit) ? new string[0] : stringToSplit.Split(delimiter).ToArray();
         }
 
+        public static string ConvertArrayToString(string separator, string[] arrayToConvert)
+        {
+            if (arrayToConvert == null || !arrayToConvert.Any())
+            {
+                return string.Empty;
+            }
+
+            return string.Join(separator, arrayToConvert);
+        }
+
         public static string ConvertListToString(string separator, List<string> listToConvert)
         {
             if (listToConvert == null || !listToConvert.Any())

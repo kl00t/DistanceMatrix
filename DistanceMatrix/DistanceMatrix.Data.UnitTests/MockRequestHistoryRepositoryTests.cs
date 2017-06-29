@@ -3,6 +3,7 @@
 
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Domain.Enums;
     using Domain.Models;
     using Kernel;
@@ -39,7 +40,7 @@
         [Test]
         public void VerifyGetAllRequestHistoryReturnsResult()
         {
-            var result = _requestHistoryRepository.GetAll();
+            var result = _requestHistoryRepository.GetAll().ToList();
             Assert.IsNotNull(result);
             Assert.AreEqual(3, result.Count);
             Assert.IsInstanceOf<List<RequestHistory>>(result);
@@ -115,7 +116,7 @@
 
             _requestHistoryRepository.Delete(requestHistoryId);
 
-            Assert.AreEqual(2, _requestHistoryRepository.GetAll().Count);
+            Assert.AreEqual(2, _requestHistoryRepository.GetAll().Count());
         }
     }
 }
