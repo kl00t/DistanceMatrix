@@ -4,12 +4,6 @@ namespace DistanceMatrix.Client.Web.Controllers
 {
     public class RequestController : Controller
     {
-        // GET: Request/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
     ////    // POST: Request/Create
     ////    [HttpPost]
     ////    public ActionResult Create(FormCollection collection)

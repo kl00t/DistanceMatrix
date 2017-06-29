@@ -67,9 +67,10 @@
         /// Inserts the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        public void Insert(RequestHistory entity)
+        public Guid Insert(RequestHistory entity)
         {
             _requestHistory.Add(entity);
+            return Guid.NewGuid();
         }
 
         /// <summary>
@@ -79,7 +80,8 @@
         public void Update(RequestHistory entity)
         {
             var requestHistory = GetById(entity.Id);
-			throw new NotImplementedException();
+            _requestHistory.Remove(requestHistory);
+            _requestHistory.Add(entity);
         }
 
         /// <summary>
@@ -111,7 +113,6 @@
         {
             var requestHistory = new RequestHistory
             {
-                Id = Guid.NewGuid(),
 				Request = new DistanceMatrixRequest
 				{
 					Origin = distanceMatrixRequest.Origin,

@@ -17,7 +17,6 @@
 			Bind<IQueryExecutor>().To<QueryExecutor>();
 			//Bind<IQueryExecutor>().To<MockQueryExecutor>();
 
-			//Bind<IRequestHistoryRepository>().To<RequestHistoryRepository>();
 			Bind<IRequestHistoryRepository>().ToConstant(new MockRequestHistoryRepository());
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Core", "DistanceMatrix.Core\DistanceMatrix.Core.csproj", "{754959C8-DF7F-4669-8920-D39A2696E576}"
 EndProject
@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Client.Web",
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Client.Web.Tests", "DistanceMatrix.Client.Web.Tests\DistanceMatrix.Client.Web.Tests.csproj", "{9426201E-C300-475B-A3DD-607F118860F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Connector.UnitTests", "DistanceMatrix.Connector.UnitTests\DistanceMatrix.Connector.UnitTests.csproj", "{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Data.UnitTests", "DistanceMatrix.Data.UnitTests\DistanceMatrix.Data.UnitTests.csproj", "{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +82,14 @@ Global
 		{9426201E-C300-475B-A3DD-607F118860F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9426201E-C300-475B-A3DD-607F118860F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9426201E-C300-475B-A3DD-607F118860F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75ABC7E5-8CC5-4411-A45C-A812DFE52EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

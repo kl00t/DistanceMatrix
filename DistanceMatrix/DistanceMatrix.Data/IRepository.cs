@@ -1,5 +1,7 @@
 ﻿namespace DistanceMatrix.Data
 {
+    using System;
+
     /// <summary>
     /// Repository interface.
     /// </summary>
@@ -18,7 +20,7 @@
         /// Inserts the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        void Insert(TEntity entity);
+        Guid Insert(TEntity entity);
 
         /// <summary>
         /// Updates the specified entity.
