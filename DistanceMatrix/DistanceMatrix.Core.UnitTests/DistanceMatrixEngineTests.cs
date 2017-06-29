@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Connector;
+    using Connector.Interfaces;
     using Data;
     using Domain.Enums;
     using Domain.Models;

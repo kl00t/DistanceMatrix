@@ -5,9 +5,9 @@
   <xs:import schemaLocation="http://localhost:63204/DistanceMatrixService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="DistanceMatrixRequest">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Destinations" nillable="true" type="xs:string" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Mode" type="q1:Mode" />
-      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Origins" nillable="true" type="xs:string" />
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Units" type="q2:Units" />
     </xs:sequence>
   </xs:complexType>

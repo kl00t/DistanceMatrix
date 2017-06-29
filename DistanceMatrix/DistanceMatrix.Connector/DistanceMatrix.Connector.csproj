@@ -47,11 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Connectors\DirectionsConnector.cs" />
     <Compile Include="Entities\DistanceMatrixRequest.cs" />
     <Compile Include="Entities\Duration.cs" />
     <Compile Include="Entities\Distance.cs" />
     <Compile Include="Entities\DistanceMatrixResponse.cs" />
-    <Compile Include="DistanceMatrixConnector.cs" />
+    <Compile Include="Connectors\DistanceMatrixConnector.cs" />
     <Compile Include="Entities\Element.cs" />
     <Compile Include="Entities\Fare.cs" />
     <Compile Include="Entities\Row.cs" />
@@ -60,11 +61,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Example.resx</DependentUpon>
     </Compile>
-    <Compile Include="IDistanceMatrixConnector.cs" />
-    <Compile Include="IApiRequestExecutor.cs" />
-    <Compile Include="MockRequestExecutor.cs" />
+    <Compile Include="Entities\DirectionsRequest.cs" />
+    <Compile Include="Entities\DirectionsResponse.cs" />
+    <Compile Include="Entities\ElevationRequest.cs" />
+    <Compile Include="Entities\ElevationResponse.cs" />
+    <Compile Include="Entities\GeocodeRequest.cs" />
+    <Compile Include="Entities\GeocodeResponse.cs" />
+    <Compile Include="Entities\GeolocationRequest.cs" />
+    <Compile Include="Entities\GeolocationResponse.cs" />
+    <Compile Include="Interfaces\IDirectionsConnector.cs" />
+    <Compile Include="Interfaces\IDistanceMatrixConnector.cs" />
+    <Compile Include="Interfaces\IApiRequestExecutor.cs" />
+    <Compile Include="Interfaces\IElevationConnector.cs" />
+    <Compile Include="Interfaces\IGeocodeConnector.cs" />
+    <Compile Include="Interfaces\IGeolocationConnector.cs" />
+    <Compile Include="Interfaces\IPlaceConnector.cs" />
+    <Compile Include="Interfaces\ITimezoneConnector.cs" />
+    <Compile Include="Entities\PlaceRequest.cs" />
+    <Compile Include="Entities\PlaceResponse.cs" />
+    <Compile Include="Entities\TimezoneRequest.cs" />
+    <Compile Include="Entities\TimezoneResponse.cs" />
+    <Compile Include="Connectors\MockRequestExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ApiRequestExecutor.cs" />
+    <Compile Include="Connectors\ApiRequestExecutor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">

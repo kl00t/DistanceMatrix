@@ -5,6 +5,7 @@
     using System.Linq;
     using AutoMapper;
     using Connector;
+    using Connector.Interfaces;
     using Data;
     using Domain.Enums;
     using Domain.Exceptions;

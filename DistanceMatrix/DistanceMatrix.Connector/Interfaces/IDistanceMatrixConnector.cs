@@ -1,4 +1,4 @@
-﻿namespace DistanceMatrix.Connector
+﻿namespace DistanceMatrix.Connector.Interfaces
 {
 
     using Entities;

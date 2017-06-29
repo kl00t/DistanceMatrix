@@ -1,10 +1,11 @@
-﻿namespace DistanceMatrix.Connector
+﻿namespace DistanceMatrix.Connector.Connectors
 {
 
     using System;
     using System.Text;
     using System.Web;
     using Entities;
+    using Interfaces;
     using Newtonsoft.Json;
 
     /// <summary>

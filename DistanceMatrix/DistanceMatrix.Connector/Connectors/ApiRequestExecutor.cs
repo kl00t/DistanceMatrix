@@ -1,9 +1,11 @@
-﻿namespace DistanceMatrix.Connector
+﻿namespace DistanceMatrix.Connector.Connectors
 {
-	using System.Net;
-	using Domain.Exceptions;
 
-	public class ApiRequestExecutor : IApiRequestExecutor
+    using System.Net;
+    using Domain.Exceptions;
+    using Interfaces;
+
+    public class ApiRequestExecutor : IApiRequestExecutor
     {
         public string ExecuteRequest(string address)
         {
