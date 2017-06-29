@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\DistanceMatrixService\Reference.cs">
+    <Compile Include="Service References\GoogleApiService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -63,23 +63,23 @@
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.DirectionsResponse.datasource" />
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.DistanceMatrixResponse.datasource" />
     <None Include="Properties\DataSources\DistanceMatrix.Domain.Models.RequestHistory.datasource" />
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService.wsdl" />
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService.xsd">
+    <None Include="Service References\GoogleApiService\GoogleApiService.wsdl" />
+    <None Include="Service References\GoogleApiService\GoogleApiService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService1.xsd">
+    <None Include="Service References\GoogleApiService\GoogleApiService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService2.xsd">
+    <None Include="Service References\GoogleApiService\GoogleApiService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService3.xsd">
+    <None Include="Service References\GoogleApiService\GoogleApiService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService4.xsd">
+    <None Include="Service References\GoogleApiService\GoogleApiService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService5.xsd">
+    <None Include="Service References\GoogleApiService\GoogleApiService5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -97,19 +97,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DistanceMatrixService\" />
+    <WCFMetadataStorage Include="Service References\GoogleApiService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DistanceMatrixService\DistanceMatrixService.disco" />
+    <None Include="Service References\GoogleApiService\GoogleApiService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DistanceMatrixService\configuration91.svcinfo" />
+    <None Include="Service References\GoogleApiService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DistanceMatrixService\configuration.svcinfo" />
+    <None Include="Service References\GoogleApiService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DistanceMatrixService\Reference.svcmap">
+    <None Include="Service References\GoogleApiService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -8,76 +8,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DistanceMatrix.ConsoleApplication.DistanceMatrixService {
+namespace DistanceMatrix.ConsoleApplication.GoogleApiService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DistanceMatrixService.IDistanceMatrixService")]
-    public interface IDistanceMatrixService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GoogleApiService.IGoogleApiService")]
+    public interface IGoogleApiService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Heartbeat", ReplyAction="http://tempuri.org/IDistanceMatrixService/HeartbeatResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Heartbeat", ReplyAction="http://tempuri.org/IGoogleApiService/HeartbeatResponse")]
         DistanceMatrix.Core.Framework.ServiceResponse<System.DateTime> Heartbeat();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Heartbeat", ReplyAction="http://tempuri.org/IDistanceMatrixService/HeartbeatResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Heartbeat", ReplyAction="http://tempuri.org/IGoogleApiService/HeartbeatResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<System.DateTime>> HeartbeatAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/DistanceMatrix", ReplyAction="http://tempuri.org/IDistanceMatrixService/DistanceMatrixResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/DistanceMatrix", ReplyAction="http://tempuri.org/IGoogleApiService/DistanceMatrixResponse")]
         DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DistanceMatrixResponse> DistanceMatrix(DistanceMatrix.Domain.Models.DistanceMatrixRequest distanceMatrixRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/DistanceMatrix", ReplyAction="http://tempuri.org/IDistanceMatrixService/DistanceMatrixResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/DistanceMatrix", ReplyAction="http://tempuri.org/IGoogleApiService/DistanceMatrixResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DistanceMatrixResponse>> DistanceMatrixAsync(DistanceMatrix.Domain.Models.DistanceMatrixRequest distanceMatrixRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Directions", ReplyAction="http://tempuri.org/IDistanceMatrixService/DirectionsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Directions", ReplyAction="http://tempuri.org/IGoogleApiService/DirectionsResponse")]
         DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DirectionsResponse> Directions(DistanceMatrix.Domain.Models.DirectionsRequest directionsRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/Directions", ReplyAction="http://tempuri.org/IDistanceMatrixService/DirectionsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Directions", ReplyAction="http://tempuri.org/IGoogleApiService/DirectionsResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DirectionsResponse>> DirectionsAsync(DistanceMatrix.Domain.Models.DirectionsRequest directionsRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistoryResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse")]
         DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetDistanceMatrixRequestHistoryResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.RequestHistory[]>> GetDistanceMatrixRequestHistoryAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetRequestHistoryResponse")]
         DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.RequestHistory> GetRequestHistory(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/GetRequestHistory", ReplyAction="http://tempuri.org/IDistanceMatrixService/GetRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetRequestHistoryResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.RequestHistory>> GetRequestHistoryAsync(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/ReplayRequest", ReplyAction="http://tempuri.org/IDistanceMatrixService/ReplayRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/ReplayRequest", ReplyAction="http://tempuri.org/IGoogleApiService/ReplayRequestResponse")]
         DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DistanceMatrixResponse> ReplayRequest(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDistanceMatrixService/ReplayRequest", ReplyAction="http://tempuri.org/IDistanceMatrixService/ReplayRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/ReplayRequest", ReplyAction="http://tempuri.org/IGoogleApiService/ReplayRequestResponse")]
         System.Threading.Tasks.Task<DistanceMatrix.Core.Framework.ServiceResponse<DistanceMatrix.Domain.Models.DistanceMatrixResponse>> ReplayRequestAsync(System.Guid requestId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDistanceMatrixServiceChannel : DistanceMatrix.ConsoleApplication.DistanceMatrixService.IDistanceMatrixService, System.ServiceModel.IClientChannel {
+    public interface IGoogleApiServiceChannel : DistanceMatrix.ConsoleApplication.GoogleApiService.IGoogleApiService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DistanceMatrixServiceClient : System.ServiceModel.ClientBase<DistanceMatrix.ConsoleApplication.DistanceMatrixService.IDistanceMatrixService>, DistanceMatrix.ConsoleApplication.DistanceMatrixService.IDistanceMatrixService {
+    public partial class GoogleApiServiceClient : System.ServiceModel.ClientBase<DistanceMatrix.ConsoleApplication.GoogleApiService.IGoogleApiService>, DistanceMatrix.ConsoleApplication.GoogleApiService.IGoogleApiService {
         
-        public DistanceMatrixServiceClient() {
+        public GoogleApiServiceClient() {
         }
         
-        public DistanceMatrixServiceClient(string endpointConfigurationName) : 
+        public GoogleApiServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public DistanceMatrixServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public GoogleApiServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DistanceMatrixServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public GoogleApiServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DistanceMatrixServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public GoogleApiServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

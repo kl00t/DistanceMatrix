@@ -4,7 +4,7 @@
 	using System.Collections.Generic;
 	using Domain.Models;
 
-	public interface IDistanceMatrixEngine
+	public interface IGoogleApiEngine
     {
         /// <summary>
         /// Distances the matrix.

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:63204/DistanceMatrixService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" />
-  <xs:import schemaLocation="http://localhost:63204/DistanceMatrixService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:63204/DistanceMatrixService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" />
+  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="DistanceMatrixRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="Destinations" nillable="true" type="xs:string" />
@@ -81,17 +81,44 @@
   </xs:complexType>
   <xs:element name="Fare" nillable="true" type="tns:Fare" />
   <xs:complexType name="DirectionsRequest">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Mode" type="q7:Mode" />
+      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="DirectionsRequest" nillable="true" type="tns:DirectionsRequest" />
   <xs:complexType name="DirectionsResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseResponse">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeocodedWaypoints" nillable="true" type="tns:ArrayOfGeocodedWaypoint" />
+          <xs:element minOccurs="0" name="Routes" nillable="true" type="tns:ArrayOfRoute" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DirectionsResponse" nillable="true" type="tns:DirectionsResponse" />
+  <xs:complexType name="ArrayOfGeocodedWaypoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeocodedWaypoint" nillable="true" type="tns:GeocodedWaypoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGeocodedWaypoint" nillable="true" type="tns:ArrayOfGeocodedWaypoint" />
+  <xs:complexType name="GeocodedWaypoint">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GeocodedWaypoint" nillable="true" type="tns:GeocodedWaypoint" />
+  <xs:complexType name="ArrayOfRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Route" nillable="true" type="tns:Route" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoute" nillable="true" type="tns:ArrayOfRoute" />
+  <xs:complexType name="Route">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Route" nillable="true" type="tns:Route" />
   <xs:complexType name="ArrayOfRequestHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />

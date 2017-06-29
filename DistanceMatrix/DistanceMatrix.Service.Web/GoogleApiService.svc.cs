@@ -9,20 +9,20 @@
     using Domain.Enums;
     using Domain.Models;
 
-    public class DistanceMatrixService : BaseService, IDistanceMatrixService
+    public class GoogleApiService : BaseService, IGoogleApiService
     {
         /// <summary>
         /// The distance matrix engine
         /// </summary>
-        private readonly IDistanceMatrixEngine _distanceMatrixEngine;
+        private readonly IGoogleApiEngine _distanceMatrixEngine;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DistanceMatrixService"/> class.
+        /// Initializes a new instance of the <see cref="GoogleApiService"/> class.
         /// </summary>
         /// <param name="distanceMatrixEngine">The distance matrix engine.</param>
         /// <param name="logger">The logger.</param>
         /// <exception cref="System.ArgumentNullException">distanceMatrixEngine</exception>
-        public DistanceMatrixService(IDistanceMatrixEngine distanceMatrixEngine, ILogger logger) : base(logger)
+        public GoogleApiService(IGoogleApiEngine distanceMatrixEngine, ILogger logger) : base(logger)
         {
             if (distanceMatrixEngine == null)
             {

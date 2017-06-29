@@ -13,7 +13,7 @@
         public override void Load()
         {
 			Bind<ILogger>().To<Logger>();
-			Bind<IDistanceMatrixEngine>().To<DistanceMatrixEngine>();
+			Bind<IGoogleApiEngine>().To<GoogleApiEngine>();
 			Bind<IDistanceMatrixConnector>().To<DistanceMatrixConnector>();
             Bind<IDirectionsConnector>().To<DirectionsConnector>();
 

@@ -14,9 +14,6 @@
     // ReSharper disable once ClassNeverInstantiated.Global
     public class DistanceMatrixConnector : IDistanceMatrixConnector
     {
-        /// <summary>
-        /// The query executor.
-        /// </summary>
         private readonly IApiRequestExecutor _queryExecutor;
 
         /// <summary>

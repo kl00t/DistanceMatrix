@@ -7,7 +7,7 @@
     using Domain.Models;
 
     [ServiceContract]
-    public interface IDistanceMatrixService
+    public interface IGoogleApiService
     {
         /// <summary>
         /// Provides basic heartbeat check to allow monitoring of service health.

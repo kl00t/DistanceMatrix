@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Core", "DistanceMatrix.Core\DistanceMatrix.Core.csproj", "{754959C8-DF7F-4669-8920-D39A2696E576}"
 EndProject
@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Connector", "DistanceMatrix.Connector\DistanceMatrix.Connector.csproj", "{66A152BD-AC8A-47D6-B346-DE3A334E1573}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.ConsoleApplication", "DistanceMatrix.ConsoleApplication\DistanceMatrix.ConsoleApplication.csproj", "{320B4498-D800-45C7-9DCB-0EC8EA79F869}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D3AE907-755D-4FFC-88FC-CDC900FAC425} = {0D3AE907-755D-4FFC-88FC-CDC900FAC425}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Service.Web", "DistanceMatrix.Service.Web\DistanceMatrix.Service.Web.csproj", "{0D3AE907-755D-4FFC-88FC-CDC900FAC425}"
 EndProject

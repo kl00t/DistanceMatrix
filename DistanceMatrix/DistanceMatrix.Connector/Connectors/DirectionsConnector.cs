@@ -9,12 +9,9 @@
 
 	public class DirectionsConnector : IDirectionsConnector
     {
-        /// <summary>
-        /// The query executor.
-        /// </summary>
         private readonly IApiRequestExecutor _queryExecutor;
 
-        public DirectionsConnector(IApiRequestExecutor queryExecutor)
+		public DirectionsConnector(IApiRequestExecutor queryExecutor)
         {
             if (queryExecutor == null)
             {

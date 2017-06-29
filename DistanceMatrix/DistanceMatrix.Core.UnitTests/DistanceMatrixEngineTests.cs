@@ -28,7 +28,7 @@
         /// <summary>
         /// The distance matrix engine.
         /// </summary>
-        private static DistanceMatrixEngine _distanceMatrixEngine;
+        private static GoogleApiEngine _distanceMatrixEngine;
 
         /// <summary>
         /// The mock distance matrix connector.
@@ -62,7 +62,7 @@
             _mockRequestHistoryRepository = new Mock<IRequestHistoryRepository>();
 			_mockDirectionsConnector = new Mock<IDirectionsConnector>();
 
-            _distanceMatrixEngine = new DistanceMatrixEngine(
+            _distanceMatrixEngine = new GoogleApiEngine(
                 _mockDistanceMatrixConnector.Object, 
                 _mockRequestHistoryRepository.Object,
 				_mockDirectionsConnector.Object);
@@ -76,7 +76,7 @@
         public void VerifyThatArgumentNullExceptionIfThrownIfConnectorIsNull()
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new DistanceMatrixEngine(
+            new GoogleApiEngine(
 				null, 
 				new Mock<IRequestHistoryRepository>().Object,
 				new Mock<IDirectionsConnector>().Object);
@@ -90,7 +90,7 @@
         public void VerifyThatArgumentNullExceptionIfThrownRepositoryIsNull()
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new DistanceMatrixEngine(
+            new GoogleApiEngine(
 				new Mock<IDistanceMatrixConnector>().Object, 
 				null,
 				new Mock<IDirectionsConnector>().Object);

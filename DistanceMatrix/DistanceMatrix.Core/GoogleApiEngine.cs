@@ -10,7 +10,7 @@
 	using Domain.Exceptions;
 	using Domain.Models;
 
-	public class DistanceMatrixEngine : IDistanceMatrixEngine
+	public class GoogleApiEngine : IGoogleApiEngine
     {
         /// <summary>
         /// The distance matrix connector.
@@ -25,12 +25,12 @@
         private readonly IRequestHistoryRepository _requestHistoryRepository;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DistanceMatrixEngine" /> class.
+        /// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
         /// </summary>
         /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
         /// <param name="requestHistoryRepository">The request history repository.</param>
         /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
-        public DistanceMatrixEngine(
+        public GoogleApiEngine(
 			IDistanceMatrixConnector distanceMatrixConnector, 
 			IRequestHistoryRepository requestHistoryRepository,
 			IDirectionsConnector directionsConnector)
@@ -107,7 +107,7 @@
 
 			if (Status == Status.RequestDenied)
 			{
-				throw new DistanceMatrixException(ErrorMessage);
+				throw new GoogleApiException(ErrorMessage);
 			}
 
 			return true;

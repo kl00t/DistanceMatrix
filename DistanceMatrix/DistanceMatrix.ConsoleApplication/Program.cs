@@ -26,7 +26,7 @@
             //Console.WriteLine("Imperial or Metric:");
             //var units = (Units)Enum.Parse(typeof(Units), Console.ReadLine());
 
-            var serviceClient = new DistanceMatrixService.DistanceMatrixServiceClient();
+            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
 
 			var directionsResponse = serviceClient.Directions(new DirectionsRequest
 			{

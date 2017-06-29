@@ -15,7 +15,7 @@
         /// <returns>
         /// Returns application setting.
         /// </returns>
-        /// <exception cref="DistanceMatrixException"></exception>
+        /// <exception cref="GoogleApiException"></exception>
         public static string GetAppSetting(string appSetting)
         {
             try
@@ -24,7 +24,7 @@
             }
             catch (ConfigurationErrorsException configurationErrorsException)
             {
-                throw new DistanceMatrixException(configurationErrorsException.Message, configurationErrorsException.InnerException);
+                throw new GoogleApiException(configurationErrorsException.Message, configurationErrorsException.InnerException);
             }
         }
     }

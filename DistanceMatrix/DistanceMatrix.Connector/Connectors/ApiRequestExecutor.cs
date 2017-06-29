@@ -30,7 +30,7 @@
             }
             catch (WebException webException)
             {
-                throw new DistanceMatrixException(webException.Message, webException.InnerException);
+                throw new GoogleApiException(webException.Message, webException.InnerException);
             }
         }
     }
