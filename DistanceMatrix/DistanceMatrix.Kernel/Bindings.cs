@@ -14,7 +14,7 @@
 			Bind<IDistanceMatrixEngine>().To<DistanceMatrixEngine>();
 			Bind<IDistanceMatrixConnector>().To<DistanceMatrixConnector>();
 
-			Bind<IQueryExecutor>().To<QueryExecutor>();
+			Bind<IApiRequestExecutor>().To<ApiRequestExecutor>();
 			//Bind<IQueryExecutor>().To<MockQueryExecutor>();
 
 			Bind<IRequestHistoryRepository>().ToConstant(new MockRequestHistoryRepository());

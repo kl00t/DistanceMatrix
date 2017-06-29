@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Connector.Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Data.UnitTests", "DistanceMatrix.Data.UnitTests\DistanceMatrix.Data.UnitTests.csproj", "{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMatrix.Kernel.UnitTests", "DistanceMatrix.Kernel.UnitTests\DistanceMatrix.Kernel.UnitTests.csproj", "{79985008-0B3C-443F-8B15-FDD27786AC42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42A50B40-42BC-49D9-BA9C-A4FEEF51BA10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79985008-0B3C-443F-8B15-FDD27786AC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79985008-0B3C-443F-8B15-FDD27786AC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79985008-0B3C-443F-8B15-FDD27786AC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79985008-0B3C-443F-8B15-FDD27786AC42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

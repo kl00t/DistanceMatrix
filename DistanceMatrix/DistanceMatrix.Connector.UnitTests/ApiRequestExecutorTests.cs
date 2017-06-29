@@ -1,10 +1,9 @@
 ﻿namespace DistanceMatrix.Connector.UnitTests
 {
-
     using NUnit.Framework;
 
     [TestFixture]
-    public class QueryExecutorTests
+    public class ApiRequestExecutorTests
     {
     }
 }

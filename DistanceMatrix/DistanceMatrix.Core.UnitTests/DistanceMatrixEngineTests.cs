@@ -145,8 +145,8 @@
 
             var response = _distanceMatrixEngine.DistanceMatrix(new Domain.Models.DistanceMatrixRequest
 			{
-				Origin = "Manchester",
-				Destination = "London"
+				Origins = "Manchester",
+				Destinations = "London"
 			});
 
 			Assert.AreEqual(Status.Ok, response.Status);
@@ -165,8 +165,8 @@
                 Id = Guid.Parse("827BF1CB-3846-486B-8A34-44954E317EE0"),
                 Request = new DistanceMatrixRequest
                 {
-                    Origin = "Manchester",
-                    Destination = "London",
+                    Origins = "Manchester",
+                    Destinations = "London",
                     Mode = Mode.Driving,
                     Units = Units.Imperial
                 }
@@ -178,7 +178,7 @@
 
             Assert.IsNotNull(requestHistory);
             Assert.IsInstanceOf<RequestHistory>(requestHistory);
-            Assert.AreEqual("Manchester", requestHistory.Request.Origin);
+            Assert.AreEqual("Manchester", requestHistory.Request.Origins);
         }
 
         /// <summary>
@@ -192,8 +192,8 @@
                 Id = Guid.Parse("E9AB932E-515A-430F-AEEE-3420178B3748"),
                 Request = new DistanceMatrixRequest
                 {
-                    Origin = "Blackpool",
-                    Destination = "Burnley",
+                    Origins = "Blackpool",
+                    Destinations = "Burnley",
                     Mode = Mode.Driving,
                     Units = Units.Imperial
                 }
@@ -263,8 +263,8 @@
                     Id = Guid.NewGuid(),
                     Request = new Domain.Models.DistanceMatrixRequest
                     {
-                        Origin = "Manchester",
-                        Destination = "London",
+                        Origins = "Manchester",
+                        Destinations = "London",
                         Mode = Mode.Driving,
                         Units = Units.Metric
                     }

@@ -1,5 +1,6 @@
 ﻿namespace DistanceMatrix.Connector
 {
+
     using System;
     using System.Text;
     using System.Web;
@@ -15,14 +16,14 @@
         /// <summary>
         /// The query executor.
         /// </summary>
-        private readonly IQueryExecutor _queryExecutor;
+        private readonly IApiRequestExecutor _queryExecutor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DistanceMatrixConnector"/> class.
         /// </summary>
         /// <param name="queryExecutor">The query executor.</param>
         /// <exception cref="System.ArgumentNullException">queryExecutor</exception>
-        public DistanceMatrixConnector(IQueryExecutor queryExecutor)
+        public DistanceMatrixConnector(IApiRequestExecutor queryExecutor)
         {
             if (queryExecutor == null)
             {
@@ -54,13 +55,12 @@
             if (Convert.ToBoolean(ConfigurationHelper.GetAppSetting("UseSSL")))
             {
                 address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("ApiKey"));
+                address.Replace("http", "https");
             }
 
-			var response = _queryExecutor.Execute(address.ToString());
+			var response = _queryExecutor.ExecuteRequest(address.ToString());
 
-            var result = JsonConvert.DeserializeObject<DistanceMatrixResponse>(response);
-
-            return result;
+            return JsonConvert.DeserializeObject<DistanceMatrixResponse>(response);
         }
 	}
 }

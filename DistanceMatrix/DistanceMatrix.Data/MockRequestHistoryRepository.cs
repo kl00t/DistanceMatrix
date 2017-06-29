@@ -21,8 +21,8 @@
                 Id = Guid.Parse("CC17BDFA-309A-497A-AF8F-7864BC92664E"),
 				Request = new DistanceMatrixRequest
 				{
-					Origin = "Peckham",
-					Destination = "Paris",
+					Origins = "Peckham",
+					Destinations = "Paris",
 					Mode = Domain.Enums.Mode.Driving,
 					Units = Domain.Enums.Units.Metric
 				}
@@ -32,8 +32,8 @@
                 Id = Guid.Parse("1E1AD9FE-7BC6-4239-9FF7-0CD0B4ABBCE0"),
 				Request = new DistanceMatrixRequest
 				{
-					Origin = "Manchester",
-					Destination = "Marrakech",
+					Origins = "Manchester",
+					Destinations = "Marrakech",
 					Mode = Domain.Enums.Mode.Driving,
 					Units = Domain.Enums.Units.Metric
 				}
@@ -43,8 +43,8 @@
                 Id = Guid.Parse("875DBFD4-26C1-459A-A098-D1A521D36000"),
 				Request = new DistanceMatrixRequest
 				{
-					Origin = "London",
-					Destination = "Bombay",
+					Origins = "London",
+					Destinations = "Bombay",
 					Mode = Domain.Enums.Mode.Driving,
 					Units = Domain.Enums.Units.Metric
 				}
@@ -115,8 +115,8 @@
             {
 				Request = new DistanceMatrixRequest
 				{
-					Origin = distanceMatrixRequest.Origin,
-					Destination = distanceMatrixRequest.Destination,
+					Origins = distanceMatrixRequest.Origins,
+					Destinations = distanceMatrixRequest.Destinations,
 					Mode = distanceMatrixRequest.Mode,
 					Units = distanceMatrixRequest.Units
 				}

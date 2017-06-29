@@ -1,5 +1,6 @@
 ﻿namespace DistanceMatrix.Connector
 {
+
     using Entities;
 
     /// <summary>

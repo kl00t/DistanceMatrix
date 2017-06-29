@@ -2,8 +2,6 @@
 namespace DistanceMatrix.Connector.Entities
 {
 
-    using System.Net.Mail;
-
     /// <summary>
     /// Element containing distance and duration.
     /// </summary>

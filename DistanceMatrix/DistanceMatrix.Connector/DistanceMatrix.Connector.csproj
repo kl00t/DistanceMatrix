@@ -61,10 +61,10 @@
       <DependentUpon>Example.resx</DependentUpon>
     </Compile>
     <Compile Include="IDistanceMatrixConnector.cs" />
-    <Compile Include="IQueryExecutor.cs" />
-    <Compile Include="MockQueryExecutor.cs" />
+    <Compile Include="IApiRequestExecutor.cs" />
+    <Compile Include="MockRequestExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryExecutor.cs" />
+    <Compile Include="ApiRequestExecutor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">

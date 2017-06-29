@@ -20,7 +20,7 @@
         /// The origin.
         /// </value>
         [DataMember]
-        public string Origin { get; set; }
+        public string Origins { get; set; }
 
         /// <summary>
         /// Gets or sets the destination.
@@ -29,7 +29,7 @@
         /// The destination.
         /// </value>
         [DataMember]
-        public string Destination { get; set; }
+        public string Destinations { get; set; }
 
         /// <summary>
         /// Gets or sets the mode.

@@ -58,8 +58,8 @@
         {
             var request = new DistanceMatrixRequest
             {
-                Origin = "Paris",
-                Destination = "Peckham",
+                Origins = "Paris",
+                Destinations = "Peckham",
                 Mode = Mode.Driving,
                 Units = Units.Imperial
             };
@@ -74,8 +74,8 @@
             {
                 Request = new DistanceMatrixRequest
                 {
-                    Origin = "Paris",
-                    Destination = "Peckham",
+                    Origins = "Paris",
+                    Destinations = "Peckham",
                     Mode = Mode.Driving,
                     Units = Units.Imperial
                 }
@@ -94,8 +94,8 @@
                 Id = Guid.Parse("CC17BDFA-309A-497A-AF8F-7864BC92664E"),
                 Request = new DistanceMatrixRequest
                 {
-                    Origin = "Burnley",
-                    Destination = "Blackpool",
+                    Origins = "Burnley",
+                    Destinations = "Blackpool",
                     Mode = Mode.Driving,
                     Units = Units.Imperial
                 }
@@ -105,7 +105,7 @@
 
             var result = _requestHistoryRepository.GetById(Guid.Parse("CC17BDFA-309A-497A-AF8F-7864BC92664E"));
 
-            Assert.AreEqual("Blackpool", result.Request.Destination);
+            Assert.AreEqual("Blackpool", result.Request.Destinations);
         }
 
         [Test]

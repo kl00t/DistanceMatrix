@@ -60,8 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DistanceMatrixEngine.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Framework\BaseService.cs" />
     <Compile Include="Framework\ServiceResponse.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="IDistanceMatrixEngine.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />

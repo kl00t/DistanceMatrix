@@ -3,9 +3,9 @@
 	using System.Net;
 	using Domain.Exceptions;
 
-	public class QueryExecutor : IQueryExecutor
+	public class ApiRequestExecutor : IApiRequestExecutor
     {
-        public string Execute(string address)
+        public string ExecuteRequest(string address)
         {
             try
             {
