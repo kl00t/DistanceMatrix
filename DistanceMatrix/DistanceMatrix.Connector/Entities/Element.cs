@@ -1,18 +1,21 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace DistanceMatrix.Connector.Entities
 {
+
+    using System.Net.Mail;
+
     /// <summary>
     /// Element containing distance and duration.
     /// </summary>
     public class Element
     {
         /// <summary>
-        /// Gets or sets the distance.
+        /// Gets or sets the status.
         /// </summary>
         /// <value>
-        /// The distance.
+        /// The status.
         /// </value>
-        public Distance distance { get; set; }
+        public string status { get; set; }
 
         /// <summary>
         /// Gets or sets the duration.
@@ -23,11 +26,19 @@ namespace DistanceMatrix.Connector.Entities
         public Duration duration { get; set; }
 
         /// <summary>
-        /// Gets or sets the status.
+        /// Gets or sets the distance.
         /// </summary>
         /// <value>
-        /// The status.
+        /// The distance.
         /// </value>
-        public string status { get; set; }
+        public Distance distance { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fare.
+        /// </summary>
+        /// <value>
+        /// The fare.
+        /// </value>
+        public Fare fare { get; set; }
     }
 }

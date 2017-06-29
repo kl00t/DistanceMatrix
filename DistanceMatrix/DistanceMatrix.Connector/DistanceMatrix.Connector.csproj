@@ -53,6 +53,7 @@
     <Compile Include="Entities\DistanceMatrixResponse.cs" />
     <Compile Include="DistanceMatrixConnector.cs" />
     <Compile Include="Entities\Element.cs" />
+    <Compile Include="Entities\Fare.cs" />
     <Compile Include="Entities\Row.cs" />
     <Compile Include="Example.Designer.cs">
       <AutoGen>True</AutoGen>

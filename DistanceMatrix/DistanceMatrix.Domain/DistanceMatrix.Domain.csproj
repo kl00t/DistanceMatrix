@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Avoid.cs" />
     <Compile Include="Enums\ElementStatus.cs" />
     <Compile Include="Enums\EventType.cs" />
     <Compile Include="Enums\Mode.cs" />
     <Compile Include="Enums\ServiceError.cs" />
     <Compile Include="Enums\Status.cs" />
+    <Compile Include="Enums\TrafficModel.cs" />
     <Compile Include="Enums\Units.cs" />
     <Compile Include="Exceptions\DistanceMatrixException.cs" />
     <Compile Include="Exceptions\InvalidRequestException.cs" />
@@ -53,6 +55,8 @@
     <Compile Include="Exceptions\OverQueryLimitException.cs" />
     <Compile Include="Exceptions\RequestDeniedException.cs" />
     <Compile Include="Interfaces\IElement.cs" />
+    <Compile Include="Interfaces\IFare.cs" />
+    <Compile Include="Interfaces\ILanguage.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />
     <Compile Include="Interfaces\IRow.cs" />
     <Compile Include="Models\Distance.cs" />
@@ -64,6 +68,8 @@
     <Compile Include="Interfaces\IDuration.cs" />
     <Compile Include="Interfaces\IDistanceMatrixResponse.cs" />
     <Compile Include="Models\Element.cs" />
+    <Compile Include="Models\Fare.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\RequestHistory.cs" />
     <Compile Include="Models\Row.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
