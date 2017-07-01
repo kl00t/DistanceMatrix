@@ -46,12 +46,15 @@
         [OperationContract]
         ServiceResponse<RequestHistory> GetRequestHistory(Guid requestId);
 
-        /// <summary>
-        /// Replays the request.
-        /// </summary>
-        /// <param name="requestId">The request identifier.</param>
-        /// <returns>Returns the response from the requested history request id.</returns>
-        [OperationContract]
+		[OperationContract]
+		ServiceResponse<DeleteRequestHistoryResponse> DeleteRequestHistory(Guid requestId);
+
+		/// <summary>
+		/// Replays the request.
+		/// </summary>
+		/// <param name="requestId">The request identifier.</param>
+		/// <returns>Returns the response from the requested history request id.</returns>
+		[OperationContract]
         ServiceResponse<DistanceMatrixResponse> ReplayRequest(Guid requestId);
     }
 }

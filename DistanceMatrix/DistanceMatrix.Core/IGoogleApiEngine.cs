@@ -42,5 +42,7 @@
         DistanceMatrixResponse ReplayRequest(Guid requestId);
 
 		DirectionsResponse Directions(DirectionsRequest directionsRequest);
+
+		DeleteRequestHistoryResponse DeleteRequestHistory(Guid requestId);
 	}
 }

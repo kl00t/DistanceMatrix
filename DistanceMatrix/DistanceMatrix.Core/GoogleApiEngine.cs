@@ -11,49 +11,49 @@
 	using Domain.Models;
 
 	public class GoogleApiEngine : IGoogleApiEngine
-    {
-        /// <summary>
-        /// The distance matrix connector.
-        /// </summary>
-        private readonly IDistanceMatrixConnector _distanceMatrixConnector;
+	{
+		/// <summary>
+		/// The distance matrix connector.
+		/// </summary>
+		private readonly IDistanceMatrixConnector _distanceMatrixConnector;
 
 		private readonly IDirectionsConnector _directionsConnector;
 
-        /// <summary>
-        /// The request history repository.
-        /// </summary>
-        private readonly IRequestHistoryRepository _requestHistoryRepository;
+		/// <summary>
+		/// The request history repository.
+		/// </summary>
+		private readonly IRequestHistoryRepository _requestHistoryRepository;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
-        /// </summary>
-        /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
-        /// <param name="requestHistoryRepository">The request history repository.</param>
-        /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
-        public GoogleApiEngine(
-			IDistanceMatrixConnector distanceMatrixConnector, 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
+		/// </summary>
+		/// <param name="distanceMatrixConnector">The distance matrix connector.</param>
+		/// <param name="requestHistoryRepository">The request history repository.</param>
+		/// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
+		public GoogleApiEngine(
+			IDistanceMatrixConnector distanceMatrixConnector,
 			IRequestHistoryRepository requestHistoryRepository,
 			IDirectionsConnector directionsConnector)
-        {
-            if (distanceMatrixConnector == null)
-            {
-                throw new ArgumentNullException("distanceMatrixConnector");
-            }
+		{
+			if (distanceMatrixConnector == null)
+			{
+				throw new ArgumentNullException("distanceMatrixConnector");
+			}
 
-            if (requestHistoryRepository == null)
-            {
-                throw new ArgumentNullException("requestHistoryRepository");
-            }
+			if (requestHistoryRepository == null)
+			{
+				throw new ArgumentNullException("requestHistoryRepository");
+			}
 
 			if (directionsConnector == null)
 			{
 				throw new ArgumentNullException("directionsConnector");
 			}
 
-            _distanceMatrixConnector = distanceMatrixConnector;
-            _requestHistoryRepository = requestHistoryRepository;
+			_distanceMatrixConnector = distanceMatrixConnector;
+			_requestHistoryRepository = requestHistoryRepository;
 			_directionsConnector = directionsConnector;
-        }
+		}
 
 		/// <summary>
 		/// Distances the matrix.
@@ -63,20 +63,20 @@
 		/// Returns distance matrix response.
 		/// </returns>
 		public DistanceMatrixResponse DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest)
-        {
+		{
 			var request = Mapper.Map<Connector.Entities.DistanceMatrixRequest>(distanceMatrixRequest);
 
-            var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(request);
+			var distanceMatrix = _distanceMatrixConnector.DistanceMatrix(request);
 
-            var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
+			var response = Mapper.Map<DistanceMatrixResponse>(distanceMatrix);
 
 			if (CheckResponseStatus(response.Status, response.ErrorMessage))
 			{
 				_requestHistoryRepository.InsertRequestHistory(distanceMatrixRequest);
 			}
 
-            return response;
-        }
+			return response;
+		}
 
 		private bool CheckResponseStatus(Status Status, string ErrorMessage)
 		{
@@ -135,33 +135,51 @@
 		/// Returns the request history.
 		/// </returns>
 		public List<RequestHistory> GetDistanceMatrixRequestHistory()
-        {
-            return _requestHistoryRepository.GetAll().ToList();
-        }
+		{
+			return _requestHistoryRepository.GetAll().ToList();
+		}
 
-        /// <summary>
-        /// Gets the request history.
-        /// </summary>
-        /// <param name="requestId">The request identifier.</param>
-        /// <returns>
-        /// Returns the request history.
-        /// </returns>
-        public RequestHistory GetRequestHistory(Guid requestId)
-        {
-            return _requestHistoryRepository.GetById(requestId);
-        }
+		/// <summary>
+		/// Gets the request history.
+		/// </summary>
+		/// <param name="requestId">The request identifier.</param>
+		/// <returns>
+		/// Returns the request history.
+		/// </returns>
+		public RequestHistory GetRequestHistory(Guid requestId)
+		{
+			return _requestHistoryRepository.GetById(requestId);
+		}
 
-        /// <summary>
-        /// Replays the request.
-        /// </summary>
-        /// <param name="requestId">The request identifier.</param>
-        /// <returns>
-        /// Returns the replayed request.
-        /// </returns>
-        public DistanceMatrixResponse ReplayRequest(Guid requestId)
-        {
-            var requestHistory = GetRequestHistory(requestId);
-            return DistanceMatrix(requestHistory.Request);
-        }
-    }
+		/// <summary>
+		/// Replays the request.
+		/// </summary>
+		/// <param name="requestId">The request identifier.</param>
+		/// <returns>
+		/// Returns the replayed request.
+		/// </returns>
+		public DistanceMatrixResponse ReplayRequest(Guid requestId)
+		{
+			var requestHistory = GetRequestHistory(requestId);
+			return DistanceMatrix(requestHistory.Request);
+		}
+
+		public DeleteRequestHistoryResponse DeleteRequestHistory(Guid requestId)
+		{
+			try
+			{
+				_requestHistoryRepository.Delete(requestId);
+			}
+			catch (Exception exception)
+			{
+				return new DeleteRequestHistoryResponse
+				{
+					Status = Status.UnknownError,
+					ErrorMessage = exception.Message
+				};
+			}
+
+			return new DeleteRequestHistoryResponse();
+		}
+	}
 }

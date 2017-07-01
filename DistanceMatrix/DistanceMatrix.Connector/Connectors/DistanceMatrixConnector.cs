@@ -41,12 +41,12 @@
 
 			if (!string.IsNullOrEmpty(request.mode))
 			{
-				address.AppendFormat("&mode={0}", request.mode);
+				address.AppendFormat("&mode={0}", request.mode.ToLower());
 			}
 
 			if (!string.IsNullOrEmpty(request.units))
 			{
-				address.AppendFormat("&units={0}", request.units);
+				address.AppendFormat("&units={0}", request.units.ToLower());
 			}
 
 			address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("DistanceMatrix_ApiKey"));

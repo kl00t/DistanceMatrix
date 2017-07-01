@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DistanceMatrix.Client.Web.Models.RequestHistoryViewModel>
+@{
+    ViewBag.Title = "Request History";
+}
+<h2>@ViewBag.Title</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Origins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destinations)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Origins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destinations)
+        </td>
+        <td>
+            @Html.ActionLink("Replay", "Replay", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

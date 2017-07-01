@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -67,6 +68,7 @@
     <Compile Include="Interfaces\IRow.cs" />
     <Compile Include="Models\BaseRequest.cs" />
     <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\DeleteRequestHistoryResponse.cs" />
     <Compile Include="Models\DirectionsRequest.cs" />
     <Compile Include="Models\DirectionsResponse.cs" />
     <Compile Include="Models\Distance.cs" />

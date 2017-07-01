@@ -20,27 +20,58 @@
             Console.WriteLine("Enter a destination:");
             var destinations = Console.ReadLine();
 
-            //Console.WriteLine("Enter a transport mode:");
-            //var mode = (Mode)Enum.Parse(typeof(Mode), Console.ReadLine());
-
-            //Console.WriteLine("Imperial or Metric:");
-            //var units = (Units)Enum.Parse(typeof(Units), Console.ReadLine());
-
-            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
-
-			var directionsResponse = serviceClient.Directions(new DirectionsRequest
+			Console.WriteLine("Enter a mode of travel:");
+			Console.WriteLine("(D) Driving | (W) Walking | (B) Bicycling");
+			var modeInput = Console.ReadLine();
+			Mode mode;
+			switch (modeInput.ToString().ToUpper())
 			{
-				Origin = origins,
-				Destination = destinations,
-				Mode = Mode.Driving
-			});
+				case "D":
+					mode = Mode.Driving;
+					break;
+				case "W":
+					mode = Mode.Walking;
+					break;
+				case "B":
+					mode = Mode.Bicycling;
+					break;
+				default:
+					mode = Mode.Walking;
+					break;
+			}
+
+			Console.WriteLine("How would you like results displayed?");
+			Console.WriteLine("(I) Imperial or (M) Metric:");
+			var unitInput = Console.ReadLine();
+			Units units;
+			switch (unitInput.ToString().ToUpper())
+			{
+				case "I":
+					units = Units.Imperial;
+					break;
+				case "M":
+					units = Units.Metric;
+					break;
+				default:
+					units = Units.Metric;
+					break;
+			}
+
+			var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+
+			////var directionsResponse = serviceClient.Directions(new DirectionsRequest
+			////{
+			////	Origin = origins,
+			////	Destination = destinations,
+			////	Mode = Mode.Driving
+			////});
 
 			var distanceMatrixResponse = serviceClient.DistanceMatrix(new DistanceMatrixRequest
             {
                 Origins = origins,
                 Destinations = destinations,
-                Mode = Mode.Driving,
-                Units = Units.Metric
+                Mode = mode,
+                Units = units
             });
 
             if (distanceMatrixResponse.IsSuccessful)

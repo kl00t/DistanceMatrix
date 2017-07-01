@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="56299f96-aec5-4b49-a067-f58520c5e085" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63204/GoogleApiService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GoogleApiService.xsd" MetadataType="Schema" ID="10a4cbd1-c8a6-4e08-9876-d006565855ac" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?xsd=xsd3" />
+    <MetadataFile FileName="GoogleApiService1.xsd" MetadataType="Schema" ID="aba9d4dc-cd3e-4cbb-bfa6-022c8af7f93d" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?xsd=xsd4" />
+    <MetadataFile FileName="GoogleApiService2.xsd" MetadataType="Schema" ID="6a01ea41-1f7b-4184-a567-388023914643" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?xsd=xsd5" />
+    <MetadataFile FileName="GoogleApiService3.xsd" MetadataType="Schema" ID="71d2d62c-b2fb-4995-b491-66ca8f697a6c" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GoogleApiService4.xsd" MetadataType="Schema" ID="bbcf823e-4d4f-43bd-a512-3e8a23945e19" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GoogleApiService.disco" MetadataType="Disco" ID="402b0c7d-49e3-41c4-817b-f8c32db6a789" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?disco" />
+    <MetadataFile FileName="GoogleApiService.wsdl" MetadataType="Wsdl" ID="16c8bcd2-865d-4eaa-809f-e5319549871d" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?wsdl" />
+    <MetadataFile FileName="GoogleApiService5.xsd" MetadataType="Schema" ID="e72566a7-4c91-49fc-b7e2-e3183f21a283" SourceId="1" SourceUrl="http://localhost:63204/GoogleApiService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

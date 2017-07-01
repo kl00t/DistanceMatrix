@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" />
+  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DistanceMatrixRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Destinations" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Mode" type="q1:Mode" />
+      <xs:element minOccurs="0" name="Origins" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Units" type="q2:Units" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DistanceMatrixRequest" nillable="true" type="tns:DistanceMatrixRequest" />
+  <xs:complexType name="DistanceMatrixResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DestinationAddresses" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OriginAddresses" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Rows" nillable="true" type="tns:ArrayOfRow" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DistanceMatrixResponse" nillable="true" type="tns:DistanceMatrixResponse" />
+  <xs:complexType name="BaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Status" type="q5:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseResponse" nillable="true" type="tns:BaseResponse" />
+  <xs:complexType name="ArrayOfRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Row" nillable="true" type="tns:Row" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRow" nillable="true" type="tns:ArrayOfRow" />
+  <xs:complexType name="Row">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Elements" nillable="true" type="tns:ArrayOfElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Row" nillable="true" type="tns:Row" />
+  <xs:complexType name="ArrayOfElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Element" nillable="true" type="tns:Element" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfElement" nillable="true" type="tns:ArrayOfElement" />
+  <xs:complexType name="Element">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Distance" nillable="true" type="tns:Distance" />
+      <xs:element minOccurs="0" name="Duration" nillable="true" type="tns:Duration" />
+      <xs:element minOccurs="0" name="Fare" nillable="true" type="tns:Fare" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Status" type="q6:ElementStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Element" nillable="true" type="tns:Element" />
+  <xs:complexType name="Distance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Distance" nillable="true" type="tns:Distance" />
+  <xs:complexType name="Duration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Duration" nillable="true" type="tns:Duration" />
+  <xs:complexType name="Fare">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fare" nillable="true" type="tns:Fare" />
+  <xs:complexType name="DirectionsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DistanceMatrix.Domain.Enums" minOccurs="0" name="Mode" type="q7:Mode" />
+      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DirectionsRequest" nillable="true" type="tns:DirectionsRequest" />
+  <xs:complexType name="DirectionsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeocodedWaypoints" nillable="true" type="tns:ArrayOfGeocodedWaypoint" />
+          <xs:element minOccurs="0" name="Routes" nillable="true" type="tns:ArrayOfRoute" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DirectionsResponse" nillable="true" type="tns:DirectionsResponse" />
+  <xs:complexType name="ArrayOfGeocodedWaypoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeocodedWaypoint" nillable="true" type="tns:GeocodedWaypoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGeocodedWaypoint" nillable="true" type="tns:ArrayOfGeocodedWaypoint" />
+  <xs:complexType name="GeocodedWaypoint">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GeocodedWaypoint" nillable="true" type="tns:GeocodedWaypoint" />
+  <xs:complexType name="ArrayOfRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Route" nillable="true" type="tns:Route" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoute" nillable="true" type="tns:ArrayOfRoute" />
+  <xs:complexType name="Route">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Route" nillable="true" type="tns:Route" />
+  <xs:complexType name="ArrayOfRequestHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequestHistory" nillable="true" type="tns:ArrayOfRequestHistory" />
+  <xs:complexType name="RequestHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Request" nillable="true" type="tns:DistanceMatrixRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestHistory" nillable="true" type="tns:RequestHistory" />
+  <xs:complexType name="DeleteRequestHistoryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteRequestHistoryResponse" nillable="true" type="tns:DeleteRequestHistoryResponse" />
+</xs:schema>

@@ -1,77 +1,40 @@
-﻿using System.Web.Mvc;
+﻿using DistanceMatrix.Client.Web.Models;
+using DistanceMatrix.Core.Helpers;
+using DistanceMatrix.Domain.Enums;
+using DistanceMatrix.Domain.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace DistanceMatrix.Client.Web.Controllers
 {
 	public class DistanceMatrixController : Controller
-    {
-        // GET: DistanceMatrix
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-		// GET: DistanceMatrix/Create
-		public ActionResult Create()
+	{
+		public ActionResult Index()
 		{
 			return View();
 		}
 
-		// POST: Example/Create
 		[HttpPost]
-		public ActionResult Create(FormCollection collection)
+		public ActionResult Index(DistanceMatrixRequest distanceMatrixRequest)
 		{
-			try
+			var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+			var distanceMatrixResponse = serviceClient.DistanceMatrix(distanceMatrixRequest);
+			if (distanceMatrixResponse.IsSuccessful)
 			{
-				return RedirectToAction("Index");
+				if (distanceMatrixResponse.Response.Status == Status.Ok)
+				{
+					var distanceMatrixResults = ControllerHelper.MapResponseToViewModel(distanceMatrixResponse.Response);
+					return View("Results", distanceMatrixResults);
+				}
 			}
-			catch
-			{
-				return View();
-			}
+
+			return View("Error", distanceMatrixResponse.ErrorMessage);
 		}
 
-		////// GET: Example/Edit/5
-		////public ActionResult Edit(int id)
-		////{
-		////	return View();
-		////}
-
-		////// POST: Example/Edit/5
-		////[HttpPost]
-		////public ActionResult Edit(int id, FormCollection collection)
-		////{
-		////	try
-		////	{
-		////		// TODO: Add update logic here
-
-		////		return RedirectToAction("Index");
-		////	}
-		////	catch
-		////	{
-		////		return View();
-		////	}
-		////}
-
-		////// GET: Example/Delete/5
-		////public ActionResult Delete(int id)
-		////{
-		////	return View();
-		////}
-
-		////// POST: Example/Delete/5
-		////[HttpPost]
-		////public ActionResult Delete(int id, FormCollection collection)
-		////{
-		////	try
-		////	{
-		////		// TODO: Add delete logic here
-
-		////		return RedirectToAction("Index");
-		////	}
-		////	catch
-		////	{
-		////		return View();
-		////	}
-		////}
+		public ActionResult Results(DistanceMatrixResultsViewModel distanceMatrixResults)
+		{
+			return View("Results", distanceMatrixResults);
+		}
 	}
 }

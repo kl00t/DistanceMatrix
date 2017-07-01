@@ -25,7 +25,7 @@
             {
 				using (var webClient = new WebClient())
 				{
-                    return webClient.DownloadString(address);
+					return webClient.DownloadString(address);
 				}
             }
             catch (WebException webException)

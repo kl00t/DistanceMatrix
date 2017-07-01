@@ -14,9 +14,9 @@
 		Walking,
 
 		[EnumMember]
-		Bicycling,
+		Bicycling
 
-		[EnumMember]
-		Transit
+		//[EnumMember]
+		//Transit
 	}
 }

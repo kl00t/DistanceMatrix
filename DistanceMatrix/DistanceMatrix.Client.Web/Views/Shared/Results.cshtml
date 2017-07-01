@@ -1,0 +1,39 @@
+﻿@model DistanceMatrix.Client.Web.Models.DistanceMatrixResultsViewModel
+
+@{
+    ViewBag.Title = "Distance Matrix Results";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Origins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destinations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destinations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Results)
+        </dt>
+
+        <dd>
+            @foreach (var result in Model.Results)
+            {
+                @result
+                @Html.Raw("<br/>")
+            }
+        </dd>
+    </dl>
+</div>

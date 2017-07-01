@@ -44,6 +44,9 @@
         ReplayRequest,
 
 		[EnumMember]
-		Directions
+		Directions,
+
+		[EnumMember]
+		DeleteRequestHistory
 	}
 }

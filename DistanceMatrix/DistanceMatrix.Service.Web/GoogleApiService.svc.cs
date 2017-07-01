@@ -86,5 +86,12 @@
                 () => _distanceMatrixEngine.ReplayRequest(requestId),
                 EventType.ReplayRequest);
         }
-    }
+
+		public ServiceResponse<DeleteRequestHistoryResponse> DeleteRequestHistory(Guid requestId)
+		{
+			return CallEngine(
+				() => _distanceMatrixEngine.DeleteRequestHistory(requestId),
+				EventType.DeleteRequestHistory);
+		}
+	}
 }

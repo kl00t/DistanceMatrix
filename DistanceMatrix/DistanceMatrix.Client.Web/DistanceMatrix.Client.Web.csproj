@@ -144,36 +144,27 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Connected Services\DistanceMatrixServiceReference\Reference.cs">
+    <Compile Include="Connected Services\GoogleApiService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\DirectionsController.cs" />
+    <Compile Include="Controllers\ControllerHelper.cs" />
     <Compile Include="Controllers\DistanceMatrixController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RequestHistoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DistanceMatrixResultsViewModel.cs" />
+    <Compile Include="Models\RequestHistoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfArrayOfRequestHistory2vkm1OUS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfdateTime.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfDistanceMatrixResponse2vkm1OUS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrix.Client.Web.DistanceMatrixServiceReference.ServiceResponseOfRequestHistory2vkm1OUS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService.disco" />
-    <None Include="Connected Services\DistanceMatrixServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\DistanceMatrixServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\DistanceMatrixServiceReference\Reference.svcmap">
+    <None Include="Connected Services\GoogleApiService\GoogleApiService.disco" />
+    <None Include="Connected Services\GoogleApiService\configuration91.svcinfo" />
+    <None Include="Connected Services\GoogleApiService\configuration.svcinfo" />
+    <None Include="Connected Services\GoogleApiService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -188,25 +179,29 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService.wsdl" />
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService.xsd">
+    <Content Include="Properties\DataSources\DistanceMatrix.Domain.Models.DirectionsResponse.datasource" />
+    <Content Include="Properties\DataSources\DistanceMatrix.Domain.Models.DistanceMatrixResponse.datasource" />
+    <Content Include="Properties\DataSources\DistanceMatrix.Domain.Models.RequestHistory.datasource" />
+    <None Include="Connected Services\GoogleApiService\GoogleApiService.wsdl" />
+    <None Include="Connected Services\GoogleApiService\GoogleApiService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService1.xsd">
+    <None Include="Connected Services\GoogleApiService\GoogleApiService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService2.xsd">
+    <None Include="Connected Services\GoogleApiService\GoogleApiService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService3.xsd">
+    <None Include="Connected Services\GoogleApiService\GoogleApiService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService4.xsd">
+    <None Include="Connected Services\GoogleApiService\GoogleApiService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DistanceMatrixServiceReference\DistanceMatrixService5.xsd">
+    <None Include="Connected Services\GoogleApiService\GoogleApiService5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Properties\DataSources\DistanceMatrix.Domain.Models.DeleteRequestHistoryResponse.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -227,18 +222,15 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Directions\Index.cshtml" />
     <Content Include="Views\DistanceMatrix\Index.cshtml" />
-    <Content Include="Views\DistanceMatrix\Create.cshtml" />
-    <Content Include="Views\Directions\Create.cshtml" />
+    <Content Include="Views\Shared\Results.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\RequestHistory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Example\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -259,7 +251,21 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\DistanceMatrixServiceReference\" />
+    <ProjectReference Include="..\DistanceMatrix.Core\DistanceMatrix.Core.csproj">
+      <Project>{754959c8-df7f-4669-8920-d39a2696e576}</Project>
+      <Name>DistanceMatrix.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Domain\DistanceMatrix.Domain.csproj">
+      <Project>{1dd2fbea-52c7-4ed8-8d89-033c0e247861}</Project>
+      <Name>DistanceMatrix.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistanceMatrix.Service.Contracts\DistanceMatrix.Service.Contracts.csproj">
+      <Project>{b2675eb0-6bb1-4f77-a0bb-43892972db00}</Project>
+      <Name>DistanceMatrix.Service.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\GoogleApiService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
