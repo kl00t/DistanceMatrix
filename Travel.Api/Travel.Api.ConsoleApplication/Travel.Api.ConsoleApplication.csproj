@@ -66,6 +66,7 @@
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.DeleteRequestHistoryResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.DirectionsResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.DistanceMatrixResponse.datasource" />
+    <None Include="Properties\DataSources\Travel.Api.Domain.Models.ElevationResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.RequestHistory.datasource" />
     <None Include="Service References\GoogleApiService\GoogleApiService.wsdl" />
     <None Include="Service References\GoogleApiService\GoogleApiService.xsd">

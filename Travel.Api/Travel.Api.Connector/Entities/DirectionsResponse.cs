@@ -1,4 +1,5 @@
-﻿namespace Travel.Api.Connector.Entities
+﻿// ReSharper disable InconsistentNaming
+namespace Travel.Api.Connector.Entities
 {
     public class DirectionsResponse : BaseResponse
     {

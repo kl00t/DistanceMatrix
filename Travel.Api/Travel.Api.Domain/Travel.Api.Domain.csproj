@@ -60,9 +60,13 @@
     <Compile Include="Interfaces\IDirectionsRequest.cs" />
     <Compile Include="Interfaces\IDirectionsResponse.cs" />
     <Compile Include="Interfaces\IElement.cs" />
+    <Compile Include="Interfaces\IElevation.cs" />
+    <Compile Include="Interfaces\IElevationRequest.cs" />
+    <Compile Include="Interfaces\IElevationResponse.cs" />
     <Compile Include="Interfaces\IFare.cs" />
     <Compile Include="Interfaces\IGeocodedWaypoint.cs" />
     <Compile Include="Interfaces\ILanguage.cs" />
+    <Compile Include="Interfaces\ILocation.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />
     <Compile Include="Interfaces\IRoute.cs" />
     <Compile Include="Interfaces\IRow.cs" />
@@ -80,9 +84,13 @@
     <Compile Include="Interfaces\IDuration.cs" />
     <Compile Include="Interfaces\IDistanceMatrixResponse.cs" />
     <Compile Include="Models\Element.cs" />
+    <Compile Include="Models\Elevation.cs" />
+    <Compile Include="Models\ElevationRequest.cs" />
+    <Compile Include="Models\ElevationResponse.cs" />
     <Compile Include="Models\Fare.cs" />
     <Compile Include="Models\GeocodedWaypoint.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\RequestHistory.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Row.cs" />

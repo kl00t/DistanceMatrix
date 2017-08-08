@@ -33,6 +33,12 @@ namespace Travel.Api.ConsoleApplication.GoogleApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Directions", ReplyAction="http://tempuri.org/IGoogleApiService/DirectionsResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DirectionsResponse>> DirectionsAsync(Travel.Api.Domain.Models.DirectionsRequest directionsRequest);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Elevation", ReplyAction="http://tempuri.org/IGoogleApiService/ElevationResponse")]
+        Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.ElevationResponse> Elevation(Travel.Api.Domain.Models.ElevationRequest elevationRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Elevation", ReplyAction="http://tempuri.org/IGoogleApiService/ElevationResponse")]
+        System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.ElevationResponse>> ElevationAsync(Travel.Api.Domain.Models.ElevationRequest elevationRequest);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory();
         
@@ -107,6 +113,14 @@ namespace Travel.Api.ConsoleApplication.GoogleApiService {
         
         public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DirectionsResponse>> DirectionsAsync(Travel.Api.Domain.Models.DirectionsRequest directionsRequest) {
             return base.Channel.DirectionsAsync(directionsRequest);
+        }
+        
+        public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.ElevationResponse> Elevation(Travel.Api.Domain.Models.ElevationRequest elevationRequest) {
+            return base.Channel.Elevation(elevationRequest);
+        }
+        
+        public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.ElevationResponse>> ElevationAsync(Travel.Api.Domain.Models.ElevationRequest elevationRequest) {
+            return base.Channel.ElevationAsync(elevationRequest);
         }
         
         public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory() {

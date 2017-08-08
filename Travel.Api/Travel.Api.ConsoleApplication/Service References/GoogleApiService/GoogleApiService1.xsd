@@ -119,6 +119,43 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="Route" nillable="true" type="tns:Route" />
+  <xs:complexType name="ElevationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ElevationRequest" nillable="true" type="tns:ElevationRequest" />
+  <xs:complexType name="ElevationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfElevation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ElevationResponse" nillable="true" type="tns:ElevationResponse" />
+  <xs:complexType name="ArrayOfElevation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Elevation" nillable="true" type="tns:Elevation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfElevation" nillable="true" type="tns:ArrayOfElevation" />
+  <xs:complexType name="Elevation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="Resolution" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Elevation" nillable="true" type="tns:Elevation" />
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location" nillable="true" type="tns:Location" />
   <xs:complexType name="ArrayOfRequestHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />

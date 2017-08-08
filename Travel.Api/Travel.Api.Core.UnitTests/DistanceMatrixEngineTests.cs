@@ -43,6 +43,11 @@
         private Mock<IRequestHistoryRepository> _mockRequestHistoryRepository;
 
         /// <summary>
+        /// The mock elevation connector.
+        /// </summary>
+        private Mock<IElevationConnector> _mockElevationConnector;
+
+        /// <summary>
         /// Initializes this instance.
         /// </summary>
         [TestFixtureSetUp]
@@ -61,11 +66,13 @@
             _mockDistanceMatrixConnector = new Mock<IDistanceMatrixConnector>();
             _mockRequestHistoryRepository = new Mock<IRequestHistoryRepository>();
 			_mockDirectionsConnector = new Mock<IDirectionsConnector>();
+            _mockElevationConnector = new Mock<IElevationConnector>();
 
             _distanceMatrixEngine = new GoogleApiEngine(
                 _mockDistanceMatrixConnector.Object, 
                 _mockRequestHistoryRepository.Object,
-				_mockDirectionsConnector.Object);
+				_mockDirectionsConnector.Object,
+                _mockElevationConnector.Object);
         }
 
         /// <summary>
@@ -79,7 +86,8 @@
             new GoogleApiEngine(
 				null, 
 				new Mock<IRequestHistoryRepository>().Object,
-				new Mock<IDirectionsConnector>().Object);
+				new Mock<IDirectionsConnector>().Object,
+                new Mock<IElevationConnector>().Object);
         }
 
         /// <summary>
@@ -93,7 +101,8 @@
             new GoogleApiEngine(
 				new Mock<IDistanceMatrixConnector>().Object, 
 				null,
-				new Mock<IDirectionsConnector>().Object);
+				new Mock<IDirectionsConnector>().Object,
+                new Mock<IElevationConnector>().Object);
         }
 
         /// <summary>

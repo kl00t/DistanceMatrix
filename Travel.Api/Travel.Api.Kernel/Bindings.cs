@@ -16,6 +16,7 @@
 			Bind<IGoogleApiEngine>().To<GoogleApiEngine>();
 			Bind<IDistanceMatrixConnector>().To<DistanceMatrixConnector>();
             Bind<IDirectionsConnector>().To<DirectionsConnector>();
+            Bind<IElevationConnector>().To<ElevationConnector>();
 
             Bind<IApiRequestExecutor>().To<ApiRequestExecutor>();
 			//Bind<IQueryExecutor>().To<MockQueryExecutor>();

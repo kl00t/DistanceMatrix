@@ -48,6 +48,9 @@
 		Directions,
 
 		[EnumMember]
-		DeleteRequestHistory
-	}
+		DeleteRequestHistory,
+
+        [EnumMember]
+        Elevation
+    }
 }

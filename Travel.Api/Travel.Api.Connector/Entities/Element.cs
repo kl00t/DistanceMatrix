@@ -1,7 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace Travel.Api.Connector.Entities
 {
-
     /// <summary>
     /// Element containing distance and duration.
     /// </summary>

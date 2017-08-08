@@ -25,7 +25,7 @@
 			Console.WriteLine("(D) Driving | (W) Walking | (B) Bicycling");
 			var modeInput = Console.ReadLine();
 			Mode mode;
-			switch (modeInput.ToString().ToUpper())
+			switch (modeInput.ToUpper())
 			{
 				case "D":
 					mode = Mode.Driving;
@@ -45,7 +45,7 @@
 			Console.WriteLine("(I) Imperial or (M) Metric:");
 			var unitInput = Console.ReadLine();
 			Units units;
-			switch (unitInput.ToString().ToUpper())
+			switch (unitInput.ToUpper())
 			{
 				case "I":
 					units = Units.Imperial;
@@ -60,14 +60,20 @@
 
 			var serviceClient = new GoogleApiService.GoogleApiServiceClient();
 
-			////var directionsResponse = serviceClient.Directions(new DirectionsRequest
-			////{
-			////	Origin = origins,
-			////	Destination = destinations,
-			////	Mode = Mode.Driving
-			////});
+            ////var directionsResponse = serviceClient.Directions(new DirectionsRequest
+            ////{
+            ////	Origin = origins,
+            ////	Destination = destinations,
+            ////	Mode = Mode.Driving
+            ////});
 
-			var distanceMatrixResponse = serviceClient.DistanceMatrix(new DistanceMatrixRequest
+            ////var elevationResponse = serviceClient.Elevation(new ElevationRequest
+            ////{
+            ////    Latitude = "39.73915360",
+            ////    Longitude = "-104.98470340"
+            ////});
+
+            var distanceMatrixResponse = serviceClient.DistanceMatrix(new DistanceMatrixRequest
             {
                 Origins = origins,
                 Destinations = destinations,

@@ -42,8 +42,31 @@
         /// </returns>
         DistanceMatrixResponse ReplayRequest(Guid requestId);
 
-		DirectionsResponse Directions(DirectionsRequest directionsRequest);
+        /// <summary>
+        /// Directionses the specified directions request.
+        /// </summary>
+        /// <param name="directionsRequest">The directions request.</param>
+        /// <returns>
+        /// Returns the directions.
+        /// </returns>
+        DirectionsResponse Directions(DirectionsRequest directionsRequest);
 
-		DeleteRequestHistoryResponse DeleteRequestHistory(Guid requestId);
-	}
+        /// <summary>
+        /// Deletes the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the response when request history is deleted.
+        /// </returns>
+        DeleteRequestHistoryResponse DeleteRequestHistory(Guid requestId);
+
+        /// <summary>
+        /// Elevations the specified elevation request.
+        /// </summary>
+        /// <param name="elevationRequest">The elevation request.</param>
+        /// <returns>
+        /// Returns the elevation data.
+        /// </returns>
+        ElevationResponse Elevation(ElevationRequest elevationRequest);
+    }
 }

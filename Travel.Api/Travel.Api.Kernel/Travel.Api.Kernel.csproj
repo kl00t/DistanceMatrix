@@ -61,6 +61,10 @@
     <Compile Include="Mappings\DirectionsMapping.cs" />
     <Compile Include="Mappings\DistanceMatrixMappings.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Mappings\ElevationMapping.cs" />
+    <Compile Include="Resolvers\LatitudeResolver.cs" />
+    <Compile Include="Resolvers\LongitudeResolver.cs" />
+    <Compile Include="Resolvers\LocationsResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolvers\ElementStatusResolver.cs" />
     <Compile Include="Resolvers\StatusResolver.cs" />

@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Core
 {
-
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -18,23 +17,34 @@
 		/// </summary>
 		private readonly IDistanceMatrixConnector _distanceMatrixConnector;
 
-		private readonly IDirectionsConnector _directionsConnector;
+        /// <summary>
+        /// The directions connector
+        /// </summary>
+        private readonly IDirectionsConnector _directionsConnector;
 
-		/// <summary>
-		/// The request history repository.
-		/// </summary>
-		private readonly IRequestHistoryRepository _requestHistoryRepository;
+        /// <summary>
+        /// The elevation connector
+        /// </summary>
+        private readonly IElevationConnector _elevationConnector;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
-		/// </summary>
-		/// <param name="distanceMatrixConnector">The distance matrix connector.</param>
-		/// <param name="requestHistoryRepository">The request history repository.</param>
-		/// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
-		public GoogleApiEngine(
+        /// <summary>
+        /// The request history repository.
+        /// </summary>
+        private readonly IRequestHistoryRepository _requestHistoryRepository;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
+        /// </summary>
+        /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
+        /// <param name="requestHistoryRepository">The request history repository.</param>
+        /// <param name="directionsConnector">The directions connector.</param>
+        /// <param name="elevationConnector">The elevation connector.</param>
+        /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
+        public GoogleApiEngine(
 			IDistanceMatrixConnector distanceMatrixConnector,
 			IRequestHistoryRepository requestHistoryRepository,
-			IDirectionsConnector directionsConnector)
+			IDirectionsConnector directionsConnector,
+            IElevationConnector elevationConnector)
 		{
 			if (distanceMatrixConnector == null)
 			{
@@ -51,9 +61,15 @@
 				throw new ArgumentNullException("directionsConnector");
 			}
 
+            if (elevationConnector == null)
+            {
+                throw new ArgumentNullException("elevationConnector");
+            }
+
 			_distanceMatrixConnector = distanceMatrixConnector;
 			_requestHistoryRepository = requestHistoryRepository;
 			_directionsConnector = directionsConnector;
+            _elevationConnector = elevationConnector;
 		}
 
 		/// <summary>
@@ -79,108 +95,115 @@
 			return response;
 		}
 
-		private bool CheckResponseStatus(Status Status, string ErrorMessage)
-		{
-			if (Status == Status.Ok)
-			{
-				return true;
-			}
+        public DirectionsResponse Directions(DirectionsRequest directionsRequest)
+        {
+            var request = Mapper.Map<Connector.Entities.DirectionsRequest>(directionsRequest);
 
-			if (Status == Status.InvalidRequest)
-			{
-				throw new InvalidRequestException(ErrorMessage);
-			}
+            var directions = _directionsConnector.Directions(request);
 
-			if (Status == Status.MaxElementsExceeded)
-			{
-				throw new MaxElementsExceededException(ErrorMessage);
-			}
+            var response = Mapper.Map<DirectionsResponse>(directions);
 
-			if (Status == Status.OverQueryLimit)
-			{
-				throw new OverQueryLimitException(ErrorMessage);
-			}
+            if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            {
+            }
 
-			if (Status == Status.RequestDenied)
-			{
-				throw new RequestDeniedException(ErrorMessage);
-			}
+            return response;
+        }
 
-			if (Status == Status.RequestDenied)
-			{
-				throw new GoogleApiException(ErrorMessage);
-			}
+        /// <summary>
+        /// Elevations the specified elevation request.
+        /// </summary>
+        /// <param name="elevationRequest">The elevation request.</param>
+        /// <returns>
+        /// Returns the elevation data.
+        /// </returns>
+        public ElevationResponse Elevation(ElevationRequest elevationRequest)
+        {
+            var request = Mapper.Map<Connector.Entities.ElevationRequest>(elevationRequest);
 
-			return true;
-		}
+            var elevation = _elevationConnector.Elevation(request);
 
-		public DirectionsResponse Directions(DirectionsRequest directionsRequest)
-		{
-			var request = Mapper.Map<Connector.Entities.DirectionsRequest>(directionsRequest);
+            var response = Mapper.Map<ElevationResponse>(elevation);
 
-			var directions = _directionsConnector.Directions(request);
+            if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            {
+            }
 
-			var response = Mapper.Map<DirectionsResponse>(directions);
+            return response;
+        }
 
-			if (CheckResponseStatus(response.Status, response.ErrorMessage))
-			{
-			}
+        /// <summary>
+        /// Gets the distance matrix request history.
+        /// </summary>
+        /// <returns>
+        /// Returns the request history.
+        /// </returns>
+        public List<RequestHistory> GetDistanceMatrixRequestHistory()
+        {
+            return _requestHistoryRepository.GetAll().ToList();
+        }
 
-			return response;
-		}
+        /// <summary>
+        /// Gets the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the request history.
+        /// </returns>
+        public RequestHistory GetRequestHistory(Guid requestId)
+        {
+            return _requestHistoryRepository.GetById(requestId);
+        }
 
-		/// <summary>
-		/// Gets the distance matrix request history.
-		/// </summary>
-		/// <returns>
-		/// Returns the request history.
-		/// </returns>
-		public List<RequestHistory> GetDistanceMatrixRequestHistory()
-		{
-			return _requestHistoryRepository.GetAll().ToList();
-		}
+        /// <summary>
+        /// Replays the request.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the replayed request.
+        /// </returns>
+        public DistanceMatrixResponse ReplayRequest(Guid requestId)
+        {
+            var requestHistory = GetRequestHistory(requestId);
+            return DistanceMatrix(requestHistory.Request);
+        }
 
-		/// <summary>
-		/// Gets the request history.
-		/// </summary>
-		/// <param name="requestId">The request identifier.</param>
-		/// <returns>
-		/// Returns the request history.
-		/// </returns>
-		public RequestHistory GetRequestHistory(Guid requestId)
-		{
-			return _requestHistoryRepository.GetById(requestId);
-		}
+        public DeleteRequestHistoryResponse DeleteRequestHistory(Guid requestId)
+        {
+            try
+            {
+                _requestHistoryRepository.Delete(requestId);
+            }
+            catch (Exception exception)
+            {
+                return new DeleteRequestHistoryResponse
+                {
+                    Status = Status.UnknownError, ErrorMessage = exception.Message
+                };
+            }
 
-		/// <summary>
-		/// Replays the request.
-		/// </summary>
-		/// <param name="requestId">The request identifier.</param>
-		/// <returns>
-		/// Returns the replayed request.
-		/// </returns>
-		public DistanceMatrixResponse ReplayRequest(Guid requestId)
-		{
-			var requestHistory = GetRequestHistory(requestId);
-			return DistanceMatrix(requestHistory.Request);
-		}
+            return new DeleteRequestHistoryResponse();
+        }
 
-		public DeleteRequestHistoryResponse DeleteRequestHistory(Guid requestId)
-		{
-			try
-			{
-				_requestHistoryRepository.Delete(requestId);
-			}
-			catch (Exception exception)
-			{
-				return new DeleteRequestHistoryResponse
-				{
-					Status = Status.UnknownError,
-					ErrorMessage = exception.Message
-				};
-			}
-
-			return new DeleteRequestHistoryResponse();
-		}
-	}
+        private static bool CheckResponseStatus(Status status, string errorMessage)
+        {
+            switch (status)
+            {
+                case Status.Ok:
+                    return true;
+                case Status.InvalidRequest:
+                    throw new InvalidRequestException(errorMessage);
+                case Status.MaxElementsExceeded:
+                    throw new MaxElementsExceededException(errorMessage);
+                case Status.OverQueryLimit:
+                    throw new OverQueryLimitException(errorMessage);
+                case Status.RequestDenied:
+                    throw new RequestDeniedException(errorMessage);
+                case Status.UnknownError:
+                    throw new GoogleApiException(errorMessage);
+                default:
+                    return true;
+            }
+        }
+    }
 }

@@ -15,6 +15,7 @@
         protected override void Configure()
         {
             Mapper.CreateMap<string, string[]>().ConvertUsing<StringFormatConverter>();
+
             Mapper.CreateMap<string[], List<string>>().ConvertUsing<StringFormatConverter>();
 
             Mapper.CreateMap<Domain.Models.DistanceMatrixRequest, Domain.Models.RequestHistory>()

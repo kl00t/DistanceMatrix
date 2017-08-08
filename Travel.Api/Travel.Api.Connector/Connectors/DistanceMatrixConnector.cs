@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Connector.Connectors
 {
-
     using System;
     using System.Text;
     using System.Web;

@@ -27,10 +27,25 @@
         [OperationContract]
         ServiceResponse<DistanceMatrixResponse> DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest);
 
-		[OperationContract]
+        /// <summary>
+        /// Directionses the specified directions request.
+        /// </summary>
+        /// <param name="directionsRequest">The directions request.</param>
+        /// <returns>
+        /// Returns the directions.
+        /// </returns>
+        [OperationContract]
 		ServiceResponse<DirectionsResponse> Directions(DirectionsRequest directionsRequest);
 
         /// <summary>
+        /// Elevations the specified elevation request.
+        /// </summary>
+        /// <param name="elevationRequest">The elevation request.</param>
+        /// <returns>Returns the elevation data.</returns>
+        [OperationContract]
+        ServiceResponse<ElevationResponse> Elevation(ElevationRequest elevationRequest);
+
+            /// <summary>
         /// Gets the distance matrix request history.
         /// </summary>
         /// <returns>

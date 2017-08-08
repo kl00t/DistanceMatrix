@@ -47,12 +47,33 @@
                 EventType.DistanceMatrix);
         }
 
-		public ServiceResponse<DirectionsResponse> Directions(DirectionsRequest directionsRequest)
+        /// <summary>
+        /// Directionses the specified directions request.
+        /// </summary>
+        /// <param name="directionsRequest">The directions request.</param>
+        /// <returns>
+        /// Returns the directions.
+        /// </returns>
+        public ServiceResponse<DirectionsResponse> Directions(DirectionsRequest directionsRequest)
 		{
 			return CallEngine(
 				() => _distanceMatrixEngine.Directions(directionsRequest),
 				EventType.Directions);
 		}
+
+        /// <summary>
+        /// Elevations the specified elevation request.
+        /// </summary>
+        /// <param name="elevationRequest">The elevation request.</param>
+        /// <returns>
+        /// Returns the elevation data.
+        /// </returns>
+        public ServiceResponse<ElevationResponse> Elevation(ElevationRequest elevationRequest)
+        {
+            return CallEngine(
+                () => _distanceMatrixEngine.Elevation(elevationRequest),
+                EventType.Elevation);
+        }
 
         /// <summary>
         /// Gets the distance matrix request history.
