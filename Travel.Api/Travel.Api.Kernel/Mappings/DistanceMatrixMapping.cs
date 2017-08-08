@@ -7,7 +7,7 @@
     using Converters;
     using Resolvers;
 
-    public class DistanceMatrixMappings : Profile
+    public class DistanceMatrixMapping : Profile
     {
         /// <summary>
         /// The configure.

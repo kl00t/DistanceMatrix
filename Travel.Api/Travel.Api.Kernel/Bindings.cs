@@ -17,6 +17,7 @@
 			Bind<IDistanceMatrixConnector>().To<DistanceMatrixConnector>();
             Bind<IDirectionsConnector>().To<DirectionsConnector>();
             Bind<IElevationConnector>().To<ElevationConnector>();
+            Bind<ITimezoneConnector>().To<TimezoneConnector>();
 
             Bind<IApiRequestExecutor>().To<ApiRequestExecutor>();
 			//Bind<IQueryExecutor>().To<MockQueryExecutor>();

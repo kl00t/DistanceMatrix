@@ -51,6 +51,9 @@
 		DeleteRequestHistory,
 
         [EnumMember]
-        Elevation
+        Elevation,
+
+        [EnumMember]
+        Timezone
     }
 }

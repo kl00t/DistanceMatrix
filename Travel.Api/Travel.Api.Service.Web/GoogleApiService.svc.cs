@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Service.Web
 {
-
     using System;
     using System.Collections.Generic;
     using Contracts;
@@ -15,22 +14,22 @@
         /// <summary>
         /// The distance matrix engine
         /// </summary>
-        private readonly IGoogleApiEngine _distanceMatrixEngine;
+        private readonly IGoogleApiEngine _apiEngine;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GoogleApiService"/> class.
         /// </summary>
-        /// <param name="distanceMatrixEngine">The distance matrix engine.</param>
+        /// <param name="apiEngine">The distance matrix engine.</param>
         /// <param name="logger">The logger.</param>
-        /// <exception cref="System.ArgumentNullException">distanceMatrixEngine</exception>
-        public GoogleApiService(IGoogleApiEngine distanceMatrixEngine, ILogger logger) : base(logger)
+        /// <exception cref="System.ArgumentNullException">apiEngine</exception>
+        public GoogleApiService(IGoogleApiEngine apiEngine, ILogger logger) : base(logger)
         {
-            if (distanceMatrixEngine == null)
+            if (apiEngine == null)
             {
-                throw new ArgumentNullException("distanceMatrixEngine");
+                throw new ArgumentNullException("apiEngine");
             }
 
-            _distanceMatrixEngine = distanceMatrixEngine;
+            _apiEngine = apiEngine;
         }
 
         /// <summary>
@@ -43,7 +42,7 @@
         public ServiceResponse<DistanceMatrixResponse> DistanceMatrix(DistanceMatrixRequest distanceMatrixRequest)
         {
             return CallEngine(
-                () => _distanceMatrixEngine.DistanceMatrix(distanceMatrixRequest),
+                () => _apiEngine.DistanceMatrix(distanceMatrixRequest),
                 EventType.DistanceMatrix);
         }
 
@@ -57,7 +56,7 @@
         public ServiceResponse<DirectionsResponse> Directions(DirectionsRequest directionsRequest)
 		{
 			return CallEngine(
-				() => _distanceMatrixEngine.Directions(directionsRequest),
+				() => _apiEngine.Directions(directionsRequest),
 				EventType.Directions);
 		}
 
@@ -71,8 +70,22 @@
         public ServiceResponse<ElevationResponse> Elevation(ElevationRequest elevationRequest)
         {
             return CallEngine(
-                () => _distanceMatrixEngine.Elevation(elevationRequest),
+                () => _apiEngine.Elevation(elevationRequest),
                 EventType.Elevation);
+        }
+
+        /// <summary>
+        /// Timezones the specified timezone request.
+        /// </summary>
+        /// <param name="timezoneRequest">The timezone request.</param>
+        /// <returns>
+        /// Returns the timezone response.
+        /// </returns>
+        public ServiceResponse<TimezoneResponse> Timezone(TimezoneRequest timezoneRequest)
+        {
+            return CallEngine(
+                () => _apiEngine.Timezone(timezoneRequest),
+                EventType.Timezone);
         }
 
         /// <summary>
@@ -84,7 +97,7 @@
         public ServiceResponse<List<RequestHistory>> GetDistanceMatrixRequestHistory()
         {
             return CallEngine(
-                () => _distanceMatrixEngine.GetDistanceMatrixRequestHistory(),
+                () => _apiEngine.GetDistanceMatrixRequestHistory(),
                 EventType.GetDistanceMatrixRequestHistory);
         }
 
@@ -98,21 +111,33 @@
         public ServiceResponse<RequestHistory> GetRequestHistory(Guid requestId)
         {
             return CallEngine(
-                () => _distanceMatrixEngine.GetRequestHistory(requestId),
+                () => _apiEngine.GetRequestHistory(requestId),
                 EventType.GetRequestHistory);
         }
 
+        /// <summary>
+        /// Replays the request.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns>
+        /// Returns the response from the requested history request id.
+        /// </returns>
         public ServiceResponse<DistanceMatrixResponse> ReplayRequest(Guid requestId)
         {
             return CallEngine(
-                () => _distanceMatrixEngine.ReplayRequest(requestId),
+                () => _apiEngine.ReplayRequest(requestId),
                 EventType.ReplayRequest);
         }
 
-		public ServiceResponse<DeleteRequestHistoryResponse> DeleteRequestHistory(Guid requestId)
+        /// <summary>
+        /// Deletes the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns></returns>
+        public ServiceResponse<DeleteRequestHistoryResponse> DeleteRequestHistory(Guid requestId)
 		{
 			return CallEngine(
-				() => _distanceMatrixEngine.DeleteRequestHistory(requestId),
+				() => _apiEngine.DeleteRequestHistory(requestId),
 				EventType.DeleteRequestHistory);
 		}
 	}

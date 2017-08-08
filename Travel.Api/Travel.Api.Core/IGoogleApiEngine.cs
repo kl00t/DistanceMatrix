@@ -68,5 +68,14 @@
         /// Returns the elevation data.
         /// </returns>
         ElevationResponse Elevation(ElevationRequest elevationRequest);
+
+        /// <summary>
+        /// Timezones the specified timezone request.
+        /// </summary>
+        /// <param name="timezoneRequest">The timezone request.</param>
+        /// <returns>
+        /// Returns the timezone.
+        /// </returns>
+        TimezoneResponse Timezone(TimezoneRequest timezoneRequest);
     }
 }

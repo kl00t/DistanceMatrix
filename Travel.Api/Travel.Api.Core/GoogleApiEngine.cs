@@ -33,18 +33,25 @@
         private readonly IRequestHistoryRepository _requestHistoryRepository;
 
         /// <summary>
+        /// The timezone connector.
+        /// </summary>
+        private readonly ITimezoneConnector _timezoneConnector;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
         /// </summary>
         /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
         /// <param name="requestHistoryRepository">The request history repository.</param>
         /// <param name="directionsConnector">The directions connector.</param>
         /// <param name="elevationConnector">The elevation connector.</param>
+        /// <param name="timezoneConnector">The timezone connector.</param>
         /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
         public GoogleApiEngine(
-			IDistanceMatrixConnector distanceMatrixConnector,
-			IRequestHistoryRepository requestHistoryRepository,
-			IDirectionsConnector directionsConnector,
-            IElevationConnector elevationConnector)
+            IDistanceMatrixConnector distanceMatrixConnector, 
+            IRequestHistoryRepository requestHistoryRepository, 
+            IDirectionsConnector directionsConnector, 
+            IElevationConnector elevationConnector, 
+            ITimezoneConnector timezoneConnector)
 		{
 			if (distanceMatrixConnector == null)
 			{
@@ -66,10 +73,16 @@
                 throw new ArgumentNullException("elevationConnector");
             }
 
-			_distanceMatrixConnector = distanceMatrixConnector;
+            if (timezoneConnector == null)
+            {
+                throw new ArgumentNullException("timezoneConnector");
+            }
+
+            _distanceMatrixConnector = distanceMatrixConnector;
 			_requestHistoryRepository = requestHistoryRepository;
 			_directionsConnector = directionsConnector;
             _elevationConnector = elevationConnector;
+            _timezoneConnector = timezoneConnector;
 		}
 
 		/// <summary>
@@ -124,6 +137,28 @@
             var elevation = _elevationConnector.Elevation(request);
 
             var response = Mapper.Map<ElevationResponse>(elevation);
+
+            if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            {
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Timezones the specified timezone request.
+        /// </summary>
+        /// <param name="timezoneRequest">The timezone request.</param>
+        /// <returns>
+        /// Returns the timezone.
+        /// </returns>
+        public TimezoneResponse Timezone(TimezoneRequest timezoneRequest)
+        {
+            var request = Mapper.Map<Connector.Entities.TimezoneRequest>(timezoneRequest);
+
+            var timezone = _timezoneConnector.Timezone(request);
+
+            var response = Mapper.Map<TimezoneResponse>(timezone);
 
             if (CheckResponseStatus(response.Status, response.ErrorMessage))
             {

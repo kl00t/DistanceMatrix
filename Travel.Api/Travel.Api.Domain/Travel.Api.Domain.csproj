@@ -70,6 +70,8 @@
     <Compile Include="Interfaces\IRequestHistory.cs" />
     <Compile Include="Interfaces\IRoute.cs" />
     <Compile Include="Interfaces\IRow.cs" />
+    <Compile Include="Interfaces\ITimezoneRequest.cs" />
+    <Compile Include="Interfaces\ITimezoneResponse.cs" />
     <Compile Include="Models\BaseRequest.cs" />
     <Compile Include="Models\BaseResponse.cs" />
     <Compile Include="Models\DeleteRequestHistoryResponse.cs" />
@@ -94,6 +96,8 @@
     <Compile Include="Models\RequestHistory.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\TimezoneRequest.cs" />
+    <Compile Include="Models\TimezoneResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

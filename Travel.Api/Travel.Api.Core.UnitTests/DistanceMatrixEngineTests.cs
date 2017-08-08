@@ -48,6 +48,11 @@
         private Mock<IElevationConnector> _mockElevationConnector;
 
         /// <summary>
+        /// The mock timezone connector.
+        /// </summary>
+        private Mock<ITimezoneConnector> _mockTimezoneConnector;
+
+        /// <summary>
         /// Initializes this instance.
         /// </summary>
         [TestFixtureSetUp]
@@ -67,12 +72,14 @@
             _mockRequestHistoryRepository = new Mock<IRequestHistoryRepository>();
 			_mockDirectionsConnector = new Mock<IDirectionsConnector>();
             _mockElevationConnector = new Mock<IElevationConnector>();
+            _mockTimezoneConnector = new Mock<ITimezoneConnector>();
 
             _distanceMatrixEngine = new GoogleApiEngine(
                 _mockDistanceMatrixConnector.Object, 
                 _mockRequestHistoryRepository.Object,
 				_mockDirectionsConnector.Object,
-                _mockElevationConnector.Object);
+                _mockElevationConnector.Object, 
+                _mockTimezoneConnector.Object);
         }
 
         /// <summary>
@@ -87,7 +94,8 @@
 				null, 
 				new Mock<IRequestHistoryRepository>().Object,
 				new Mock<IDirectionsConnector>().Object,
-                new Mock<IElevationConnector>().Object);
+                new Mock<IElevationConnector>().Object, 
+                new Mock<ITimezoneConnector>().Object);
         }
 
         /// <summary>
@@ -102,7 +110,8 @@
 				new Mock<IDistanceMatrixConnector>().Object, 
 				null,
 				new Mock<IDirectionsConnector>().Object,
-                new Mock<IElevationConnector>().Object);
+                new Mock<IElevationConnector>().Object, 
+                new Mock<ITimezoneConnector>().Object);
         }
 
         /// <summary>

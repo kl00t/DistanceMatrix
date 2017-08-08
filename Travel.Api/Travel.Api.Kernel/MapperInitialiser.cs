@@ -28,7 +28,7 @@
         /// </param>
         private static void GetConfiguration(IConfiguration configuration)
         {
-            var profiles = typeof(DistanceMatrixMappings).Assembly.GetTypes().Where(x => typeof(Profile).IsAssignableFrom(x));
+            var profiles = typeof(DistanceMatrixMapping).Assembly.GetTypes().Where(x => typeof(Profile).IsAssignableFrom(x));
             foreach (var profile in profiles)
             {
                 configuration.AddProfile(Activator.CreateInstance(profile) as Profile);

@@ -45,6 +45,16 @@
         [OperationContract]
         ServiceResponse<ElevationResponse> Elevation(ElevationRequest elevationRequest);
 
+        /// <summary>
+        /// Timezones the specified timezone request.
+        /// </summary>
+        /// <param name="timezoneRequest">The timezone request.</param>
+        /// <returns>
+        /// Returns the timezone response.
+        /// </returns>
+        [OperationContract]
+        ServiceResponse<TimezoneResponse> Timezone(TimezoneRequest timezoneRequest);
+
             /// <summary>
         /// Gets the distance matrix request history.
         /// </summary>

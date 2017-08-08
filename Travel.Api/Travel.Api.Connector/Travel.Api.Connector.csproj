@@ -49,6 +49,7 @@
     <Compile Include="ConfigurationHelper.cs" />
     <Compile Include="Connectors\DirectionsConnector.cs" />
     <Compile Include="Connectors\ElevationConnector.cs" />
+    <Compile Include="Connectors\TimezoneConnector.cs" />
     <Compile Include="Entities\BaseRequest.cs" />
     <Compile Include="Entities\BaseResponse.cs" />
     <Compile Include="Entities\DistanceMatrixRequest.cs" />
