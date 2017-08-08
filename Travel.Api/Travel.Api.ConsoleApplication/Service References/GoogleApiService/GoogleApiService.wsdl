@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GoogleApiService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" />
+      <xsd:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" />
+      <xsd:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" />
+      <xsd:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGoogleApiService_Heartbeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:Heartbeat" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Heartbeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HeartbeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_DistanceMatrix_InputMessage">
+    <wsdl:part name="parameters" element="tns:DistanceMatrix" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_DistanceMatrix_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DistanceMatrixResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Directions_InputMessage">
+    <wsdl:part name="parameters" element="tns:Directions" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Directions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DirectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_GetDistanceMatrixRequestHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_GetDistanceMatrixRequestHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_GetRequestHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_GetRequestHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_DeleteRequestHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_DeleteRequestHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_ReplayRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReplayRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_ReplayRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReplayRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGoogleApiService">
+    <wsdl:operation name="Heartbeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/Heartbeat" message="tns:IGoogleApiService_Heartbeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/HeartbeatResponse" message="tns:IGoogleApiService_Heartbeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceMatrix">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/DistanceMatrix" message="tns:IGoogleApiService_DistanceMatrix_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/DistanceMatrixResponse" message="tns:IGoogleApiService_DistanceMatrix_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Directions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/Directions" message="tns:IGoogleApiService_Directions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/DirectionsResponse" message="tns:IGoogleApiService_Directions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistanceMatrixRequestHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory" message="tns:IGoogleApiService_GetDistanceMatrixRequestHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse" message="tns:IGoogleApiService_GetDistanceMatrixRequestHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/GetRequestHistory" message="tns:IGoogleApiService_GetRequestHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/GetRequestHistoryResponse" message="tns:IGoogleApiService_GetRequestHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequestHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/DeleteRequestHistory" message="tns:IGoogleApiService_DeleteRequestHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/DeleteRequestHistoryResponse" message="tns:IGoogleApiService_DeleteRequestHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplayRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/ReplayRequest" message="tns:IGoogleApiService_ReplayRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/ReplayRequestResponse" message="tns:IGoogleApiService_ReplayRequest_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGoogleApiService" type="tns:IGoogleApiService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Heartbeat">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/Heartbeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceMatrix">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/DistanceMatrix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Directions">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/Directions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistanceMatrixRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/GetRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/DeleteRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplayRequest">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/ReplayRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GoogleApiService">
+    <wsdl:port name="BasicHttpBinding_IGoogleApiService" binding="tns:BasicHttpBinding_IGoogleApiService">
+      <soap:address location="http://localhost:63204/GoogleApiService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

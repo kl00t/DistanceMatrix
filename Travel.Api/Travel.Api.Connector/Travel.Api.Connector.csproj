@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66A152BD-AC8A-47D6-B346-DE3A334E1573}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Travel.Api.Connector</RootNamespace>
+    <AssemblyName>Travel.Api.Connector</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\NuGetPackages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Connectors\DirectionsConnector.cs" />
+    <Compile Include="Entities\BaseRequest.cs" />
+    <Compile Include="Entities\BaseResponse.cs" />
+    <Compile Include="Entities\DistanceMatrixRequest.cs" />
+    <Compile Include="Entities\Duration.cs" />
+    <Compile Include="Entities\Distance.cs" />
+    <Compile Include="Entities\DistanceMatrixResponse.cs" />
+    <Compile Include="Connectors\DistanceMatrixConnector.cs" />
+    <Compile Include="Entities\Element.cs" />
+    <Compile Include="Entities\Fare.cs" />
+    <Compile Include="Entities\GeocodedWaypoint.cs" />
+    <Compile Include="Entities\Route.cs" />
+    <Compile Include="Entities\Row.cs" />
+    <Compile Include="Example.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Example.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DirectionsRequest.cs" />
+    <Compile Include="Entities\DirectionsResponse.cs" />
+    <Compile Include="Entities\ElevationRequest.cs" />
+    <Compile Include="Entities\ElevationResponse.cs" />
+    <Compile Include="Entities\GeocodeRequest.cs" />
+    <Compile Include="Entities\GeocodeResponse.cs" />
+    <Compile Include="Entities\GeolocationRequest.cs" />
+    <Compile Include="Entities\GeolocationResponse.cs" />
+    <Compile Include="Interfaces\IDirectionsConnector.cs" />
+    <Compile Include="Interfaces\IDistanceMatrixConnector.cs" />
+    <Compile Include="Interfaces\IApiRequestExecutor.cs" />
+    <Compile Include="Interfaces\IElevationConnector.cs" />
+    <Compile Include="Interfaces\IGeocodeConnector.cs" />
+    <Compile Include="Interfaces\IGeolocationConnector.cs" />
+    <Compile Include="Interfaces\IPlaceConnector.cs" />
+    <Compile Include="Interfaces\ITimezoneConnector.cs" />
+    <Compile Include="Entities\PlaceRequest.cs" />
+    <Compile Include="Entities\PlaceResponse.cs" />
+    <Compile Include="Entities\TimezoneRequest.cs" />
+    <Compile Include="Entities\TimezoneResponse.cs" />
+    <Compile Include="Connectors\MockRequestExecutor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Connectors\ApiRequestExecutor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Travel.Api.Domain\Travel.Api.Domain.csproj">
+      <Project>{1dd2fbea-52c7-4ed8-8d89-033c0e247861}</Project>
+      <Name>Travel.Api.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Example.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Example.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
