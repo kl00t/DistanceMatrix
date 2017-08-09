@@ -4,14 +4,22 @@
   <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="DistanceMatrixRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Destinations" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Mode" type="q1:Mode" />
-      <xs:element minOccurs="0" name="Origins" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Units" type="q2:Units" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Destinations" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Mode" type="q1:Mode" />
+          <xs:element minOccurs="0" name="Origins" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Units" type="q2:Units" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="DistanceMatrixRequest" nillable="true" type="tns:DistanceMatrixRequest" />
+  <xs:complexType name="BaseRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BaseRequest" nillable="true" type="tns:BaseRequest" />
   <xs:complexType name="DistanceMatrixResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseResponse">
@@ -81,11 +89,15 @@
   </xs:complexType>
   <xs:element name="Fare" nillable="true" type="tns:Fare" />
   <xs:complexType name="DirectionsRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Mode" type="q7:Mode" />
-      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Mode" type="q7:Mode" />
+          <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="DirectionsRequest" nillable="true" type="tns:DirectionsRequest" />
   <xs:complexType name="DirectionsResponse">
@@ -120,10 +132,14 @@
   </xs:complexType>
   <xs:element name="Route" nillable="true" type="tns:Route" />
   <xs:complexType name="ElevationRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="ElevationRequest" nillable="true" type="tns:ElevationRequest" />
   <xs:complexType name="ElevationResponse">
@@ -146,6 +162,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
       <xs:element minOccurs="0" name="Resolution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Travel.Api.Domain.Interfaces.IElevation.Elevation" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Elevation" nillable="true" type="tns:Elevation" />
@@ -156,6 +173,38 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Location" nillable="true" type="tns:Location" />
+  <xs:complexType name="TimezoneRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Language" nillable="true" type="tns:Language" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+          <xs:element minOccurs="0" name="Timestamp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TimezoneRequest" nillable="true" type="tns:TimezoneRequest" />
+  <xs:complexType name="Language">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Language" nillable="true" type="tns:Language" />
+  <xs:complexType name="TimezoneResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DstOffset" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RawOffset" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeZoneId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeZoneName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TimezoneResponse" nillable="true" type="tns:TimezoneResponse" />
   <xs:complexType name="ArrayOfRequestHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />

@@ -34,6 +34,12 @@
   <wsdl:message name="IGoogleApiService_Elevation_OutputMessage">
     <wsdl:part name="parameters" element="tns:ElevationResponse" />
   </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Timezone_InputMessage">
+    <wsdl:part name="parameters" element="tns:Timezone" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Timezone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TimezoneResponse" />
+  </wsdl:message>
   <wsdl:message name="IGoogleApiService_GetDistanceMatrixRequestHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistory" />
   </wsdl:message>
@@ -74,6 +80,10 @@
     <wsdl:operation name="Elevation">
       <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/Elevation" message="tns:IGoogleApiService_Elevation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/ElevationResponse" message="tns:IGoogleApiService_Elevation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Timezone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/Timezone" message="tns:IGoogleApiService_Timezone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/TimezoneResponse" message="tns:IGoogleApiService_Timezone_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDistanceMatrixRequestHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory" message="tns:IGoogleApiService_GetDistanceMatrixRequestHistory_InputMessage" />
@@ -123,6 +133,15 @@
     </wsdl:operation>
     <wsdl:operation name="Elevation">
       <soap:operation soapAction="http://tempuri.org/IGoogleApiService/Elevation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Timezone">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/Timezone" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

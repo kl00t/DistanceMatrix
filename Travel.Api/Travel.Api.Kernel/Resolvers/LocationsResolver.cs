@@ -4,9 +4,9 @@
     using AutoMapper;
     using Domain.Models;
 
-    public class LocationsResolver : ValueResolver<Domain.Models.ElevationRequest, string>
+    public class LocationsResolver : ValueResolver<Domain.Models.Location, string>
     {
-        protected override string ResolveCore(ElevationRequest source)
+        protected override string ResolveCore(Location source)
         {
             if (source == null)
             {

@@ -234,8 +234,10 @@
                     throw new OverQueryLimitException(errorMessage);
                 case Status.RequestDenied:
                     throw new RequestDeniedException(errorMessage);
+                case Status.ZeroResults:
+                    throw new ZeroResultsException(errorMessage);
                 case Status.UnknownError:
-                    throw new GoogleApiException(errorMessage);
+                    throw new ApiException(errorMessage);
                 default:
                     return true;
             }

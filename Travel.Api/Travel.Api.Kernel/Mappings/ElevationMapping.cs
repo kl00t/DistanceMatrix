@@ -13,7 +13,7 @@
         protected override void Configure()
         {
             Mapper.CreateMap<Domain.Models.ElevationRequest, ElevationRequest>()
-                .ForMember(dest => dest.locations, opt => opt.ResolveUsing<LocationsResolver>().FromMember(src => src));
+                .ForMember(dest => dest.locations, opt => opt.ResolveUsing<LocationsResolver>().FromMember(src => src.Location));
 
             Mapper.CreateMap<ElevationResponse, Domain.Models.ElevationResponse>()
                 .ForMember(dest => dest.Results, opt => opt.MapFrom(src => src.results))

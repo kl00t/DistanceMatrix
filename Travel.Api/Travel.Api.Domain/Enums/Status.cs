@@ -21,6 +21,9 @@
         RequestDenied,
 
         [EnumMember]
-        UnknownError
+        UnknownError,
+
+        [EnumMember]
+        ZeroResults
     }
 }

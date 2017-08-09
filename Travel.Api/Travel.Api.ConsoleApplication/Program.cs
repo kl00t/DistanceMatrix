@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.ConsoleApplication
 {
-
     using System;
     using System.Linq;
     using Core.Helpers;
@@ -15,63 +14,131 @@
         /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
+            Start();
+        }
+
+        private static void Start()
+        {
+            Console.WriteLine("Enter API Request:");
+            Console.WriteLine("(D) Directions | (DM) Distance Matrix | (E) Elevation | (T) Timezone");
+            var apiInput = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(apiInput))
+            {
+                throw new ArgumentNullException();
+            }
+
+            switch (apiInput.ToUpper())
+            {
+                case "D":
+                    Directions();
+                    break;
+                case "DM":
+                    DistanceMatrix();
+                    break;
+                case "E":
+                    Elevation();
+                    break;
+                case "T":
+                    Timezone();
+                    break;
+                default:
+                    Console.WriteLine("This is a invalid menu selection.");
+                    Start();
+                    break;
+            }
+        }
+
+        private static void Directions()
+        {
             Console.WriteLine("Enter an origin:");
-            var origins = Console.ReadLine();
+            var origin = Console.ReadLine();
 
             Console.WriteLine("Enter a destination:");
+            var destination = Console.ReadLine();
+
+            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+
+            var directionsResponse = serviceClient.Directions(new DirectionsRequest
+            {
+                Origin = origin,
+                Destination = destination,
+                Mode = Mode.Driving
+            });
+
+            if (directionsResponse.IsSuccessful)
+            {
+                Console.WriteLine("########## Result ##########");
+                if (directionsResponse.Response.Status == Status.Ok)
+                {
+                    Console.WriteLine();
+                    // TODO: Display results.
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
+            Console.Read();
+        }
+
+        private static void DistanceMatrix()
+        {
+            Console.WriteLine("Enter origin(s):");
+            var origins = Console.ReadLine();
+
+            Console.WriteLine("Enter destination(s):");
             var destinations = Console.ReadLine();
 
-			Console.WriteLine("Enter a mode of travel:");
-			Console.WriteLine("(D) Driving | (W) Walking | (B) Bicycling");
-			var modeInput = Console.ReadLine();
-			Mode mode;
-			switch (modeInput.ToUpper())
-			{
-				case "D":
-					mode = Mode.Driving;
-					break;
-				case "W":
-					mode = Mode.Walking;
-					break;
-				case "B":
-					mode = Mode.Bicycling;
-					break;
-				default:
-					mode = Mode.Walking;
-					break;
-			}
+            Console.WriteLine("Enter a mode of travel:");
+            Console.WriteLine("(D) Driving | (W) Walking | (B) Bicycling");
+            var modeInput = Console.ReadLine();
+            Mode mode;
 
-			Console.WriteLine("How would you like results displayed?");
-			Console.WriteLine("(I) Imperial or (M) Metric:");
-			var unitInput = Console.ReadLine();
-			Units units;
-			switch (unitInput.ToUpper())
-			{
-				case "I":
-					units = Units.Imperial;
-					break;
-				case "M":
-					units = Units.Metric;
-					break;
-				default:
-					units = Units.Metric;
-					break;
-			}
+            if (string.IsNullOrEmpty(modeInput))
+            {
+                throw new ArgumentNullException();
+            }
 
-			var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+            switch (modeInput.ToUpper())
+            {
+                case "D":
+                    mode = Mode.Driving;
+                    break;
+                case "W":
+                    mode = Mode.Walking;
+                    break;
+                case "B":
+                    mode = Mode.Bicycling;
+                    break;
+                default:
+                    mode = Mode.Walking;
+                    break;
+            }
 
-            ////var directionsResponse = serviceClient.Directions(new DirectionsRequest
-            ////{
-            ////	Origin = origins,
-            ////	Destination = destinations,
-            ////	Mode = Mode.Driving
-            ////});
+            Console.WriteLine("How would you like results displayed?");
+            Console.WriteLine("(I) Imperial or (M) Metric:");
+            var unitInput = Console.ReadLine();
 
-            ////var elevationResponse = serviceClient.Elevation(new ElevationRequest
-            ////{
-            ////    Latitude = "39.73915360",
-            ////    Longitude = "-104.98470340"
-            ////});
+            if (string.IsNullOrEmpty(unitInput))
+            {
+                throw new ArgumentNullException();
+            }
+
+            Units units;
+            switch (unitInput.ToUpper())
+            {
+                case "I":
+                    units = Units.Imperial;
+                    break;
+                case "M":
+                    units = Units.Metric;
+                    break;
+                default:
+                    units = Units.Metric;
+                    break;
+            }
+
+            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
 
             var distanceMatrixResponse = serviceClient.DistanceMatrix(new DistanceMatrixRequest
             {
@@ -97,6 +164,94 @@
                     {
                         Console.WriteLine("Distance: {0} | Duration: {1}", element.Distance.Text, element.Duration.Text);
                     }
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
+            Console.Read();
+        }
+
+        private static void Elevation()
+        {
+            Console.WriteLine("Enter a Latitude:");
+            var latitude = Console.ReadLine();
+
+            Console.WriteLine("Enter a Longitude:");
+            var longitude = Console.ReadLine();
+
+            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+
+            var elevationResponse = serviceClient.Elevation(new ElevationRequest
+            {
+                Location = new Location
+                {
+                    Latitude = latitude,
+                    Longitude = longitude,
+                }
+            });
+
+            if (elevationResponse.IsSuccessful)
+            {
+                Console.WriteLine("########## Result ##########");
+                if (elevationResponse.Response.Status == Status.Ok)
+                {
+                    Console.WriteLine();
+                    foreach (var result in elevationResponse.Response.Results)
+                    {
+                        Console.WriteLine("Latitude: {0} | Longitude: {1} | Resolution: {2}", result.Location.Latitude, result.Location.Longitude, result.Resolution);
+                    }
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
+            Console.Read();
+        }
+
+        private static void Timezone()
+        {
+            Console.WriteLine("Enter a Latitude:");
+            var latitude = Console.ReadLine();
+
+            Console.WriteLine("Enter a Longitude:");
+            var longitude = Console.ReadLine();
+
+            Console.WriteLine("Enter a Language code:");
+            var languageCode = Console.ReadLine();
+
+            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+
+            var timeZoneRequest = new TimezoneRequest
+            {
+                Location = new Location
+                {
+                    Latitude = latitude,
+                    Longitude = longitude,
+                },
+                Timestamp = "1331161200"
+            };
+
+            if (!string.IsNullOrEmpty(languageCode))
+            {
+                timeZoneRequest.Language = new Language
+                {
+                    Code = languageCode
+                };
+            }
+
+            var timezoneResponse = serviceClient.Timezone(timeZoneRequest);
+
+            if (timezoneResponse.IsSuccessful)
+            {
+                Console.WriteLine("########## Result ##########");
+                if (timezoneResponse.Response.Status == Status.Ok)
+                {
+                    Console.WriteLine("DstOffset: {0} | RawOffset: {1} | TimeZoneId: {2}| TimeZoneName: {3} |", 
+                        timezoneResponse.Response.DstOffset, 
+                        timezoneResponse.Response.RawOffset,
+                        timezoneResponse.Response.TimeZoneId,
+                        timezoneResponse.Response.TimeZoneName);
                 }
             }
 

@@ -1,15 +1,15 @@
 ﻿namespace Travel.Api.Domain.Models
 {
-
     using System;
     using System.Runtime.Serialization;
+    using Enums;
 
     [DataContract]
 	[Serializable]
 	public class BaseResponse
 	{
 		[DataMember]
-		public Enums.Status Status { get; set; }
+		public Status Status { get; set; }
 
 		[DataMember]
 		public string ErrorMessage { get; set; }

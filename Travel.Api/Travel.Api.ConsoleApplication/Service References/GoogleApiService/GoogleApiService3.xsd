@@ -66,6 +66,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfElevationResponseiv_S3dj_Pg" nillable="true" type="tns:ServiceResponseOfElevationResponseiv_S3dj_Pg" />
+  <xs:complexType name="ServiceResponseOfTimezoneResponseiv_S3dj_Pg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TimezoneResponse" Namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q8:ServiceError" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q9:TimezoneResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfTimezoneResponseiv_S3dj_Pg" nillable="true" type="tns:ServiceResponseOfTimezoneResponseiv_S3dj_Pg" />
   <xs:complexType name="ServiceResponseOfArrayOfRequestHistoryiv_S3dj_Pg">
     <xs:annotation>
       <xs:appinfo>
@@ -75,10 +91,10 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q8:ServiceError" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q10:ServiceError" />
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q9:ArrayOfRequestHistory" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q11:ArrayOfRequestHistory" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfArrayOfRequestHistoryiv_S3dj_Pg" nillable="true" type="tns:ServiceResponseOfArrayOfRequestHistoryiv_S3dj_Pg" />
@@ -91,10 +107,10 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q10:ServiceError" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q12:ServiceError" />
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
-      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q11:RequestHistory" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q13:RequestHistory" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfRequestHistoryiv_S3dj_Pg" nillable="true" type="tns:ServiceResponseOfRequestHistoryiv_S3dj_Pg" />
@@ -107,10 +123,10 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q12:ServiceError" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" minOccurs="0" name="Error" type="q14:ServiceError" />
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q13:DeleteRequestHistoryResponse" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="Response" nillable="true" type="q15:DeleteRequestHistoryResponse" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfDeleteRequestHistoryResponseiv_S3dj_Pg" nillable="true" type="tns:ServiceResponseOfDeleteRequestHistoryResponseiv_S3dj_Pg" />

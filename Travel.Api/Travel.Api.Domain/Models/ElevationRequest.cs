@@ -1,11 +1,14 @@
 ﻿namespace Travel.Api.Domain.Models
 {
+    using System;
+    using System.Runtime.Serialization;
     using Interfaces;
 
-    public class ElevationRequest : IElevationRequest
+    [DataContract]
+    [Serializable]
+    public class ElevationRequest : BaseRequest, IElevationRequest
     {
-        public string Latitude { get; set; }
-
-        public string Longitude { get; set; }
+        [DataMember]
+        public Location Location { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Data.UnitTests
 {
-
     using System;
     using System.Collections.Generic;
     using System.Linq;

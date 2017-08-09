@@ -16,7 +16,7 @@
         /// <returns>
         /// Returns application setting.
         /// </returns>
-        /// <exception cref="GoogleApiException"></exception>
+        /// <exception cref="ApiException"></exception>
         public static string GetAppSetting(string appSetting)
         {
             try
@@ -25,7 +25,7 @@
             }
             catch (ConfigurationErrorsException configurationErrorsException)
             {
-                throw new GoogleApiException(configurationErrorsException.Message, configurationErrorsException.InnerException);
+                throw new ApiException(configurationErrorsException.Message, configurationErrorsException.InnerException);
             }
         }
     }

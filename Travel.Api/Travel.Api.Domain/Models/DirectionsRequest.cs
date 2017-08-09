@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Domain.Models
 {
-
     using System;
     using System.Runtime.Serialization;
     using Enums;
@@ -11,7 +10,7 @@
 	/// </summary>
 	[DataContract]
 	[Serializable]
-	public class DirectionsRequest : IDirectionsRequest
+	public class DirectionsRequest : BaseRequest, IDirectionsRequest
 	{
 		[DataMember]
 		public string Origin { get; set; }

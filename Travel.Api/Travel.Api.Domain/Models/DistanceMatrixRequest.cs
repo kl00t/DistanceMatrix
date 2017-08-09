@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Domain.Models
 {
-
     using System;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
@@ -14,7 +13,7 @@
 	/// <seealso cref="IDistanceMatrixRequest" />
 	[DataContract]
     [Serializable]
-    public class DistanceMatrixRequest : IDistanceMatrixRequest
+    public class DistanceMatrixRequest : BaseRequest, IDistanceMatrixRequest
     {
         /// <summary>
         /// Gets or sets the origin.

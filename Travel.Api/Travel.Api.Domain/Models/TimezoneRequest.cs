@@ -6,7 +6,15 @@
 
     [DataContract]
     [Serializable]
-    public class TimezoneRequest : ITimezoneRequest
+    public class TimezoneRequest : BaseRequest, ITimezoneRequest
     {
+        [DataMember]
+        public Location Location { get; set; }
+
+        [DataMember]
+        public string Timestamp { get; set; }
+
+        [DataMember]
+        public Language Language { get; set; }
     }
 }

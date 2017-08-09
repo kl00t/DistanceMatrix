@@ -29,6 +29,11 @@
                 HttpUtility.UrlEncode(timezoneRequest.location),
                 HttpUtility.UrlEncode(timezoneRequest.timestamp));
 
+            if (!string.IsNullOrEmpty(timezoneRequest.language))
+            {
+                address.AppendFormat("&language={0}", timezoneRequest.language.ToLower());
+            }
+
             address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("Timezone_ApiKey"));
 
             var response = _queryExecutor.ExecuteRequest(address.ToString());

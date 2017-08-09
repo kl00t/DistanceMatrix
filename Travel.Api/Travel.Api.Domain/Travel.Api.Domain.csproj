@@ -52,11 +52,12 @@
     <Compile Include="Enums\TrafficModel.cs" />
     <Compile Include="Enums\TransitRoutingPreference.cs" />
     <Compile Include="Enums\Units.cs" />
-    <Compile Include="Exceptions\GoogleApiException.cs" />
+    <Compile Include="Exceptions\ApiException.cs" />
     <Compile Include="Exceptions\InvalidRequestException.cs" />
     <Compile Include="Exceptions\MaxElementsExceededException.cs" />
     <Compile Include="Exceptions\OverQueryLimitException.cs" />
     <Compile Include="Exceptions\RequestDeniedException.cs" />
+    <Compile Include="Exceptions\ZeroResultsException.cs" />
     <Compile Include="Interfaces\IDirectionsRequest.cs" />
     <Compile Include="Interfaces\IDirectionsResponse.cs" />
     <Compile Include="Interfaces\IElement.cs" />

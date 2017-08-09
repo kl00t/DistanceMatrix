@@ -36,6 +36,8 @@
                     return Status.OverQueryLimit;
                 case "REQUEST_DENIED":
                     return Status.RequestDenied;
+                case "ZERO_RESULTS":
+                    return Status.ZeroResults;
                 default:
                     return Status.UnknownError;
 

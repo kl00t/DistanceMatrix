@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Core.UnitTests
 {
-
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -35,7 +34,10 @@
         /// </summary>
         private Mock<IDistanceMatrixConnector> _mockDistanceMatrixConnector;
 
-		private Mock<IDirectionsConnector> _mockDirectionsConnector;
+        /// <summary>
+        /// The mock directions connector.
+        /// </summary>
+        private Mock<IDirectionsConnector> _mockDirectionsConnector;
 
         /// <summary>
         /// The mock request history repository.

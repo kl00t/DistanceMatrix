@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Kernel.UnitTests.Converters
 {
-
     using NUnit.Framework;
 
     [TestFixture]

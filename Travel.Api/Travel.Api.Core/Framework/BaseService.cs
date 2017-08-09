@@ -148,7 +148,7 @@
                 Logger.LogMessage(exceptionEventType, exceptionEventDescription, overQueryLimitException.ToString(), LogLevel.Info);
                 return new ServiceResponse<T>(ServiceError.OverQueryLimit, overQueryLimitException.Message);
             }
-            catch (GoogleApiException distanceMatrixException)
+            catch (ApiException distanceMatrixException)
             {
                 Logger.LogMessage(exceptionEventType, exceptionEventDescription, distanceMatrixException.ToString(), LogLevel.Error);
                 return new ServiceResponse<T>(ServiceError.DistanceMatrixError, distanceMatrixException.Message);

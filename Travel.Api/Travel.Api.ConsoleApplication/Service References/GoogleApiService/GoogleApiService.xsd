@@ -38,6 +38,7 @@
       <xs:enumeration value="OverQueryLimit" />
       <xs:enumeration value="RequestDenied" />
       <xs:enumeration value="UnknownError" />
+      <xs:enumeration value="ZeroResults" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Status" nillable="true" type="tns:Status" />

@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Service.Contracts
 {
-
     using System;
     using System.Collections.Generic;
     using System.ServiceModel;

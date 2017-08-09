@@ -6,5 +6,7 @@ namespace Travel.Api.Connector.Entities
         public string location { get; set; }
 
         public string timestamp { get; set; }
+
+        public string language { get; set; }
     }
 }

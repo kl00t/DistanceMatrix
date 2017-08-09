@@ -1,9 +1,9 @@
 ﻿namespace Travel.Api.Domain.Interfaces
 {
+    using Models;
+
     public interface IElevationRequest
     {
-        string Latitude { get; set; }
-
-        string Longitude { get; set; }
+        Location Location { get; set; }
     }
 }

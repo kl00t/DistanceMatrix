@@ -31,7 +31,7 @@
             }
             catch (WebException webException)
             {
-                throw new GoogleApiException(webException.Message, webException.InnerException);
+                throw new ApiException(webException.Message, webException.InnerException);
             }
         }
     }
