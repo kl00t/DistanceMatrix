@@ -49,7 +49,10 @@
     <Compile Include="ConfigurationHelper.cs" />
     <Compile Include="Connectors\DirectionsConnector.cs" />
     <Compile Include="Connectors\ElevationConnector.cs" />
+    <Compile Include="Connectors\GeocodeConnector.cs" />
     <Compile Include="Connectors\TimezoneConnector.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\AddressComponent.cs" />
     <Compile Include="Entities\BaseRequest.cs" />
     <Compile Include="Entities\BaseResponse.cs" />
     <Compile Include="Entities\DistanceMatrixRequest.cs" />
@@ -61,9 +64,11 @@
     <Compile Include="Entities\Elevation.cs" />
     <Compile Include="Entities\Fare.cs" />
     <Compile Include="Entities\GeocodedWaypoint.cs" />
+    <Compile Include="Entities\Geometry.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\Row.cs" />
+    <Compile Include="Entities\Viewport.cs" />
     <Compile Include="Example.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,14 +80,11 @@
     <Compile Include="Entities\ElevationResponse.cs" />
     <Compile Include="Entities\GeocodeRequest.cs" />
     <Compile Include="Entities\GeocodeResponse.cs" />
-    <Compile Include="Entities\GeolocationRequest.cs" />
-    <Compile Include="Entities\GeolocationResponse.cs" />
     <Compile Include="Interfaces\IDirectionsConnector.cs" />
     <Compile Include="Interfaces\IDistanceMatrixConnector.cs" />
     <Compile Include="Interfaces\IApiRequestExecutor.cs" />
     <Compile Include="Interfaces\IElevationConnector.cs" />
     <Compile Include="Interfaces\IGeocodeConnector.cs" />
-    <Compile Include="Interfaces\IGeolocationConnector.cs" />
     <Compile Include="Interfaces\IPlaceConnector.cs" />
     <Compile Include="Interfaces\ITimezoneConnector.cs" />
     <Compile Include="Entities\PlaceRequest.cs" />

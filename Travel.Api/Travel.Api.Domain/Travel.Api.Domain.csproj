@@ -58,6 +58,8 @@
     <Compile Include="Exceptions\OverQueryLimitException.cs" />
     <Compile Include="Exceptions\RequestDeniedException.cs" />
     <Compile Include="Exceptions\ZeroResultsException.cs" />
+    <Compile Include="Interfaces\IAddress.cs" />
+    <Compile Include="Interfaces\IAddressComponent.cs" />
     <Compile Include="Interfaces\IDirectionsRequest.cs" />
     <Compile Include="Interfaces\IDirectionsResponse.cs" />
     <Compile Include="Interfaces\IElement.cs" />
@@ -66,6 +68,9 @@
     <Compile Include="Interfaces\IElevationResponse.cs" />
     <Compile Include="Interfaces\IFare.cs" />
     <Compile Include="Interfaces\IGeocodedWaypoint.cs" />
+    <Compile Include="Interfaces\IGeocodeRequest.cs" />
+    <Compile Include="Interfaces\IGeocodeResponse.cs" />
+    <Compile Include="Interfaces\IGeometry.cs" />
     <Compile Include="Interfaces\ILanguage.cs" />
     <Compile Include="Interfaces\ILocation.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />
@@ -73,6 +78,9 @@
     <Compile Include="Interfaces\IRow.cs" />
     <Compile Include="Interfaces\ITimezoneRequest.cs" />
     <Compile Include="Interfaces\ITimezoneResponse.cs" />
+    <Compile Include="Interfaces\IViewport.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AddressComponent.cs" />
     <Compile Include="Models\BaseRequest.cs" />
     <Compile Include="Models\BaseResponse.cs" />
     <Compile Include="Models\DeleteRequestHistoryResponse.cs" />
@@ -92,6 +100,9 @@
     <Compile Include="Models\ElevationResponse.cs" />
     <Compile Include="Models\Fare.cs" />
     <Compile Include="Models\GeocodedWaypoint.cs" />
+    <Compile Include="Models\GeocodeRequest.cs" />
+    <Compile Include="Models\GeocodeResponse.cs" />
+    <Compile Include="Models\Geometry.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\RequestHistory.cs" />
@@ -99,6 +110,7 @@
     <Compile Include="Models\Row.cs" />
     <Compile Include="Models\TimezoneRequest.cs" />
     <Compile Include="Models\TimezoneResponse.cs" />
+    <Compile Include="Models\Viewport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

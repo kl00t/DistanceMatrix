@@ -6,12 +6,12 @@
 
     [DataContract]
     [Serializable]
-    public class Duration : IDuration
+    public class GeocodeRequest : BaseRequest, IGeocodeRequest
     {
         [DataMember]
-        public string Text { get; set; }
+        public string Address { get; set; }
 
         [DataMember]
-        public int Value { get; set; }
+        public Language Language { get; set; }
     }
 }

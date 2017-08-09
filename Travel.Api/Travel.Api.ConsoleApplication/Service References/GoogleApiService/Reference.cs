@@ -45,6 +45,12 @@ namespace Travel.Api.ConsoleApplication.GoogleApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Timezone", ReplyAction="http://tempuri.org/IGoogleApiService/TimezoneResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.TimezoneResponse>> TimezoneAsync(Travel.Api.Domain.Models.TimezoneRequest timezoneRequest);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Geocode", ReplyAction="http://tempuri.org/IGoogleApiService/GeocodeResponse")]
+        Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse> Geocode(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Geocode", ReplyAction="http://tempuri.org/IGoogleApiService/GeocodeResponse")]
+        System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> GeocodeAsync(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory();
         
@@ -135,6 +141,14 @@ namespace Travel.Api.ConsoleApplication.GoogleApiService {
         
         public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.TimezoneResponse>> TimezoneAsync(Travel.Api.Domain.Models.TimezoneRequest timezoneRequest) {
             return base.Channel.TimezoneAsync(timezoneRequest);
+        }
+        
+        public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse> Geocode(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest) {
+            return base.Channel.Geocode(geocodeRequest);
+        }
+        
+        public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> GeocodeAsync(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest) {
+            return base.Channel.GeocodeAsync(geocodeRequest);
         }
         
         public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory() {

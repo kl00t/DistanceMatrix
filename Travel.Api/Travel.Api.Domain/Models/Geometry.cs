@@ -6,12 +6,15 @@
 
     [DataContract]
     [Serializable]
-    public class Duration : IDuration
+    public class Geometry : IGeometry
     {
         [DataMember]
-        public string Text { get; set; }
+        public Location Location { get; set; }
 
         [DataMember]
-        public int Value { get; set; }
+        public string LocationType { get; set; }
+
+        [DataMember]
+        public Viewport Viewport { get; set; }
     }
 }

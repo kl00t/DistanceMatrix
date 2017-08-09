@@ -38,6 +38,11 @@
         private readonly ITimezoneConnector _timezoneConnector;
 
         /// <summary>
+        /// The geocode connector.
+        /// </summary>
+        private readonly IGeocodeConnector _geocodeConnector;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
         /// </summary>
         /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
@@ -45,13 +50,15 @@
         /// <param name="directionsConnector">The directions connector.</param>
         /// <param name="elevationConnector">The elevation connector.</param>
         /// <param name="timezoneConnector">The timezone connector.</param>
+        /// <param name="geocodeConnector">The geocode connector.</param>
         /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
         public GoogleApiEngine(
             IDistanceMatrixConnector distanceMatrixConnector, 
             IRequestHistoryRepository requestHistoryRepository, 
             IDirectionsConnector directionsConnector, 
             IElevationConnector elevationConnector, 
-            ITimezoneConnector timezoneConnector)
+            ITimezoneConnector timezoneConnector, 
+            IGeocodeConnector geocodeConnector)
 		{
 			if (distanceMatrixConnector == null)
 			{
@@ -78,11 +85,17 @@
                 throw new ArgumentNullException("timezoneConnector");
             }
 
+            if (geocodeConnector == null)
+            {
+                throw new ArgumentNullException("geocodeConnector");
+            }
+
             _distanceMatrixConnector = distanceMatrixConnector;
 			_requestHistoryRepository = requestHistoryRepository;
 			_directionsConnector = directionsConnector;
             _elevationConnector = elevationConnector;
             _timezoneConnector = timezoneConnector;
+            _geocodeConnector = geocodeConnector;
 		}
 
 		/// <summary>
@@ -159,6 +172,28 @@
             var timezone = _timezoneConnector.Timezone(request);
 
             var response = Mapper.Map<TimezoneResponse>(timezone);
+
+            if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            {
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Geocodes the specified geocode request.
+        /// </summary>
+        /// <param name="geocodeRequest">The geocode request.</param>
+        /// <returns>
+        /// Returns the geocoded response.
+        /// </returns>
+        public GeocodeResponse Geocode(GeocodeRequest geocodeRequest)
+        {
+            var request = Mapper.Map<Connector.Entities.GeocodeRequest>(geocodeRequest);
+
+            var geocode = _geocodeConnector.Geocode(request);
+
+            var response = Mapper.Map<GeocodeResponse>(geocode);
 
             if (CheckResponseStatus(response.Status, response.ErrorMessage))
             {

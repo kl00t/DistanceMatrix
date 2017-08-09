@@ -89,6 +89,20 @@
         }
 
         /// <summary>
+        /// Geocodes the specified geocode request.
+        /// </summary>
+        /// <param name="geocodeRequest">The geocode request.</param>
+        /// <returns>
+        /// Returns the geocoded response.
+        /// </returns>
+        public ServiceResponse<GeocodeResponse> Geocode(GeocodeRequest geocodeRequest)
+        {
+            return CallEngine(
+                () => _apiEngine.Geocode(geocodeRequest),
+                EventType.Geocode);
+        }
+
+        /// <summary>
         /// Gets the distance matrix request history.
         /// </summary>
         /// <returns>

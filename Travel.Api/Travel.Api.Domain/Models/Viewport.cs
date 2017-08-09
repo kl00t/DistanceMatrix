@@ -6,12 +6,12 @@
 
     [DataContract]
     [Serializable]
-    public class Duration : IDuration
+    public class Viewport : IViewport
     {
         [DataMember]
-        public string Text { get; set; }
+        public Location NorthEast { get; set; }
 
         [DataMember]
-        public int Value { get; set; }
+        public Location SouthEast { get; set; }
     }
 }

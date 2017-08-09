@@ -18,6 +18,7 @@
             Bind<IDirectionsConnector>().To<DirectionsConnector>();
             Bind<IElevationConnector>().To<ElevationConnector>();
             Bind<ITimezoneConnector>().To<TimezoneConnector>();
+            Bind<IGeocodeConnector>().To<GeocodeConnector>();
 
             Bind<IApiRequestExecutor>().To<ApiRequestExecutor>();
 			//Bind<IQueryExecutor>().To<MockQueryExecutor>();

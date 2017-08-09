@@ -54,7 +54,17 @@
         [OperationContract]
         ServiceResponse<TimezoneResponse> Timezone(TimezoneRequest timezoneRequest);
 
-            /// <summary>
+        /// <summary>
+        /// Geocodes the specified geocode request.
+        /// </summary>
+        /// <param name="geocodeRequest">The geocode request.</param>
+        /// <returns>
+        /// Returns the geocoded response.
+        /// </returns>
+        [OperationContract]
+        ServiceResponse<GeocodeResponse> Geocode(GeocodeRequest geocodeRequest);
+
+        /// <summary>
         /// Gets the distance matrix request history.
         /// </summary>
         /// <returns>
@@ -71,7 +81,12 @@
         [OperationContract]
         ServiceResponse<RequestHistory> GetRequestHistory(Guid requestId);
 
-		[OperationContract]
+        /// <summary>
+        /// Deletes the request history.
+        /// </summary>
+        /// <param name="requestId">The request identifier.</param>
+        /// <returns></returns>
+        [OperationContract]
 		ServiceResponse<DeleteRequestHistoryResponse> DeleteRequestHistory(Guid requestId);
 
 		/// <summary>

@@ -77,5 +77,14 @@
         /// Returns the timezone.
         /// </returns>
         TimezoneResponse Timezone(TimezoneRequest timezoneRequest);
+
+        /// <summary>
+        /// Geocodes the specified geocode request.
+        /// </summary>
+        /// <param name="geocodeRequest">The geocode request.</param>
+        /// <returns>
+        /// Returns the geocoded response.
+        /// </returns>
+        GeocodeResponse Geocode(GeocodeRequest geocodeRequest);
     }
 }

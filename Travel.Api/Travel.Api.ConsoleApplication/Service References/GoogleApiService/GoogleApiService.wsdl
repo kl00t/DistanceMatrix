@@ -40,6 +40,12 @@
   <wsdl:message name="IGoogleApiService_Timezone_OutputMessage">
     <wsdl:part name="parameters" element="tns:TimezoneResponse" />
   </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Geocode_InputMessage">
+    <wsdl:part name="parameters" element="tns:Geocode" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleApiService_Geocode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeocodeResponse" />
+  </wsdl:message>
   <wsdl:message name="IGoogleApiService_GetDistanceMatrixRequestHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistory" />
   </wsdl:message>
@@ -84,6 +90,10 @@
     <wsdl:operation name="Timezone">
       <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/Timezone" message="tns:IGoogleApiService_Timezone_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/TimezoneResponse" message="tns:IGoogleApiService_Timezone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Geocode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/Geocode" message="tns:IGoogleApiService_Geocode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleApiService/GeocodeResponse" message="tns:IGoogleApiService_Geocode_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDistanceMatrixRequestHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory" message="tns:IGoogleApiService_GetDistanceMatrixRequestHistory_InputMessage" />
@@ -142,6 +152,15 @@
     </wsdl:operation>
     <wsdl:operation name="Timezone">
       <soap:operation soapAction="http://tempuri.org/IGoogleApiService/Timezone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Geocode">
+      <soap:operation soapAction="http://tempuri.org/IGoogleApiService/Geocode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

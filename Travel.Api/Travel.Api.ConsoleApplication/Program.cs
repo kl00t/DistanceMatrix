@@ -20,7 +20,7 @@
         private static void Start()
         {
             Console.WriteLine("Enter API Request:");
-            Console.WriteLine("(D) Directions | (DM) Distance Matrix | (E) Elevation | (T) Timezone");
+            Console.WriteLine("(D) Directions | (DM) Distance Matrix | (E) Elevation | (T) Timezone | (G) Geocode");
             var apiInput = Console.ReadLine();
 
             if (string.IsNullOrEmpty(apiInput))
@@ -41,6 +41,9 @@
                     break;
                 case "T":
                     Timezone();
+                    break;
+                case "G":
+                    Geocode();
                     break;
                 default:
                     Console.WriteLine("This is a invalid menu selection.");
@@ -252,6 +255,51 @@
                         timezoneResponse.Response.RawOffset,
                         timezoneResponse.Response.TimeZoneId,
                         timezoneResponse.Response.TimeZoneName);
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
+            Console.Read();
+        }
+
+        private static void Geocode()
+        {
+            Console.WriteLine("Enter an address:");
+            var address = Console.ReadLine();
+
+            Console.WriteLine("Enter a Language code:");
+            var languageCode = Console.ReadLine();
+
+            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+
+            var geocodeRequest = new GeocodeRequest
+            {
+                Address = address
+            };
+
+            if (!string.IsNullOrEmpty(languageCode))
+            {
+                geocodeRequest.Language = new Language
+                {
+                    Code = languageCode
+                };
+            }
+
+            var geocodeResponse = serviceClient.Geocode(geocodeRequest);
+
+            if (geocodeResponse.IsSuccessful)
+            {
+                Console.WriteLine("########## Result ##########");
+                if (geocodeResponse.Response.Status == Status.Ok)
+                {
+                    Console.WriteLine();
+                    foreach (var result in geocodeResponse.Response.Results)
+                    {
+                        Console.WriteLine("PlaceId: {0} | Formatted Address: {1}",
+                            result.PlaceId,
+                            result.FormattedAddress);
+                    }
                 }
             }
 

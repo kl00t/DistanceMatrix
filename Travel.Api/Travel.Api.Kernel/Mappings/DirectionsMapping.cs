@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Kernel.Mappings
 {
-
     using AutoMapper;
     using Connector.Entities;
     using Resolvers;

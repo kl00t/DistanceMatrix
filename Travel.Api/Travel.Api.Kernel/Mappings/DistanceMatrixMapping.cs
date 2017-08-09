@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Kernel.Mappings
 {
-
     using System.Collections.Generic;
     using AutoMapper;
     using Connector.Entities;

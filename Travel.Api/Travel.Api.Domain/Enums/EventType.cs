@@ -54,6 +54,9 @@
         Elevation,
 
         [EnumMember]
-        Timezone
+        Timezone,
+
+        [EnumMember]
+        Geocode
     }
 }
