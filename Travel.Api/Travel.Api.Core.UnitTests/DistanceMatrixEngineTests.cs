@@ -27,7 +27,7 @@
         /// <summary>
         /// The distance matrix engine.
         /// </summary>
-        private static GoogleApiEngine _distanceMatrixEngine;
+        private static TravelApiEngine _distanceMatrixEngine;
 
         /// <summary>
         /// The mock distance matrix connector.
@@ -82,7 +82,7 @@
             _mockTimezoneConnector = new Mock<ITimezoneConnector>();
             _mockGeocodeConnector = new Mock<IGeocodeConnector>();
 
-            _distanceMatrixEngine = new GoogleApiEngine(
+            _distanceMatrixEngine = new TravelApiEngine(
                 _mockDistanceMatrixConnector.Object, 
                 _mockRequestHistoryRepository.Object,
 				_mockDirectionsConnector.Object,
@@ -99,7 +99,7 @@
         public void VerifyThatArgumentNullExceptionIfThrownIfConnectorIsNull()
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new GoogleApiEngine(
+            new TravelApiEngine(
 				null, 
 				new Mock<IRequestHistoryRepository>().Object,
 				new Mock<IDirectionsConnector>().Object,
@@ -116,7 +116,7 @@
         public void VerifyThatArgumentNullExceptionIfThrownRepositoryIsNull()
         {
             // ReSharper disable once ObjectCreationAsStatement
-            new GoogleApiEngine(
+            new TravelApiEngine(
 				new Mock<IDistanceMatrixConnector>().Object, 
 				null,
 				new Mock<IDirectionsConnector>().Object,

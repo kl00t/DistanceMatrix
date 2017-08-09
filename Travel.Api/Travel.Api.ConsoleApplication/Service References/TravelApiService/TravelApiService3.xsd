@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" />
-  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:63204/GoogleApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" />
+  <xs:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="DistanceMatrixRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRequest">
@@ -24,8 +24,8 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseResponse">
         <xs:sequence>
-          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DestinationResultses" nillable="true" type="q3:ArrayOfstring" />
-          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OriginResultses" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DestinationAddresses" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OriginAddresses" nillable="true" type="q4:ArrayOfstring" />
           <xs:element minOccurs="0" name="Rows" nillable="true" type="tns:ArrayOfRow" />
         </xs:sequence>
       </xs:extension>
@@ -208,7 +208,8 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRequest">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Results" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Language" nillable="true" type="tns:Language" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -217,11 +218,68 @@
   <xs:complexType name="GeocodeResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseResponse">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfAddress" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GeocodeResponse" nillable="true" type="tns:GeocodeResponse" />
+  <xs:complexType name="ArrayOfAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressComponents" nillable="true" type="tns:ArrayOfAddressComponent" />
+      <xs:element minOccurs="0" name="FormattedAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Geometry" nillable="true" type="tns:Geometry" />
+      <xs:element minOccurs="0" name="PlaceId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Types" nillable="true" type="q8:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="ArrayOfAddressComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressComponent" nillable="true" type="tns:AddressComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddressComponent" nillable="true" type="tns:ArrayOfAddressComponent" />
+  <xs:complexType name="AddressComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LongName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Types" nillable="true" type="q9:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressComponent" nillable="true" type="tns:AddressComponent" />
+  <xs:complexType name="Geometry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="LocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Viewport" nillable="true" type="tns:Viewport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Geometry" nillable="true" type="tns:Geometry" />
+  <xs:complexType name="Viewport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NorthEast" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="SouthEast" nillable="true" type="tns:Location" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Viewport" nillable="true" type="tns:Viewport" />
+  <xs:complexType name="ReverseGeocodeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReverseGeocodeRequest" nillable="true" type="tns:ReverseGeocodeRequest" />
   <xs:complexType name="ArrayOfRequestHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />

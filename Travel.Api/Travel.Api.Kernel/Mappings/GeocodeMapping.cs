@@ -8,6 +8,9 @@
     {
         protected override void Configure()
         {
+            Mapper.CreateMap<Domain.Models.ReverseGeocodeRequest, ReverseGeocodeRequest>()
+                .ForMember(dest => dest.latlng, opt => opt.ResolveUsing<LocationsResolver>().FromMember(src => src.Location));
+
             Mapper.CreateMap<Domain.Models.GeocodeRequest, GeocodeRequest>()
                 .ForMember(dest => dest.address, opt => opt.MapFrom(src => src.Address))
                 .ForMember(dest => dest.language, opt => opt.MapFrom(src => src.Language.Code));

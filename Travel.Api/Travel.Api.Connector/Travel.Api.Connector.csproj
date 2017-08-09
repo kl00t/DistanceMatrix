@@ -66,6 +66,7 @@
     <Compile Include="Entities\GeocodedWaypoint.cs" />
     <Compile Include="Entities\Geometry.cs" />
     <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\ReverseGeocodeRequest.cs" />
     <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\Row.cs" />
     <Compile Include="Entities\Viewport.cs" />

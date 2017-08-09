@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\GoogleApiService\Reference.cs">
+    <Compile Include="Service References\TravelApiService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -70,23 +70,23 @@
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.GeocodeResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.RequestHistory.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.TimezoneResponse.datasource" />
-    <None Include="Service References\GoogleApiService\GoogleApiService.wsdl" />
-    <None Include="Service References\GoogleApiService\GoogleApiService.xsd">
+    <None Include="Service References\TravelApiService\TravelApiService.wsdl" />
+    <None Include="Service References\TravelApiService\TravelApiService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GoogleApiService\GoogleApiService1.xsd">
+    <None Include="Service References\TravelApiService\TravelApiService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GoogleApiService\GoogleApiService2.xsd">
+    <None Include="Service References\TravelApiService\TravelApiService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GoogleApiService\GoogleApiService3.xsd">
+    <None Include="Service References\TravelApiService\TravelApiService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GoogleApiService\GoogleApiService4.xsd">
+    <None Include="Service References\TravelApiService\TravelApiService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GoogleApiService\GoogleApiService5.xsd">
+    <None Include="Service References\TravelApiService\TravelApiService5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -104,19 +104,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GoogleApiService\" />
+    <WCFMetadataStorage Include="Service References\TravelApiService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\GoogleApiService\GoogleApiService.disco" />
+    <None Include="Service References\TravelApiService\TravelApiService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\GoogleApiService\configuration91.svcinfo" />
+    <None Include="Service References\TravelApiService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\GoogleApiService\configuration.svcinfo" />
+    <None Include="Service References\TravelApiService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\GoogleApiService\Reference.svcmap">
+    <None Include="Service References\TravelApiService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

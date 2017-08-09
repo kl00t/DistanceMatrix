@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed5e3cc1-e84b-4c9d-9ab6-7b5d714e45a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63204/TravelApiService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TravelApiService.xsd" MetadataType="Schema" ID="cd273bf4-fefc-44ed-a563-4167de245af2" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TravelApiService.disco" MetadataType="Disco" ID="a3b7ee8f-9d4b-4fee-84ff-61301598f1af" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?disco" />
+    <MetadataFile FileName="TravelApiService1.xsd" MetadataType="Schema" ID="fa66d73f-45aa-4f89-bee8-3294c5a78983" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TravelApiService2.xsd" MetadataType="Schema" ID="ee1b7f14-4bf5-475c-ae1a-ef26f0c9c212" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TravelApiService3.xsd" MetadataType="Schema" ID="cc4d85a2-a2a1-4ab1-92bd-b638f6b30669" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?xsd=xsd4" />
+    <MetadataFile FileName="TravelApiService4.xsd" MetadataType="Schema" ID="eea7bd2b-18a4-402a-8219-bb2d63ee608b" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?xsd=xsd5" />
+    <MetadataFile FileName="TravelApiService5.xsd" MetadataType="Schema" ID="99d8d3c2-dde3-4702-9158-9a649f7627ee" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TravelApiService.wsdl" MetadataType="Wsdl" ID="a877edff-aabf-4b74-96bf-3e97ca011761" SourceId="1" SourceUrl="http://localhost:63204/TravelApiService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -8,98 +8,104 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Travel.Api.ConsoleApplication.GoogleApiService {
+namespace Travel.Api.ConsoleApplication.TravelApiService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GoogleApiService.IGoogleApiService")]
-    public interface IGoogleApiService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TravelApiService.ITravelApiService")]
+    public interface ITravelApiService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Heartbeat", ReplyAction="http://tempuri.org/IGoogleApiService/HeartbeatResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Heartbeat", ReplyAction="http://tempuri.org/ITravelApiService/HeartbeatResponse")]
         Travel.Api.Core.Framework.ServiceResponse<System.DateTime> Heartbeat();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Heartbeat", ReplyAction="http://tempuri.org/IGoogleApiService/HeartbeatResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Heartbeat", ReplyAction="http://tempuri.org/ITravelApiService/HeartbeatResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<System.DateTime>> HeartbeatAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/DistanceMatrix", ReplyAction="http://tempuri.org/IGoogleApiService/DistanceMatrixResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/DistanceMatrix", ReplyAction="http://tempuri.org/ITravelApiService/DistanceMatrixResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DistanceMatrixResponse> DistanceMatrix(Travel.Api.Domain.Models.DistanceMatrixRequest distanceMatrixRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/DistanceMatrix", ReplyAction="http://tempuri.org/IGoogleApiService/DistanceMatrixResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/DistanceMatrix", ReplyAction="http://tempuri.org/ITravelApiService/DistanceMatrixResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DistanceMatrixResponse>> DistanceMatrixAsync(Travel.Api.Domain.Models.DistanceMatrixRequest distanceMatrixRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Directions", ReplyAction="http://tempuri.org/IGoogleApiService/DirectionsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Directions", ReplyAction="http://tempuri.org/ITravelApiService/DirectionsResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DirectionsResponse> Directions(Travel.Api.Domain.Models.DirectionsRequest directionsRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Directions", ReplyAction="http://tempuri.org/IGoogleApiService/DirectionsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Directions", ReplyAction="http://tempuri.org/ITravelApiService/DirectionsResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DirectionsResponse>> DirectionsAsync(Travel.Api.Domain.Models.DirectionsRequest directionsRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Elevation", ReplyAction="http://tempuri.org/IGoogleApiService/ElevationResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Elevation", ReplyAction="http://tempuri.org/ITravelApiService/ElevationResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.ElevationResponse> Elevation(Travel.Api.Domain.Models.ElevationRequest elevationRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Elevation", ReplyAction="http://tempuri.org/IGoogleApiService/ElevationResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Elevation", ReplyAction="http://tempuri.org/ITravelApiService/ElevationResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.ElevationResponse>> ElevationAsync(Travel.Api.Domain.Models.ElevationRequest elevationRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Timezone", ReplyAction="http://tempuri.org/IGoogleApiService/TimezoneResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Timezone", ReplyAction="http://tempuri.org/ITravelApiService/TimezoneResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.TimezoneResponse> Timezone(Travel.Api.Domain.Models.TimezoneRequest timezoneRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Timezone", ReplyAction="http://tempuri.org/IGoogleApiService/TimezoneResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Timezone", ReplyAction="http://tempuri.org/ITravelApiService/TimezoneResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.TimezoneResponse>> TimezoneAsync(Travel.Api.Domain.Models.TimezoneRequest timezoneRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Geocode", ReplyAction="http://tempuri.org/IGoogleApiService/GeocodeResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Geocode", ReplyAction="http://tempuri.org/ITravelApiService/GeocodeResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse> Geocode(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/Geocode", ReplyAction="http://tempuri.org/IGoogleApiService/GeocodeResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Geocode", ReplyAction="http://tempuri.org/ITravelApiService/GeocodeResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> GeocodeAsync(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/ReverseGeocode", ReplyAction="http://tempuri.org/ITravelApiService/ReverseGeocodeResponse")]
+        Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse> ReverseGeocode(Travel.Api.Domain.Models.ReverseGeocodeRequest reverseGeocodeRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/ReverseGeocode", ReplyAction="http://tempuri.org/ITravelApiService/ReverseGeocodeResponse")]
+        System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> ReverseGeocodeAsync(Travel.Api.Domain.Models.ReverseGeocodeRequest reverseGeocodeRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistoryResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetDistanceMatrixRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistoryResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]>> GetDistanceMatrixRequestHistoryAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/GetRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/GetRequestHistoryResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory> GetRequestHistory(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/GetRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/GetRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/GetRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/GetRequestHistoryResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory>> GetRequestHistoryAsync(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/DeleteRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/DeleteRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/DeleteRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/DeleteRequestHistoryResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DeleteRequestHistoryResponse> DeleteRequestHistory(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/DeleteRequestHistory", ReplyAction="http://tempuri.org/IGoogleApiService/DeleteRequestHistoryResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/DeleteRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/DeleteRequestHistoryResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DeleteRequestHistoryResponse>> DeleteRequestHistoryAsync(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/ReplayRequest", ReplyAction="http://tempuri.org/IGoogleApiService/ReplayRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/ReplayRequest", ReplyAction="http://tempuri.org/ITravelApiService/ReplayRequestResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DistanceMatrixResponse> ReplayRequest(System.Guid requestId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleApiService/ReplayRequest", ReplyAction="http://tempuri.org/IGoogleApiService/ReplayRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/ReplayRequest", ReplyAction="http://tempuri.org/ITravelApiService/ReplayRequestResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.DistanceMatrixResponse>> ReplayRequestAsync(System.Guid requestId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGoogleApiServiceChannel : Travel.Api.ConsoleApplication.GoogleApiService.IGoogleApiService, System.ServiceModel.IClientChannel {
+    public interface ITravelApiServiceChannel : Travel.Api.ConsoleApplication.TravelApiService.ITravelApiService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GoogleApiServiceClient : System.ServiceModel.ClientBase<Travel.Api.ConsoleApplication.GoogleApiService.IGoogleApiService>, Travel.Api.ConsoleApplication.GoogleApiService.IGoogleApiService {
+    public partial class TravelApiServiceClient : System.ServiceModel.ClientBase<Travel.Api.ConsoleApplication.TravelApiService.ITravelApiService>, Travel.Api.ConsoleApplication.TravelApiService.ITravelApiService {
         
-        public GoogleApiServiceClient() {
+        public TravelApiServiceClient() {
         }
         
-        public GoogleApiServiceClient(string endpointConfigurationName) : 
+        public TravelApiServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public GoogleApiServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public TravelApiServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GoogleApiServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TravelApiServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GoogleApiServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TravelApiServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -149,6 +155,14 @@ namespace Travel.Api.ConsoleApplication.GoogleApiService {
         
         public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> GeocodeAsync(Travel.Api.Domain.Models.GeocodeRequest geocodeRequest) {
             return base.Channel.GeocodeAsync(geocodeRequest);
+        }
+        
+        public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse> ReverseGeocode(Travel.Api.Domain.Models.ReverseGeocodeRequest reverseGeocodeRequest) {
+            return base.Channel.ReverseGeocode(reverseGeocodeRequest);
+        }
+        
+        public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> ReverseGeocodeAsync(Travel.Api.Domain.Models.ReverseGeocodeRequest reverseGeocodeRequest) {
+            return base.Channel.ReverseGeocodeAsync(reverseGeocodeRequest);
         }
         
         public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory() {

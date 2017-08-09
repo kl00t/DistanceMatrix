@@ -39,5 +39,19 @@
 
             return JsonConvert.DeserializeObject<GeocodeResponse>(response);
         }
+
+        public GeocodeResponse ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest)
+        {
+            var address = new StringBuilder();
+            address.AppendFormat("{0}/geocode/json?latlng={1}",
+                ConfigurationHelper.GetAppSetting("BaseUrl"),
+                HttpUtility.UrlEncode(reverseGeocodeRequest.latlng));
+
+            address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("Geocode_ApiKey"));
+
+            var response = _queryExecutor.ExecuteRequest(address.ToString());
+
+            return JsonConvert.DeserializeObject<GeocodeResponse>(response);
+        }
     }
 }

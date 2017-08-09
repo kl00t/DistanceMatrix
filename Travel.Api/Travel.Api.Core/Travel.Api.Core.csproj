@@ -59,12 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoogleApiEngine.cs" />
+    <Compile Include="TravelApiEngine.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Framework\BaseService.cs" />
     <Compile Include="Framework\ServiceResponse.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
-    <Compile Include="IGoogleApiEngine.cs" />
+    <Compile Include="ITravelApiEngine.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LogLevel.cs" />

@@ -74,6 +74,7 @@
     <Compile Include="Interfaces\ILanguage.cs" />
     <Compile Include="Interfaces\ILocation.cs" />
     <Compile Include="Interfaces\IRequestHistory.cs" />
+    <Compile Include="Interfaces\IReverseGeocodeRequest.cs" />
     <Compile Include="Interfaces\IRoute.cs" />
     <Compile Include="Interfaces\IRow.cs" />
     <Compile Include="Interfaces\ITimezoneRequest.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\RequestHistory.cs" />
+    <Compile Include="Models\ReverseGeocodeRequest.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Row.cs" />
     <Compile Include="Models\TimezoneRequest.cs" />

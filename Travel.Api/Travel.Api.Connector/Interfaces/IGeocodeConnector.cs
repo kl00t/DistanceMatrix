@@ -4,6 +4,8 @@
 
     public interface IGeocodeConnector
     {
-        GeocodeResponse Geocode(GeocodeRequest request);
+        GeocodeResponse Geocode(GeocodeRequest geocodeRequest);
+
+        GeocodeResponse ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest);
     }
 }

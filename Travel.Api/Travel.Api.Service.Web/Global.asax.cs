@@ -1,6 +1,5 @@
 ﻿namespace Travel.Api.Service.Web
 {
-
     using Kernel;
     using Ninject;
     using Ninject.Web.Common;

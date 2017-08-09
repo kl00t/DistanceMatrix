@@ -8,47 +8,49 @@
 
     public class Program
     {
-        /// <summary>
-        /// Mains the specified arguments.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        static void Main(string[] args)
+        static void Main()
         {
             Start();
         }
 
         private static void Start()
         {
-            Console.WriteLine("Enter API Request:");
-            Console.WriteLine("(D) Directions | (DM) Distance Matrix | (E) Elevation | (T) Timezone | (G) Geocode");
-            var apiInput = Console.ReadLine();
-
-            if (string.IsNullOrEmpty(apiInput))
+            while (true)
             {
-                throw new ArgumentNullException();
-            }
+                Console.WriteLine("Enter API Request:");
+                Console.WriteLine("(D) Directions | (DM) Distance Matrix | (E) Elevation | (T) Timezone | (G) Geocode | (RG) Reverse Geocode");
+                var apiInput = Console.ReadLine();
 
-            switch (apiInput.ToUpper())
-            {
-                case "D":
-                    Directions();
-                    break;
-                case "DM":
-                    DistanceMatrix();
-                    break;
-                case "E":
-                    Elevation();
-                    break;
-                case "T":
-                    Timezone();
-                    break;
-                case "G":
-                    Geocode();
-                    break;
-                default:
-                    Console.WriteLine("This is a invalid menu selection.");
-                    Start();
-                    break;
+                if (string.IsNullOrEmpty(apiInput))
+                {
+                    throw new ArgumentNullException();
+                }
+
+                switch (apiInput.ToUpper())
+                {
+                    case "D":
+                        Directions();
+                        break;
+                    case "DM":
+                        DistanceMatrix();
+                        break;
+                    case "E":
+                        Elevation();
+                        break;
+                    case "T":
+                        Timezone();
+                        break;
+                    case "G":
+                        Geocode();
+                        break;
+                    case "RG":
+                        ReverseGeocode();
+                        break;
+                    default:
+                        Console.WriteLine("This is a invalid menu selection.");
+                        continue;
+                }
+                break;
             }
         }
 
@@ -60,7 +62,7 @@
             Console.WriteLine("Enter a destination:");
             var destination = Console.ReadLine();
 
-            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
 
             var directionsResponse = serviceClient.Directions(new DirectionsRequest
             {
@@ -141,7 +143,7 @@
                     break;
             }
 
-            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
 
             var distanceMatrixResponse = serviceClient.DistanceMatrix(new DistanceMatrixRequest
             {
@@ -183,7 +185,7 @@
             Console.WriteLine("Enter a Longitude:");
             var longitude = Console.ReadLine();
 
-            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
 
             var elevationResponse = serviceClient.Elevation(new ElevationRequest
             {
@@ -223,7 +225,7 @@
             Console.WriteLine("Enter a Language code:");
             var languageCode = Console.ReadLine();
 
-            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
 
             var timeZoneRequest = new TimezoneRequest
             {
@@ -263,6 +265,47 @@
             Console.Read();
         }
 
+        private static void ReverseGeocode()
+        {
+            Console.WriteLine("Enter a Latitude:");
+            var latitude = Console.ReadLine();
+
+            Console.WriteLine("Enter a Longitude:");
+            var longitude = Console.ReadLine();
+
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
+
+            var reverseGeocodeRequest = new ReverseGeocodeRequest
+            {
+                Location = new Location
+                {
+                    Latitude = latitude,
+                    Longitude = longitude
+                }
+            };
+
+            var reverseGeocodeResponse = serviceClient.ReverseGeocode(reverseGeocodeRequest);
+
+            if (reverseGeocodeResponse.IsSuccessful)
+            {
+                Console.WriteLine("########## Result ##########");
+                if (reverseGeocodeResponse.Response.Status == Status.Ok)
+                {
+                    Console.WriteLine();
+                    foreach (var result in reverseGeocodeResponse.Response.Results)
+                    {
+                        Console.WriteLine("PlaceId: {0} | Formatted Address: {1}",
+                            result.PlaceId,
+                            result.FormattedAddress);
+                    }
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
+            Console.Read();
+        }
+
         private static void Geocode()
         {
             Console.WriteLine("Enter an address:");
@@ -271,7 +314,7 @@
             Console.WriteLine("Enter a Language code:");
             var languageCode = Console.ReadLine();
 
-            var serviceClient = new GoogleApiService.GoogleApiServiceClient();
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
 
             var geocodeRequest = new GeocodeRequest
             {

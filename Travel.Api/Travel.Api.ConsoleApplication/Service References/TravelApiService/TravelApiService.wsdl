@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TravelApiService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" />
+      <xsd:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Enums" />
+      <xsd:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" />
+      <xsd:import schemaLocation="http://localhost:63204/TravelApiService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITravelApiService_Heartbeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:Heartbeat" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Heartbeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HeartbeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_DistanceMatrix_InputMessage">
+    <wsdl:part name="parameters" element="tns:DistanceMatrix" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_DistanceMatrix_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DistanceMatrixResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Directions_InputMessage">
+    <wsdl:part name="parameters" element="tns:Directions" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Directions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DirectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Elevation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Elevation" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Elevation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ElevationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Timezone_InputMessage">
+    <wsdl:part name="parameters" element="tns:Timezone" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Timezone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TimezoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Geocode_InputMessage">
+    <wsdl:part name="parameters" element="tns:Geocode" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Geocode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeocodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_ReverseGeocode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeocode" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_ReverseGeocode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeocodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_GetDistanceMatrixRequestHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_GetDistanceMatrixRequestHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_GetRequestHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_GetRequestHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_DeleteRequestHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_DeleteRequestHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_ReplayRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReplayRequest" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_ReplayRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReplayRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITravelApiService">
+    <wsdl:operation name="Heartbeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/Heartbeat" message="tns:ITravelApiService_Heartbeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/HeartbeatResponse" message="tns:ITravelApiService_Heartbeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceMatrix">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/DistanceMatrix" message="tns:ITravelApiService_DistanceMatrix_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/DistanceMatrixResponse" message="tns:ITravelApiService_DistanceMatrix_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Directions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/Directions" message="tns:ITravelApiService_Directions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/DirectionsResponse" message="tns:ITravelApiService_Directions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Elevation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/Elevation" message="tns:ITravelApiService_Elevation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/ElevationResponse" message="tns:ITravelApiService_Elevation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Timezone">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/Timezone" message="tns:ITravelApiService_Timezone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/TimezoneResponse" message="tns:ITravelApiService_Timezone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Geocode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/Geocode" message="tns:ITravelApiService_Geocode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/GeocodeResponse" message="tns:ITravelApiService_Geocode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReverseGeocode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/ReverseGeocode" message="tns:ITravelApiService_ReverseGeocode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/ReverseGeocodeResponse" message="tns:ITravelApiService_ReverseGeocode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistanceMatrixRequestHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistory" message="tns:ITravelApiService_GetDistanceMatrixRequestHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistoryResponse" message="tns:ITravelApiService_GetDistanceMatrixRequestHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/GetRequestHistory" message="tns:ITravelApiService_GetRequestHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/GetRequestHistoryResponse" message="tns:ITravelApiService_GetRequestHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequestHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/DeleteRequestHistory" message="tns:ITravelApiService_DeleteRequestHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/DeleteRequestHistoryResponse" message="tns:ITravelApiService_DeleteRequestHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplayRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/ReplayRequest" message="tns:ITravelApiService_ReplayRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/ReplayRequestResponse" message="tns:ITravelApiService_ReplayRequest_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITravelApiService" type="tns:ITravelApiService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Heartbeat">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/Heartbeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceMatrix">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/DistanceMatrix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Directions">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/Directions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Elevation">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/Elevation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Timezone">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/Timezone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Geocode">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/Geocode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReverseGeocode">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/ReverseGeocode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistanceMatrixRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/GetRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/DeleteRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplayRequest">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/ReplayRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelApiService">
+    <wsdl:port name="BasicHttpBinding_ITravelApiService" binding="tns:BasicHttpBinding_ITravelApiService">
+      <soap:address location="http://localhost:63204/TravelApiService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

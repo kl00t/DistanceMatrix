@@ -57,6 +57,9 @@
         Timezone,
 
         [EnumMember]
-        Geocode
+        Geocode,
+
+        [EnumMember]
+        ReverseGeocode
     }
 }

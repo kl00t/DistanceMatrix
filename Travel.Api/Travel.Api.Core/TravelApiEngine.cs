@@ -10,7 +10,7 @@
     using Domain.Exceptions;
     using Domain.Models;
 
-    public class GoogleApiEngine : IGoogleApiEngine
+    public class TravelApiEngine : ITravelApiEngine
 	{
 		/// <summary>
 		/// The distance matrix connector.
@@ -43,7 +43,7 @@
         private readonly IGeocodeConnector _geocodeConnector;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleApiEngine" /> class.
+        /// Initializes a new instance of the <see cref="TravelApiEngine" /> class.
         /// </summary>
         /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
         /// <param name="requestHistoryRepository">The request history repository.</param>
@@ -52,7 +52,7 @@
         /// <param name="timezoneConnector">The timezone connector.</param>
         /// <param name="geocodeConnector">The geocode connector.</param>
         /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
-        public GoogleApiEngine(
+        public TravelApiEngine(
             IDistanceMatrixConnector distanceMatrixConnector, 
             IRequestHistoryRepository requestHistoryRepository, 
             IDirectionsConnector directionsConnector, 
@@ -192,6 +192,21 @@
             var request = Mapper.Map<Connector.Entities.GeocodeRequest>(geocodeRequest);
 
             var geocode = _geocodeConnector.Geocode(request);
+
+            var response = Mapper.Map<GeocodeResponse>(geocode);
+
+            if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            {
+            }
+
+            return response;
+        }
+
+        public GeocodeResponse ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest)
+        {
+            var request = Mapper.Map<Connector.Entities.ReverseGeocodeRequest>(reverseGeocodeRequest);
+
+            var geocode = _geocodeConnector.ReverseGeocode(request);
 
             var response = Mapper.Map<GeocodeResponse>(geocode);
 
