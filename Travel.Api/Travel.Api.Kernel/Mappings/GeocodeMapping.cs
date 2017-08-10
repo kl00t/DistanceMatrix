@@ -1,6 +1,7 @@
 ﻿namespace Travel.Api.Kernel.Mappings
 {
     using AutoMapper;
+    using Connector;
     using Resolvers;
     using Connector.Entities;
 
@@ -8,6 +9,24 @@
     {
         protected override void Configure()
         {
+            Mapper.CreateMap<Domain.Models.BingGeoCodeRequest, BingMapsRESTToolkit.GeocodeRequest>()
+                .ForMember(dest => dest.Query, opt => opt.MapFrom(src => src.Query))
+                .ForMember(dest => dest.Address, opt => opt.Ignore())
+                .ForMember(dest => dest.IncludeIso2, opt => opt.MapFrom(src => src.IncludeIso2))
+                .ForMember(dest => dest.IncludeNeighborhood, opt => opt.MapFrom(src => src.IncludeNeighborhood))
+                .ForMember(dest => dest.MaxResults, opt => opt.MapFrom(src => src.MaxResults))
+                .ForMember(dest => dest.BingMapsKey, opt => opt.UseValue(ConfigurationHelper.GetAppSetting("Bing_ApiKey")))
+                .ForMember(dest => dest.Culture, opt => opt.Ignore())
+                .ForMember(dest => dest.UserMapView, opt => opt.Ignore())
+                .ForMember(dest => dest.UserLocation, opt => opt.Ignore())
+                .ForMember(dest => dest.UserRegion, opt => opt.Ignore())
+                .ForMember(dest => dest.UserIp, opt => opt.Ignore());
+
+            Mapper.CreateMap<BingMapsRESTToolkit.Location, Domain.Models.BingGeoCodeResponse>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.Confidence, opt => opt.MapFrom(src => src.Confidence))
+                .ForMember(dest => dest.EntityType, opt => opt.MapFrom(src => src.EntityType));
+
             Mapper.CreateMap<Domain.Models.ReverseGeocodeRequest, ReverseGeocodeRequest>()
                 .ForMember(dest => dest.latlng, opt => opt.ResolveUsing<LocationsResolver>().FromMember(src => src.Location));
 

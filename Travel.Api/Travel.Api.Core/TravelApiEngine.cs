@@ -56,6 +56,7 @@
         /// <param name="elevationConnector">The elevation connector.</param>
         /// <param name="timezoneConnector">The timezone connector.</param>
         /// <param name="geocodeConnector">The geocode connector.</param>
+        /// <param name="geolocationConnector"></param>
         /// <exception cref="System.ArgumentNullException">distanceMatrixConnector</exception>
         public TravelApiEngine(
             IDistanceMatrixConnector distanceMatrixConnector, 
@@ -192,13 +193,6 @@
             return response;
         }
 
-        /// <summary>
-        /// Geocodes the specified geocode request.
-        /// </summary>
-        /// <param name="geocodeRequest">The geocode request.</param>
-        /// <returns>
-        /// Returns the geocoded response.
-        /// </returns>
         public GeocodeResponse Geocode(GeocodeRequest geocodeRequest)
         {
             var request = Mapper.Map<Connector.Entities.GeocodeRequest>(geocodeRequest);
@@ -210,6 +204,21 @@
             if (CheckResponseStatus(response.Status, response.ErrorMessage))
             {
             }
+
+            return response;
+        }
+
+        public BingGeoCodeResponse BingGeocode(BingGeoCodeRequest bingGeoCodeRequest)
+        {
+            var request = Mapper.Map<BingMapsRESTToolkit.GeocodeRequest>(bingGeoCodeRequest);
+
+            var geocode = _geocodeConnector.GeocodeRequest(request);
+
+            var response = Mapper.Map<BingGeoCodeResponse>(geocode);
+
+            ////if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            ////{
+            ////}
 
             return response;
         }

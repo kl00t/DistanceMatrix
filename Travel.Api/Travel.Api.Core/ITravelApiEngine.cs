@@ -27,5 +27,7 @@
         GeocodeResponse ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest);
 
         GeolocationResponse Geolocation(GeolocationRequest geolocationRequest);
+
+        BingGeoCodeResponse BingGeocode(BingGeoCodeRequest bingGeoCodeRequest);
     }
 }

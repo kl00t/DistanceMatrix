@@ -3,9 +3,12 @@
     using System;
     using System.Text;
     using System.Web;
+    using BingMapsRESTToolkit;
     using Entities;
     using Interfaces;
     using Newtonsoft.Json;
+    using GeocodeRequest = Entities.GeocodeRequest;
+    using ReverseGeocodeRequest = Entities.ReverseGeocodeRequest;
 
     public class GeocodeConnector : IGeocodeConnector
     {
@@ -52,6 +55,22 @@
             var response = _queryExecutor.ExecuteRequest(address.ToString());
 
             return JsonConvert.DeserializeObject<GeocodeResponse>(response);
+        }
+
+        public BingMapsRESTToolkit.Location GeocodeRequest(BingMapsRESTToolkit.GeocodeRequest geocodeRequest)
+        {
+            //Process the request by using the ServiceManager.
+            var response = ServiceManager.GetResponseAsync(geocodeRequest)
+                .GetAwaiter()
+                .GetResult();
+
+            if (response == null || response.ResourceSets == null || response.ResourceSets.Length <= 0 ||
+                response.ResourceSets[0].Resources == null || response.ResourceSets[0].Resources.Length <= 0)
+            {
+                throw new Exception();
+            }
+
+            return response.ResourceSets[0].Resources[0] as BingMapsRESTToolkit.Location;
         }
     }
 }

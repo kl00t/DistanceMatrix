@@ -63,6 +63,9 @@
         ReverseGeocode,
 
         [EnumMember]
-        Geolocation
+        Geolocation,
+
+        [EnumMember]
+        BingGeocode
     }
 }

@@ -67,6 +67,13 @@
                 EventType.Geocode);
         }
 
+        public ServiceResponse<BingGeoCodeResponse> BingGeocode(BingGeoCodeRequest bingGeoCodeRequest)
+        {
+            return CallEngine(
+                () => _apiEngine.BingGeocode(bingGeoCodeRequest),
+                EventType.BingGeocode);
+        }
+
         public ServiceResponse<GeocodeResponse> ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest)
         {
             return CallEngine(

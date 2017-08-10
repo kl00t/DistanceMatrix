@@ -7,5 +7,7 @@
         GeocodeResponse Geocode(GeocodeRequest geocodeRequest);
 
         GeocodeResponse ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest);
+
+        BingMapsRESTToolkit.Location GeocodeRequest(BingMapsRESTToolkit.GeocodeRequest geocodeRequest);
     }
 }
