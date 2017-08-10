@@ -50,15 +50,15 @@
                 address.AppendFormat("&considerIp={0}", geolocationRequest.considerIp);
             }
 
-            if (!string.IsNullOrEmpty(geolocationRequest.cellTowers))
-            {
-                address.AppendFormat("&cellTowers={0}", geolocationRequest.cellTowers);
-            }
+            ////if (!string.IsNullOrEmpty(geolocationRequest.cellTowers))
+            ////{
+            ////    address.AppendFormat("&cellTowers={0}", geolocationRequest.cellTowers);
+            ////}
 
-            if (!string.IsNullOrEmpty(geolocationRequest.wifiAccessPoints))
-            {
-                address.AppendFormat("&wifiAccessPoints={0}", geolocationRequest.wifiAccessPoints);
-            }
+            ////if (!string.IsNullOrEmpty(geolocationRequest.wifiAccessPoints))
+            ////{
+            ////    address.AppendFormat("&wifiAccessPoints={0}", geolocationRequest.wifiAccessPoints);
+            ////}
 
             var response = _queryExecutor.ExecuteRequest(address.ToString());
 

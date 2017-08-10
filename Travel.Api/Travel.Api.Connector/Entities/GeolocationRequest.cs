@@ -12,8 +12,8 @@
 
         public string considerIp { get; set; }
 
-        public string cellTowers { get; set; }
+        ////public CellTower[] cellTowers { get; set; }
 
-        public string wifiAccessPoints { get; set; }
+        ////public WifiAccessPoint[] wifiAccessPoints { get; set; }
     }
 }

@@ -56,6 +56,7 @@
     <Compile Include="Entities\AddressComponent.cs" />
     <Compile Include="Entities\BaseRequest.cs" />
     <Compile Include="Entities\BaseResponse.cs" />
+    <Compile Include="Entities\CellTower.cs" />
     <Compile Include="Entities\DistanceMatrixRequest.cs" />
     <Compile Include="Entities\Duration.cs" />
     <Compile Include="Entities\Distance.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\Row.cs" />
     <Compile Include="Entities\Viewport.cs" />
+    <Compile Include="Entities\WifiAccessPoint.cs" />
     <Compile Include="Example.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -63,6 +63,7 @@
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Mappings\ElevationMapping.cs" />
     <Compile Include="Mappings\GeocodeMapping.cs" />
+    <Compile Include="Mappings\GeolocationMapping.cs" />
     <Compile Include="Mappings\TimezoneMapping.cs" />
     <Compile Include="Resolvers\LatitudeResolver.cs" />
     <Compile Include="Resolvers\LongitudeResolver.cs" />

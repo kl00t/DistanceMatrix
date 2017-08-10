@@ -1,6 +1,7 @@
 ﻿namespace Travel.Api.ConsoleApplication
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Core.Helpers;
     using Domain.Enums;
@@ -349,6 +350,7 @@
                     Console.WriteLine();
                     foreach (var result in geocodeResponse.Response.Results)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("PlaceId: {0} | Formatted Address: {1}",
                             result.PlaceId,
                             result.FormattedAddress);
@@ -367,12 +369,55 @@
 
             var geolocationRequest = new GeolocationRequest
             {
-                
+                HomeMobileCountryCode = "310",
+                HomeMobileNetworkCode = "410",
+                RadioType = "gsm",
+                Carrier = "Vodafone",
+                ConsiderIp = false,
+                ////CellTowers = new List<CellTower>
+                ////{
+                ////    new CellTower
+                ////    {
+                ////        CellId = 42,
+                ////        LocationAreaCode = 415,
+                ////        MobileCountryCode = 310,
+                ////        MobileNetworkCode = 410,
+                ////        Age = 0,
+                ////        SignalStrength = -60,
+                ////        TimingAdvance = 15
+                ////    }
+                ////},
+                ////WifiAccessPoints = new List<WifiAccessPoint>
+                ////{
+                ////    new WifiAccessPoint
+                ////    {
+                ////        MacAddress = "00:25:9c:cf:1c:ac",
+                ////        SignalStrength = -43,
+                ////        Age = 0,
+                ////        Channel = 11,
+                ////        SignalToNoiseRatio = 0
+                ////    }
+                ////}
             };
 
             var geolocation = serviceClient.Geolocation(geolocationRequest);
 
-            throw new NotImplementedException();
+            if (geolocation.IsSuccessful)
+            {
+                Console.WriteLine("########## Result ##########");
+                if (geolocation.Response.Status == Status.Ok)
+                {
+                    Console.WriteLine();
+                    ////Console.WriteLine("Latitude: {0} Longitude: {1} Accuracy: {2}",
+                    ////    geolocation.Response.Location.Latitude,
+                    ////    geolocation.Response.Location.Longitude,
+                    ////    geolocation.Response.Accuracy);
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press enter key to exit.");
+            Console.Read();
         }
     }
 }

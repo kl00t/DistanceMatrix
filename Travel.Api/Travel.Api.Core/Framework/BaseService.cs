@@ -148,10 +148,10 @@
                 Logger.LogMessage(exceptionEventType, exceptionEventDescription, overQueryLimitException.ToString(), LogLevel.Info);
                 return new ServiceResponse<T>(ServiceError.OverQueryLimit, overQueryLimitException.Message);
             }
-            catch (ApiException distanceMatrixException)
+            catch (ApiException apiException)
             {
-                Logger.LogMessage(exceptionEventType, exceptionEventDescription, distanceMatrixException.ToString(), LogLevel.Error);
-                return new ServiceResponse<T>(ServiceError.DistanceMatrixError, distanceMatrixException.Message);
+                Logger.LogMessage(exceptionEventType, exceptionEventDescription, apiException.ToString(), LogLevel.Error);
+                return new ServiceResponse<T>(ServiceError.DistanceMatrixError, apiException.Message);
             }
             catch (ArgumentException argumentException)
             {

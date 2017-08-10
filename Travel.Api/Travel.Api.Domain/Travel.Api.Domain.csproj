@@ -60,6 +60,7 @@
     <Compile Include="Exceptions\ZeroResultsException.cs" />
     <Compile Include="Interfaces\IAddress.cs" />
     <Compile Include="Interfaces\IAddressComponent.cs" />
+    <Compile Include="Interfaces\ICellTower.cs" />
     <Compile Include="Interfaces\IDirectionsRequest.cs" />
     <Compile Include="Interfaces\IDirectionsResponse.cs" />
     <Compile Include="Interfaces\IElement.cs" />
@@ -82,10 +83,12 @@
     <Compile Include="Interfaces\ITimezoneRequest.cs" />
     <Compile Include="Interfaces\ITimezoneResponse.cs" />
     <Compile Include="Interfaces\IViewport.cs" />
+    <Compile Include="Interfaces\IWifiAccessPoint.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AddressComponent.cs" />
     <Compile Include="Models\BaseRequest.cs" />
     <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\CellTower.cs" />
     <Compile Include="Models\DeleteRequestHistoryResponse.cs" />
     <Compile Include="Models\DirectionsRequest.cs" />
     <Compile Include="Models\DirectionsResponse.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Models\TimezoneRequest.cs" />
     <Compile Include="Models\TimezoneResponse.cs" />
     <Compile Include="Models\Viewport.cs" />
+    <Compile Include="Models\WifiAccessPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
