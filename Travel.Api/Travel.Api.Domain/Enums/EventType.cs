@@ -60,6 +60,9 @@
         Geocode,
 
         [EnumMember]
-        ReverseGeocode
+        ReverseGeocode,
+
+        [EnumMember]
+        Geolocation
     }
 }

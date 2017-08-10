@@ -19,45 +19,23 @@
     [TestFixture]
     public class DistanceMatrixEngineTests
     {
-        /// <summary>
-        /// The kernel.
-        /// </summary>
         private IKernel _kernel;
 
-        /// <summary>
-        /// The distance matrix engine.
-        /// </summary>
         private static TravelApiEngine _distanceMatrixEngine;
 
-        /// <summary>
-        /// The mock distance matrix connector.
-        /// </summary>
         private Mock<IDistanceMatrixConnector> _mockDistanceMatrixConnector;
 
-        /// <summary>
-        /// The mock directions connector.
-        /// </summary>
         private Mock<IDirectionsConnector> _mockDirectionsConnector;
 
-        /// <summary>
-        /// The mock request history repository.
-        /// </summary>
         private Mock<IRequestHistoryRepository> _mockRequestHistoryRepository;
 
-        /// <summary>
-        /// The mock elevation connector.
-        /// </summary>
         private Mock<IElevationConnector> _mockElevationConnector;
 
-        /// <summary>
-        /// The mock timezone connector.
-        /// </summary>
         private Mock<ITimezoneConnector> _mockTimezoneConnector;
 
-        /// <summary>
-        /// The mock geocode connector.
-        /// </summary>
         private Mock<IGeocodeConnector> _mockGeocodeConnector;
+
+        private Mock<IGeolocationConnector> _mockGeolocationConnector;
 
         /// <summary>
         /// Initializes this instance.
@@ -81,6 +59,7 @@
             _mockElevationConnector = new Mock<IElevationConnector>();
             _mockTimezoneConnector = new Mock<ITimezoneConnector>();
             _mockGeocodeConnector = new Mock<IGeocodeConnector>();
+            _mockGeolocationConnector = new Mock<IGeolocationConnector>();
 
             _distanceMatrixEngine = new TravelApiEngine(
                 _mockDistanceMatrixConnector.Object, 
@@ -88,7 +67,8 @@
 				_mockDirectionsConnector.Object,
                 _mockElevationConnector.Object, 
                 _mockTimezoneConnector.Object, 
-                _mockGeocodeConnector.Object);
+                _mockGeocodeConnector.Object,
+                _mockGeolocationConnector.Object);
         }
 
         /// <summary>
@@ -105,7 +85,8 @@
 				new Mock<IDirectionsConnector>().Object,
                 new Mock<IElevationConnector>().Object, 
                 new Mock<ITimezoneConnector>().Object, 
-                new Mock<IGeocodeConnector>().Object);
+                new Mock<IGeocodeConnector>().Object,
+                new Mock<IGeolocationConnector>().Object);
         }
 
         /// <summary>
@@ -122,7 +103,8 @@
 				new Mock<IDirectionsConnector>().Object,
                 new Mock<IElevationConnector>().Object, 
                 new Mock<ITimezoneConnector>().Object,
-                new Mock<IGeocodeConnector>().Object);
+                new Mock<IGeocodeConnector>().Object,
+                new Mock<IGeolocationConnector>().Object);
         }
 
         /// <summary>

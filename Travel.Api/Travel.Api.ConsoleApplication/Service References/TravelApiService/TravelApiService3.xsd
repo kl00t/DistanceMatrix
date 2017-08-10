@@ -280,6 +280,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ReverseGeocodeRequest" nillable="true" type="tns:ReverseGeocodeRequest" />
+  <xs:complexType name="GeolocationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeolocationRequest" nillable="true" type="tns:GeolocationRequest" />
+  <xs:complexType name="GeolocationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeolocationResponse" nillable="true" type="tns:GeolocationResponse" />
   <xs:complexType name="ArrayOfRequestHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestHistory" nillable="true" type="tns:RequestHistory" />

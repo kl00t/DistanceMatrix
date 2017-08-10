@@ -57,6 +57,12 @@ namespace Travel.Api.ConsoleApplication.TravelApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/ReverseGeocode", ReplyAction="http://tempuri.org/ITravelApiService/ReverseGeocodeResponse")]
         System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> ReverseGeocodeAsync(Travel.Api.Domain.Models.ReverseGeocodeRequest reverseGeocodeRequest);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Geolocation", ReplyAction="http://tempuri.org/ITravelApiService/GeolocationResponse")]
+        Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeolocationResponse> Geolocation(Travel.Api.Domain.Models.GeolocationRequest geolocationRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/Geolocation", ReplyAction="http://tempuri.org/ITravelApiService/GeolocationResponse")]
+        System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeolocationResponse>> GeolocationAsync(Travel.Api.Domain.Models.GeolocationRequest geolocationRequest);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistory", ReplyAction="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistoryResponse")]
         Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory();
         
@@ -163,6 +169,14 @@ namespace Travel.Api.ConsoleApplication.TravelApiService {
         
         public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeocodeResponse>> ReverseGeocodeAsync(Travel.Api.Domain.Models.ReverseGeocodeRequest reverseGeocodeRequest) {
             return base.Channel.ReverseGeocodeAsync(reverseGeocodeRequest);
+        }
+        
+        public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeolocationResponse> Geolocation(Travel.Api.Domain.Models.GeolocationRequest geolocationRequest) {
+            return base.Channel.Geolocation(geolocationRequest);
+        }
+        
+        public System.Threading.Tasks.Task<Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.GeolocationResponse>> GeolocationAsync(Travel.Api.Domain.Models.GeolocationRequest geolocationRequest) {
+            return base.Channel.GeolocationAsync(geolocationRequest);
         }
         
         public Travel.Api.Core.Framework.ServiceResponse<Travel.Api.Domain.Models.RequestHistory[]> GetDistanceMatrixRequestHistory() {

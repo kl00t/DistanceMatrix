@@ -68,6 +68,7 @@
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.DistanceMatrixResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.ElevationResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.GeocodeResponse.datasource" />
+    <None Include="Properties\DataSources\Travel.Api.Domain.Models.GeolocationResponse.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.RequestHistory.datasource" />
     <None Include="Properties\DataSources\Travel.Api.Domain.Models.TimezoneResponse.datasource" />
     <None Include="Service References\TravelApiService\TravelApiService.wsdl" />

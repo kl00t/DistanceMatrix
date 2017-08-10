@@ -74,6 +74,13 @@
                 EventType.ReverseGeocode);
         }
 
+        public ServiceResponse<GeolocationResponse> Geolocation(GeolocationRequest geolocationRequest)
+        {
+            return CallEngine(
+                () => _apiEngine.Geolocation(geolocationRequest),
+                EventType.Geolocation);
+        }
+
         public ServiceResponse<List<RequestHistory>> GetDistanceMatrixRequestHistory()
         {
             return CallEngine(

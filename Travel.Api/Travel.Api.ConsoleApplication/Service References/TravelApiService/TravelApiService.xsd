@@ -99,6 +99,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Geolocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Travel.Api.Domain.Models" minOccurs="0" name="geolocationRequest" nillable="true" type="q14:GeolocationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeolocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="GeolocationResult" nillable="true" type="q15:ServiceResponseOfGeolocationResponseiv_S3dj_Pg" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDistanceMatrixRequestHistory">
     <xs:complexType>
       <xs:sequence />
@@ -107,49 +121,49 @@
   <xs:element name="GetDistanceMatrixRequestHistoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="GetDistanceMatrixRequestHistoryResult" nillable="true" type="q14:ServiceResponseOfArrayOfRequestHistoryiv_S3dj_Pg" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="GetDistanceMatrixRequestHistoryResult" nillable="true" type="q16:ServiceResponseOfArrayOfRequestHistoryiv_S3dj_Pg" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRequestHistory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q15:guid" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q17:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRequestHistoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="GetRequestHistoryResult" nillable="true" type="q16:ServiceResponseOfRequestHistoryiv_S3dj_Pg" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="GetRequestHistoryResult" nillable="true" type="q18:ServiceResponseOfRequestHistoryiv_S3dj_Pg" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteRequestHistory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q17:guid" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q19:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteRequestHistoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="DeleteRequestHistoryResult" nillable="true" type="q18:ServiceResponseOfDeleteRequestHistoryResponseiv_S3dj_Pg" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="DeleteRequestHistoryResult" nillable="true" type="q20:ServiceResponseOfDeleteRequestHistoryResponseiv_S3dj_Pg" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReplayRequest">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q19:guid" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="requestId" type="q21:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReplayRequestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="ReplayRequestResult" nillable="true" type="q20:ServiceResponseOfDistanceMatrixResponseiv_S3dj_Pg" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Travel.Api.Core.Framework" minOccurs="0" name="ReplayRequestResult" nillable="true" type="q22:ServiceResponseOfDistanceMatrixResponseiv_S3dj_Pg" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

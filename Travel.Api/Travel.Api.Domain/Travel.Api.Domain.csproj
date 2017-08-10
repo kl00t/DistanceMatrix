@@ -70,6 +70,8 @@
     <Compile Include="Interfaces\IGeocodedWaypoint.cs" />
     <Compile Include="Interfaces\IGeocodeRequest.cs" />
     <Compile Include="Interfaces\IGeocodeResponse.cs" />
+    <Compile Include="Interfaces\IGeolocationRequest.cs" />
+    <Compile Include="Interfaces\IGeolocationResponse.cs" />
     <Compile Include="Interfaces\IGeometry.cs" />
     <Compile Include="Interfaces\ILanguage.cs" />
     <Compile Include="Interfaces\ILocation.cs" />
@@ -103,6 +105,8 @@
     <Compile Include="Models\GeocodedWaypoint.cs" />
     <Compile Include="Models\GeocodeRequest.cs" />
     <Compile Include="Models\GeocodeResponse.cs" />
+    <Compile Include="Models\GeolocationRequest.cs" />
+    <Compile Include="Models\GeolocationResponse.cs" />
     <Compile Include="Models\Geometry.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Location.cs" />

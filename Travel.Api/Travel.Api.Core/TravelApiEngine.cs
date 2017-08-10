@@ -43,6 +43,11 @@
         private readonly IGeocodeConnector _geocodeConnector;
 
         /// <summary>
+        /// The geolocation connector.
+        /// </summary>
+        private readonly IGeolocationConnector _geolocationConnector;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="TravelApiEngine" /> class.
         /// </summary>
         /// <param name="distanceMatrixConnector">The distance matrix connector.</param>
@@ -58,7 +63,8 @@
             IDirectionsConnector directionsConnector, 
             IElevationConnector elevationConnector, 
             ITimezoneConnector timezoneConnector, 
-            IGeocodeConnector geocodeConnector)
+            IGeocodeConnector geocodeConnector,
+            IGeolocationConnector geolocationConnector)
 		{
 			if (distanceMatrixConnector == null)
 			{
@@ -90,12 +96,18 @@
                 throw new ArgumentNullException("geocodeConnector");
             }
 
+            if (geolocationConnector == null)
+            {
+                throw new ArgumentNullException("geolocationConnector");
+            }
+
             _distanceMatrixConnector = distanceMatrixConnector;
 			_requestHistoryRepository = requestHistoryRepository;
 			_directionsConnector = directionsConnector;
             _elevationConnector = elevationConnector;
             _timezoneConnector = timezoneConnector;
             _geocodeConnector = geocodeConnector;
+            _geolocationConnector = geolocationConnector;
 		}
 
 		/// <summary>
@@ -209,6 +221,21 @@
             var geocode = _geocodeConnector.ReverseGeocode(request);
 
             var response = Mapper.Map<GeocodeResponse>(geocode);
+
+            if (CheckResponseStatus(response.Status, response.ErrorMessage))
+            {
+            }
+
+            return response;
+        }
+
+        public GeolocationResponse Geolocation(GeolocationRequest geolocationRequest)
+        {
+            var request = Mapper.Map<Connector.Entities.GeolocationRequest>(geolocationRequest);
+
+            var geolocation = _geolocationConnector.Geolocation(request);
+
+            var response = Mapper.Map<GeolocationResponse>(geolocation);
 
             if (CheckResponseStatus(response.Status, response.ErrorMessage))
             {

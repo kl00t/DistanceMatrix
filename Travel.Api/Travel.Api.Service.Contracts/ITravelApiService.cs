@@ -35,6 +35,9 @@
         ServiceResponse<GeocodeResponse> ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest);
 
         [OperationContract]
+        ServiceResponse<GeolocationResponse> Geolocation(GeolocationRequest geolocationRequest);
+
+        [OperationContract]
         ServiceResponse<List<RequestHistory>> GetDistanceMatrixRequestHistory();
 
         [OperationContract]

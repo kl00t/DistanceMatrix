@@ -18,7 +18,14 @@
             while (true)
             {
                 Console.WriteLine("Enter API Request:");
-                Console.WriteLine("(D) Directions | (DM) Distance Matrix | (E) Elevation | (T) Timezone | (G) Geocode | (RG) Reverse Geocode");
+                Console.WriteLine(Environment.NewLine + 
+                    "(D) Directions " + Environment.NewLine + 
+                    "(DM) Distance Matrix " + Environment.NewLine + 
+                    "(E) Elevation " + Environment.NewLine + 
+                    "(T) Timezone " + Environment.NewLine + 
+                    "(G) Geocode " + Environment.NewLine + 
+                    "(RG) Reverse Geocode " + Environment.NewLine +
+                    "(GL) Geolocation"  + Environment.NewLine);
                 var apiInput = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(apiInput))
@@ -45,6 +52,9 @@
                         break;
                     case "RG":
                         ReverseGeocode();
+                        break;
+                    case "GL":
+                        Geolocation();
                         break;
                     default:
                         Console.WriteLine("This is a invalid menu selection.");
@@ -349,6 +359,20 @@
             Console.WriteLine();
             Console.WriteLine("Press enter key to exit.");
             Console.Read();
+        }
+
+        private static void Geolocation()
+        {
+            var serviceClient = new TravelApiService.TravelApiServiceClient();
+
+            var geolocationRequest = new GeolocationRequest
+            {
+                
+            };
+
+            var geolocation = serviceClient.Geolocation(geolocationRequest);
+
+            throw new NotImplementedException();
         }
     }
 }

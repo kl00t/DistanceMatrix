@@ -52,6 +52,12 @@
   <wsdl:message name="ITravelApiService_ReverseGeocode_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReverseGeocodeResponse" />
   </wsdl:message>
+  <wsdl:message name="ITravelApiService_Geolocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Geolocation" />
+  </wsdl:message>
+  <wsdl:message name="ITravelApiService_Geolocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeolocationResponse" />
+  </wsdl:message>
   <wsdl:message name="ITravelApiService_GetDistanceMatrixRequestHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDistanceMatrixRequestHistory" />
   </wsdl:message>
@@ -104,6 +110,10 @@
     <wsdl:operation name="ReverseGeocode">
       <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/ReverseGeocode" message="tns:ITravelApiService_ReverseGeocode_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/ReverseGeocodeResponse" message="tns:ITravelApiService_ReverseGeocode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Geolocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/Geolocation" message="tns:ITravelApiService_Geolocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelApiService/GeolocationResponse" message="tns:ITravelApiService_Geolocation_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDistanceMatrixRequestHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/ITravelApiService/GetDistanceMatrixRequestHistory" message="tns:ITravelApiService_GetDistanceMatrixRequestHistory_InputMessage" />
@@ -180,6 +190,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReverseGeocode">
       <soap:operation soapAction="http://tempuri.org/ITravelApiService/ReverseGeocode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Geolocation">
+      <soap:operation soapAction="http://tempuri.org/ITravelApiService/Geolocation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -50,6 +50,7 @@
     <Compile Include="Connectors\DirectionsConnector.cs" />
     <Compile Include="Connectors\ElevationConnector.cs" />
     <Compile Include="Connectors\GeocodeConnector.cs" />
+    <Compile Include="Connectors\GeolocationConnector.cs" />
     <Compile Include="Connectors\TimezoneConnector.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\AddressComponent.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Entities\Elevation.cs" />
     <Compile Include="Entities\Fare.cs" />
     <Compile Include="Entities\GeocodedWaypoint.cs" />
+    <Compile Include="Entities\GeolocationRequest.cs" />
+    <Compile Include="Entities\GeolocationResponse.cs" />
     <Compile Include="Entities\Geometry.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\ReverseGeocodeRequest.cs" />
@@ -86,6 +89,7 @@
     <Compile Include="Interfaces\IApiRequestExecutor.cs" />
     <Compile Include="Interfaces\IElevationConnector.cs" />
     <Compile Include="Interfaces\IGeocodeConnector.cs" />
+    <Compile Include="Interfaces\IGeolocationConnector.cs" />
     <Compile Include="Interfaces\IPlaceConnector.cs" />
     <Compile Include="Interfaces\ITimezoneConnector.cs" />
     <Compile Include="Entities\PlaceRequest.cs" />
