@@ -67,7 +67,7 @@
                 EventType.Geocode);
         }
 
-        public ServiceResponse<BingGeoCodeResponse> BingGeocode(BingGeoCodeRequest bingGeoCodeRequest)
+        public ServiceResponse<BingGeoCodeResponse> BingGeocode(GeocodeRequest bingGeoCodeRequest)
         {
             return CallEngine(
                 () => _apiEngine.BingGeocode(bingGeoCodeRequest),

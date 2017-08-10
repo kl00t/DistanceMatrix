@@ -32,7 +32,7 @@
         ServiceResponse<GeocodeResponse> Geocode(GeocodeRequest geocodeRequest);
 
         [OperationContract]
-        ServiceResponse<BingGeoCodeResponse> BingGeocode(BingGeoCodeRequest bingGeoCodeRequest);
+        ServiceResponse<BingGeoCodeResponse> BingGeocode(GeocodeRequest bingGeoCodeRequest);
 
         [OperationContract]
         ServiceResponse<GeocodeResponse> ReverseGeocode(ReverseGeocodeRequest reverseGeocodeRequest);

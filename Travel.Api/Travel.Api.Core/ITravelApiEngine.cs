@@ -28,6 +28,6 @@
 
         GeolocationResponse Geolocation(GeolocationRequest geolocationRequest);
 
-        BingGeoCodeResponse BingGeocode(BingGeoCodeRequest bingGeoCodeRequest);
+        BingGeoCodeResponse BingGeocode(GeocodeRequest bingGeoCodeRequest);
     }
 }

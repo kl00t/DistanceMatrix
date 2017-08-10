@@ -9,12 +9,12 @@
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<Domain.Models.BingGeoCodeRequest, BingMapsRESTToolkit.GeocodeRequest>()
-                .ForMember(dest => dest.Query, opt => opt.MapFrom(src => src.Query))
+            Mapper.CreateMap<Domain.Models.GeocodeRequest, BingMapsRESTToolkit.GeocodeRequest>()
+                .ForMember(dest => dest.Query, opt => opt.MapFrom(src => src.Address))
                 .ForMember(dest => dest.Address, opt => opt.Ignore())
-                .ForMember(dest => dest.IncludeIso2, opt => opt.MapFrom(src => src.IncludeIso2))
-                .ForMember(dest => dest.IncludeNeighborhood, opt => opt.MapFrom(src => src.IncludeNeighborhood))
-                .ForMember(dest => dest.MaxResults, opt => opt.MapFrom(src => src.MaxResults))
+                .ForMember(dest => dest.IncludeIso2, opt => opt.Ignore())
+                .ForMember(dest => dest.IncludeNeighborhood, opt => opt.Ignore())
+                .ForMember(dest => dest.MaxResults, opt => opt.Ignore())
                 .ForMember(dest => dest.BingMapsKey, opt => opt.UseValue(ConfigurationHelper.GetAppSetting("Bing_ApiKey")))
                 .ForMember(dest => dest.Culture, opt => opt.Ignore())
                 .ForMember(dest => dest.UserMapView, opt => opt.Ignore())

@@ -208,9 +208,9 @@
             return response;
         }
 
-        public BingGeoCodeResponse BingGeocode(BingGeoCodeRequest bingGeoCodeRequest)
+        public BingGeoCodeResponse BingGeocode(GeocodeRequest geoCodeRequest)
         {
-            var request = Mapper.Map<BingMapsRESTToolkit.GeocodeRequest>(bingGeoCodeRequest);
+            var request = Mapper.Map<BingMapsRESTToolkit.GeocodeRequest>(geoCodeRequest);
 
             var geocode = _geocodeConnector.GeocodeRequest(request);
 
