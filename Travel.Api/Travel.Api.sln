@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Api.Kernel.UnitTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Api.Client.Web", "Travel.Api.Client.Web\Travel.Api.Client.Web.csproj", "{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Api.Client.WebApplication", "Travel.Api.Client.WebApplication\Travel.Api.Client.WebApplication.csproj", "{90BB567C-55A9-4C8E-B662-60995B26665D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14EBB608-6E43-4DD9-9DCD-67FF41DA51F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90BB567C-55A9-4C8E-B662-60995B26665D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90BB567C-55A9-4C8E-B662-60995B26665D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90BB567C-55A9-4C8E-B662-60995B26665D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90BB567C-55A9-4C8E-B662-60995B26665D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
