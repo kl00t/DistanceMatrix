@@ -23,7 +23,9 @@
         public GeolocationResponse Geolocation(GeolocationRequest geolocationRequest)
         {
             var address = new StringBuilder();
-            address.AppendFormat("{0}/geolocation/v1/geolocate?key={1}", ConfigurationHelper.GetAppSetting("BaseUrl"), ConfigurationHelper.GetAppSetting("Geolocation_ApiKey"));
+            address.AppendFormat("{0}/geolocation/v1/geolocate?key={1}", 
+                ConfigurationHelper.GetAppSetting("BaseUrl"),
+                geolocationRequest.key);
 
             if (!string.IsNullOrEmpty(geolocationRequest.homeMobileCountryCode))
             {

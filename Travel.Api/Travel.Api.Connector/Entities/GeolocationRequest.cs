@@ -2,6 +2,8 @@
 {
     public class GeolocationRequest : BaseRequest
     {
+        public string key { get; set; }
+
         public string homeMobileCountryCode { get; set; }
 
         public string homeMobileNetworkCode { get; set; }

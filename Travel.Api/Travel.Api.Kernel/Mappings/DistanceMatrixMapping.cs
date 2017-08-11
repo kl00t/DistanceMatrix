@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using AutoMapper;
+    using Connector;
     using Connector.Entities;
     using Converters;
     using Resolvers;
@@ -22,11 +23,11 @@
 				.ForMember(dest => dest.Id, opt => opt.Ignore());
 
 			Mapper.CreateMap<Domain.Models.DistanceMatrixRequest, DistanceMatrixRequest>()
+                .ForMember(dest => dest.key, opt => opt.UseValue(ConfigurationHelper.GetAppSetting("DistanceMatrix_ApiKey")))
 				.ForMember(dest => dest.origins, opt => opt.MapFrom(src => src.Origins))
 				.ForMember(dest => dest.destinations, opt => opt.MapFrom(src => src.Destinations))
 				.ForMember(dest => dest.mode, opt => opt.MapFrom(src => src.Mode))
 				.ForMember(dest => dest.units, opt => opt.MapFrom(src => src.Units))
-				.ForMember(dest => dest.key, opt => opt.Ignore())
                 .ForMember(dest => dest.language, opt => opt.Ignore())
                 .ForMember(dest => dest.avoid, opt => opt.Ignore())
                 .ForMember(dest => dest.arrival_time, opt => opt.Ignore())

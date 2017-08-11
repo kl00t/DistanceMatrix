@@ -33,10 +33,11 @@
         public DistanceMatrixResponse DistanceMatrix(DistanceMatrixRequest request)
         {
             var address = new StringBuilder();
-            address.AppendFormat("{0}/distancematrix/json?origins={1}&destinations={2}",
+            address.AppendFormat("{0}/distancematrix/json?origins={1}&destinations={2}&key={3}",
                 ConfigurationHelper.GetAppSetting("BaseUrl"),
 				HttpUtility.UrlEncode(request.origins),
-				HttpUtility.UrlEncode(request.destinations));
+				HttpUtility.UrlEncode(request.destinations),
+                request.key);
 
 			if (!string.IsNullOrEmpty(request.mode))
 			{
@@ -47,8 +48,6 @@
 			{
 				address.AppendFormat("&units={0}", request.units.ToLower());
 			}
-
-			address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("DistanceMatrix_ApiKey"));
 
 			var response = _queryExecutor.ExecuteRequest(address.ToString());
 

@@ -1,6 +1,7 @@
 ﻿namespace Travel.Api.Kernel.Mappings
 {
     using AutoMapper;
+    using Connector;
     using Connector.Entities;
     using Domain.Interfaces;
     using Resolvers;
@@ -10,13 +11,12 @@
         protected override void Configure()
         {
             Mapper.CreateMap<Domain.Models.GeolocationRequest, GeolocationRequest>()
+                .ForMember(dest => dest.key, opt => opt.UseValue(ConfigurationHelper.GetAppSetting("Geolocation_ApiKey")))
                 .ForMember(dest => dest.carrier, opt => opt.MapFrom(src => src.Carrier))
                 .ForMember(dest => dest.homeMobileCountryCode, opt => opt.MapFrom(src => src.HomeMobileCountryCode))
                 .ForMember(dest => dest.homeMobileNetworkCode, opt => opt.MapFrom(src => src.HomeMobileNetworkCode))
                 .ForMember(dest => dest.radioType, opt => opt.MapFrom(src => src.RadioType))
                 .ForMember(dest => dest.considerIp, opt => opt.MapFrom(src => src.ConsiderIp.ToString()));
-                ////.ForMember(dest => dest.cellTowers, opt => opt.MapFrom(src => src.CellTowers))
-                ////.ForMember(dest => dest.wifiAccessPoints, opt => opt.MapFrom(src => src.WifiAccessPoints));
 
             Mapper.CreateMap<GeolocationResponse, Domain.Models.GeolocationResponse>()
                 .ForMember(dest => dest.Status, opt => opt.ResolveUsing<StatusResolver>().FromMember(src => src.status))

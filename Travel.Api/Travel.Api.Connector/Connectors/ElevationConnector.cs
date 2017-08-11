@@ -23,14 +23,12 @@
 
         public ElevationResponse Elevation(ElevationRequest request)
         {
-            var address = new StringBuilder();
-            address.AppendFormat("{0}/elevation/json?locations={1}",
+            var address = string.Format("{0}/elevation/json?locations={1}&key={2}",
                 ConfigurationHelper.GetAppSetting("BaseUrl"),
-                HttpUtility.UrlEncode(request.locations));
+                HttpUtility.UrlEncode(request.locations),
+                request.key);
 
-            address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("Elevation_ApiKey"));
-
-            var response = _queryExecutor.ExecuteRequest(address.ToString());
+            var response = _queryExecutor.ExecuteRequest(address);
 
             return JsonConvert.DeserializeObject<ElevationResponse>(response);
         }

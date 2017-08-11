@@ -24,17 +24,16 @@
         public TimezoneResponse Timezone(TimezoneRequest timezoneRequest)
         {
             var address = new StringBuilder();
-            address.AppendFormat("{0}/timezone/json?location={1}&timestamp={2}",
+            address.AppendFormat("{0}/timezone/json?location={1}&timestamp={2}&key={3}",
                 ConfigurationHelper.GetAppSetting("BaseUrl"),
                 HttpUtility.UrlEncode(timezoneRequest.location),
-                HttpUtility.UrlEncode(timezoneRequest.timestamp));
+                HttpUtility.UrlEncode(timezoneRequest.timestamp),
+                timezoneRequest.key);
 
             if (!string.IsNullOrEmpty(timezoneRequest.language))
             {
                 address.AppendFormat("&language={0}", timezoneRequest.language.ToLower());
             }
-
-            address.AppendFormat("&key={0}", ConfigurationHelper.GetAppSetting("Timezone_ApiKey"));
 
             var response = _queryExecutor.ExecuteRequest(address.ToString());
 

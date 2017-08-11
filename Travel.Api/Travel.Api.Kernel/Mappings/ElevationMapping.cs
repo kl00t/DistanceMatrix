@@ -1,6 +1,7 @@
 ﻿namespace Travel.Api.Kernel.Mappings
 {
     using AutoMapper;
+    using Connector;
     using Connector.Entities;
     using Domain.Interfaces;
     using Resolvers;
@@ -13,6 +14,7 @@
         protected override void Configure()
         {
             Mapper.CreateMap<Domain.Models.ElevationRequest, ElevationRequest>()
+                .ForMember(dest => dest.key, opt => opt.UseValue(ConfigurationHelper.GetAppSetting("Elevation_ApiKey")))
                 .ForMember(dest => dest.locations, opt => opt.ResolveUsing<LocationsResolver>().FromMember(src => src.Location));
 
             Mapper.CreateMap<ElevationResponse, Domain.Models.ElevationResponse>()
